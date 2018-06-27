@@ -34,6 +34,10 @@ function quitaAcentos(str){
 
 let palabras = [];
 
+function palabrasConLetras(palabras,letras){
+    return palabras.filter( p => p.length == letras);
+}
+
 const log = function(){};
 
 lineReader.on('line', function (line) {
@@ -50,7 +54,27 @@ lineReader.on('line', function (line) {
 });
 
 lineReader.on('close', function(){
-  console.log("palabras:" + palabras.length);    
+    console.log("Palabras leidas:" + palabras.length);
+    palabrasEncadenadas(palabras, [8,7,5,6]);
 })
 
+function filtraPalabras( pa, pb, letras ){
+    for( let a = 0 ; a < pa.length ; a += 1 ){
+        const inicio = pa[a];a asdf asdf asdasdfas asdfasfasd
+        for( let b = 0 ; b < pb.length ; b += 1){
+            
+        }
+    }
+}
+
+function palabrasEncadenadas(palabras, letras){
+    const palabrasConLongitud = letras.map( l => palabrasConLetras(palabras,l) );
+    for( let i = 0 ; i < letras.length ; i += 1 ){
+        const j = (i+1)
+         
+        const palabrasConLongitud = palabrasConLetras(palabras,letras[i]);
+        //console.log( JSON.stringify(palabrasConLongitud) );
+        
+    }
+}
 
