@@ -55,26 +55,80 @@ lineReader.on('line', function (line) {
 
 lineReader.on('close', function(){
     console.log("Palabras leidas:" + palabras.length);
-    palabrasEncadenadas(palabras, [8,7,5,6]);
+    fs.writeFileSync("./palabras.json", JSON.stringify(palabras));
+    palabrasEncadenadas(palabras, [8,7,5,6], 2);
 })
 
-function filtraPalabras( pa, pb, letras ){
-    for( let a = 0 ; a < pa.length ; a += 1 ){
-        const inicio = pa[a];a asdf asdf asdasdfas asdfasfasd
-        for( let b = 0 ; b < pb.length ; b += 1){
-            
+
+function filtraPalabras( aceptadas, candidatas, letrasComunes ){
+    const ret = [];
+    for( let a = 0 ; a < aceptadas.length ; a += 1 ){
+        const aceptada = aceptadas[a];
+        console.log("aceptada:" + aceptada );
+        const fin = aceptada[aceptada.length-1].substr(-letrasComunes)
+        console.log("fin:" + fin );
+        if(fin.length<letrasComunes){
+            continue;
+        }
+        for( let c = 0 ; c < candidatas.length ; c += 1){
+            const candidata = candidatas[c];
+            console.log("candidata:" + candidata );
+            const inicio = candidata.substr(0,letrasComunes);
+            console.log("inicio:" + inicio + " aceptada:" + aceptada + "fin:" + fin );
+            if( fin == inicio ){
+                const nuevaAceptada = aceptada.push(candidata);
+                ret.push( nuevaAceptada );
+                console.log( nuevaAceptada);
+            }
         }
     }
 }
 
-function palabrasEncadenadas(palabras, letras){
-    const palabrasConLongitud = letras.map( l => palabrasConLetras(palabras,l) );
-    for( let i = 0 ; i < letras.length ; i += 1 ){
-        const j = (i+1)
-         
-        const palabrasConLongitud = palabrasConLetras(palabras,letras[i]);
-        //console.log( JSON.stringify(palabrasConLongitud) );
+function preprocesaPalabras(palabras, letrasComunes ){
+    const log = function(){};
+    //const log = function(msg){ console.log(msg); };
+    
+    const inicios = {};
+    const finales = {};
+    for( let a = 0 ; a < palabras.length ; a += 1 ){
+        const palabra = palabras[a];
+        log("palabra:" + palabra );
+        const inicio = palabra.substr(0,letrasComunes);
+        const fin = palabra.substr(-letrasComunes)
+        log( "inicio:" + inicio + "  fin:" + fin );
+
+        if( inicio.length < letrasComunes || fin.length < letrasComunes ){
+            continue;
+        }
         
+        let arrayInicio = inicios[inicio];
+        if( typeof arrayInicio == "undefined" ){
+            arrayInicio = [];
+            inicios[inicio] = arrayInicio;
+        }
+        arrayInicio.push(palabra);
+
+        let arrayFin = finales[fin];
+        if( typeof arrayFin == "undefined" ){
+            arrayFin = [];
+            finales[fin] = arrayFin;
+        }
+        arrayFin.push(palabra);
+
     }
+
+
+    const ret = { inicios: inicios, finales: finales }; 
+    fs.writeFileSync("./palabras-preprocesadas.json", JSON.stringify(ret));
+   
+    return ret;
+}
+
+
+function palabrasEncadenadas(palabras, letras, letrasComunes){
+    //const palabrasConLongitud = letras.map( l => palabrasConLetras(palabras,l) );
+    const preprocesadas = preprocesaPalabras(palabras,letrasComunes);
+    console.log( preprocesadas );
+    
 }
 
