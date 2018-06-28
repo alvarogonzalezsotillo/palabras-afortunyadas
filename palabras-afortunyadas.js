@@ -55,7 +55,7 @@ lineReader.on('line', function (line) {
 
 lineReader.on('close', function(){
     console.log("Palabras leidas:" + palabras.length);
-    fs.writeFileSync("./palabras.json", JSON.stringify(palabras));
+    fs.writeFileSync("./palabras.json", JSON.stringify(palabras,null,2));
     palabrasEncadenadas(palabras, [8,7,5,6], 2);
 })
 
@@ -119,7 +119,7 @@ function preprocesaPalabras(palabras, letrasComunes ){
 
 
     const ret = { inicios: inicios, finales: finales }; 
-    fs.writeFileSync("./palabras-preprocesadas.json", JSON.stringify(ret));
+    fs.writeFileSync("./palabras-preprocesadas.json", JSON.stringify(ret,0,2));
    
     return ret;
 }
