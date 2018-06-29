@@ -47,9 +47,7 @@ lineReader.on('line', function (line) {
     line = quitaAcentos(line);
     log('Line from file:'+ line);
     const match = regex.exec(line)
-    if( match ){
-        log( match[3] );
-    }
+    const palabra = match[3];
     palabras.push(match[3]);
 });
 
@@ -60,45 +58,26 @@ lineReader.on('close', function(){
 })
 
 
-function filtraPalabras( aceptadas, candidatas, letrasComunes ){
-    const ret = [];
-    for( let a = 0 ; a < aceptadas.length ; a += 1 ){
-        const aceptada = aceptadas[a];
-        console.log("aceptada:" + aceptada );
-        const fin = aceptada[aceptada.length-1].substr(-letrasComunes)
-        console.log("fin:" + fin );
-        if(fin.length<letrasComunes){
-            continue;
-        }
-        for( let c = 0 ; c < candidatas.length ; c += 1){
-            const candidata = candidatas[c];
-            console.log("candidata:" + candidata );
-            const inicio = candidata.substr(0,letrasComunes);
-            console.log("inicio:" + inicio + " aceptada:" + aceptada + "fin:" + fin );
-            if( fin == inicio ){
-                const nuevaAceptada = aceptada.push(candidata);
-                ret.push( nuevaAceptada );
-                console.log( nuevaAceptada);
-            }
-        }
-    }
-}
 
 function preprocesaPalabras(palabras, letrasComunes ){
     const log = function(){};
     //const log = function(msg){ console.log(msg); };
     
-    const inicios = {};
-    const finales = {};
+    const iniciosPorNumeroDeLetras = [];
     for( let a = 0 ; a < palabras.length ; a += 1 ){
         const palabra = palabras[a];
         log("palabra:" + palabra );
         const inicio = palabra.substr(0,letrasComunes);
-        const fin = palabra.substr(-letrasComunes)
-        log( "inicio:" + inicio + "  fin:" + fin );
+        log( "inicio:" + inicio );
 
-        if( inicio.length < letrasComunes || fin.length < letrasComunes ){
+        if( inicio.length < letrasComunes ){
             continue;
+        }
+
+        let inicios = iniciosPorNumeroDeLetras[palabra.length];
+        if( typeof inicios == "undefined" ){
+            inicios = {};
+            iniciosPorNumeroDeLetras[palabra.length] = inicios;
         }
         
         let arrayInicio = inicios[inicio];
@@ -108,27 +87,75 @@ function preprocesaPalabras(palabras, letrasComunes ){
         }
         arrayInicio.push(palabra);
 
-        let arrayFin = finales[fin];
-        if( typeof arrayFin == "undefined" ){
-            arrayFin = [];
-            finales[fin] = arrayFin;
-        }
-        arrayFin.push(palabra);
+    }
 
+    let longitud = 1;
+    let porLongitud = palabrasConLetras(palabras,longitud);
+    iniciosPorNumeroDeLetras.todas = [];
+    while( porLongitud.length > 0 ){
+        iniciosPorNumeroDeLetras.todas[longitud] = porLongitud;
+        longitud += 1;
+        porLongitud = palabrasConLetras(palabras,longitud);
+    }
+
+    for( let i = 0 ; i < iniciosPorNumeroDeLetras.length ; i += 1 ){
+        fs.writeFileSync("./palabras-preprocesadas." + i + ".json", JSON.stringify(iniciosPorNumeroDeLetras[i],0,2));
+    }
+   
+    return iniciosPorNumeroDeLetras;
+}
+
+
+function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
+
+    const log = function(){};
+    //const log = function(msg){ console.log(msg); };
+
+    log( "busca: nivel:" + nivel + "  combinacion:" + combinacion );
+
+    if( nivel == letras.length ){
+        if( combinacion[0].substr(0,letrasComunes) == combinacion[nivel-1].substr(-letrasComunes) ){
+            console.log( "COMBINACION:" + combinacion );
+            return true;
+        }
+        return false;
     }
 
 
-    const ret = { inicios: inicios, finales: finales }; 
-    fs.writeFileSync("./palabras-preprocesadas.json", JSON.stringify(ret,0,2));
-   
-    return ret;
-}
+    const letrasSiguientes = letras[nivel];
+    log( "  letrasSiguientes:" + letrasSiguientes );
 
+    let candidatas = null;
+    if( nivel == 0 ){
+        candidatas = preprocesadas.todas[letrasSiguientes];
+    }
+    else{
+        const palabraAnterior = combinacion[nivel-1];
+        const inicio = palabraAnterior.substr(-letrasComunes);
+        log( "  palabraAnterior:" + palabraAnterior + "  inicio:" + inicio );
+
+        candidatas = preprocesadas[letrasSiguientes][inicio];
+    }
+
+    if( typeof candidatas != "undefined" ){
+
+        for( let i = 0 ; i < candidatas.length ; i += 1 ){
+            const candidata = candidatas[i];
+            combinacion[nivel] = candidata;
+            busca( nivel+1, combinacion, preprocesadas, letras, letrasComunes );
+            
+        }
+    }
+}
 
 function palabrasEncadenadas(palabras, letras, letrasComunes){
     //const palabrasConLongitud = letras.map( l => palabrasConLetras(palabras,l) );
     const preprocesadas = preprocesaPalabras(palabras,letrasComunes);
-    console.log( preprocesadas );
-    
+
+
+    busca( 0, [], preprocesadas, [8,7,5,6], letrasComunes );
 }
+
+
+
 
