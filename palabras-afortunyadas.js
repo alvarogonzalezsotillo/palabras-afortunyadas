@@ -54,6 +54,9 @@ lineReader.on('line', function (line) {
 lineReader.on('close', function(){
     console.log("Palabras leidas:" + palabras.length);
     fs.writeFileSync("./palabras.json", JSON.stringify(palabras,null,2));
+
+    palabras = palabras.slice(0,palabras.length/7);
+    
     palabrasEncadenadas(palabras, [8,7,5,6], 2);
 })
 
@@ -111,7 +114,7 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
     const log = function(){};
     //const log = function(msg){ console.log(msg); };
 
-    log( "busca: nivel:" + nivel + "  combinacion:" + combinacion );
+    //log( "busca: nivel:" + nivel + "  combinacion:" + combinacion );
 
     if( nivel == letras.length ){
         if( combinacion[0].substr(0,letrasComunes) == combinacion[nivel-1].substr(-letrasComunes) ){
@@ -123,7 +126,7 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
 
 
     const letrasSiguientes = letras[nivel];
-    log( "  letrasSiguientes:" + letrasSiguientes );
+    //log( "  letrasSiguientes:" + letrasSiguientes );
 
     let candidatas = null;
     if( nivel == 0 ){
@@ -132,7 +135,7 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
     else{
         const palabraAnterior = combinacion[nivel-1];
         const inicio = palabraAnterior.substr(-letrasComunes);
-        log( "  palabraAnterior:" + palabraAnterior + "  inicio:" + inicio );
+        //log( "  palabraAnterior:" + palabraAnterior + "  inicio:" + inicio );
 
         candidatas = preprocesadas[letrasSiguientes][inicio];
     }
@@ -147,6 +150,27 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
         }
     }
 }
+
+function histogramaLetras( palabra, histograma ){
+    histograma = histograma || [];
+    for( val i = 0 ; i < palabra.length ; i+= 1 ){
+        const letra = palabra.substr(i,1);
+        val index = letra - "a";
+        if( )
+    }
+}
+
+
+function anagramas(anagrama, palabras){
+    for(val i = 0; i < anagrama.length/2 ; i += 1 ){
+        const longitud1 = i;
+        for( val p = 0 ; p < palabras.length ; p += 1 ){
+            const palabra = palabras[p];
+            
+        }
+    }
+}
+
 
 function palabrasEncadenadas(palabras, letras, letrasComunes){
     //const palabrasConLongitud = letras.map( l => palabrasConLetras(palabras,l) );
