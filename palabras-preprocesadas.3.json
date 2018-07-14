@@ -1,20 +1,10 @@
 {
   "qu": [
     "que",
-    "que",
-    "quo",
-    "qui",
-    "qua"
+    "que"
   ],
   "lo": [
-    "los",
-    "loa",
-    "lou",
-    "lot",
-    "low",
-    "loc",
-    "loy",
-    "loz"
+    "los"
   ],
   "de": [
     "del",
@@ -22,82 +12,28 @@
     "des",
     "der",
     "dei",
-    "dea",
-    "deo",
-    "def",
-    "dee",
-    "deu",
-    "dej",
-    "deu",
-    "dem",
-    "dex",
-    "deg"
+    "dea"
   ],
   "la": [
-    "las",
-    "lan",
-    "lab",
-    "lam",
-    "lau",
-    "law",
-    "lao",
-    "lai",
-    "lay",
-    "lag",
-    "lar",
-    "lat",
-    "lav",
-    "lax",
-    "lac",
-    "lae"
+    "las"
   ],
   "po": [
     "por",
     "pop",
     "pos",
     "pon",
-    "pol",
-    "poe",
-    "pot",
-    "pou",
-    "poa",
-    "pom",
-    "pon",
-    "poo",
-    "poc"
+    "pol"
   ],
   "co": [
     "con",
     "com",
     "col",
-    "coi",
-    "cox",
-    "cob",
-    "cou",
-    "coe",
-    "coc",
-    "cor",
-    "cod",
-    "coa",
-    "cos",
-    "coz",
-    "cod",
-    "cop",
-    "cow",
-    "cot",
-    "cov",
-    "cos",
-    "coy"
+    "coi"
   ],
   "un": [
     "una",
     "uno",
-    "une",
-    "und",
-    "uni",
-    "unp",
-    "uni",
-    "uns"
+    "une"
   ],
   "ma": [
     "mas",
@@ -108,139 +44,57 @@
     "man",
     "mao",
     "mac",
-    "may",
-    "map",
-    "mag",
-    "mae",
-    "mai",
-    "mau",
-    "mad",
-    "mao",
-    "max",
-    "mam",
-    "mat",
-    "man"
+    "may"
   ],
   "su": [
     "sus",
     "sur",
     "sub",
-    "sun",
-    "sui",
-    "sud",
-    "sue",
-    "sul",
-    "sup",
-    "sum",
-    "sua",
-    "sua",
-    "suc"
+    "sun"
   ],
   "si": [
     "sin",
     "sir",
-    "sic",
-    "sip",
-    "sig",
-    "sim",
-    "sit",
-    "sil",
-    "sis",
-    "sid",
-    "sie",
-    "six",
-    "sia",
-    "sij"
+    "sic"
   ],
   "se": [
     "ser",
     "sea",
     "sed",
-    "set",
-    "seg",
-    "seu",
-    "sex",
-    "sep",
-    "sec",
-    "sen",
-    "seo",
-    "ses",
-    "sem",
-    "sek",
-    "see",
-    "sei",
-    "sel"
+    "set"
   ],
   "so": [
     "son",
     "soy",
     "sol",
     "sor",
-    "sos",
-    "soc",
-    "sol",
-    "som"
+    "sos"
   ],
   "do": [
     "dos",
     "don",
     "doy",
     "dom",
-    "dow",
-    "doc",
-    "dog",
-    "dom",
-    "don",
-    "dom",
-    "dor",
-    "dot",
-    "doe",
-    "doo",
-    "dol"
+    "dow"
   ],
   "fu": [
     "fue",
     "fui",
-    "fue",
-    "fui",
-    "fur",
-    "fun",
-    "fut",
-    "ful"
+    "fue"
   ],
   "er": [
     "era",
-    "erc",
-    "erp",
-    "ert",
-    "ero",
-    "erg",
-    "ere",
-    "eri"
+    "erc"
   ],
   "mu": [
-    "muy",
-    "mus",
-    "mus",
-    "mur",
-    "mui",
-    "muc",
-    "mun"
+    "muy"
   ],
   "ha": [
     "han",
     "hay",
     "has",
     "haz",
-    "hab",
-    "hal",
-    "ham",
-    "hat",
-    "hav",
-    "hai",
-    "had",
-    "har",
-    "haq"
+    "hab"
   ],
   "ve": [
     "vez",
@@ -248,34 +102,16 @@
     "ven",
     "veo",
     "ves",
-    "vea",
-    "ved"
+    "vea"
   ],
   "as": [
     "asi",
-    "asi",
-    "asa",
-    "asp",
-    "asc",
-    "asa",
-    "ash",
-    "asu",
-    "ase"
+    "asi"
   ],
   "no": [
     "nos",
     "non",
-    "nou",
-    "noe",
-    "not",
-    "nov",
-    "now",
-    "nor",
-    "noa",
-    "nom",
-    "noh",
-    "noi",
-    "noc"
+    "nou"
   ],
   "es": [
     "ese",
@@ -284,55 +120,22 @@
     "ese",
     "esa",
     "esp",
-    "est",
-    "eso",
-    "esq",
-    "esc",
-    "esl"
+    "est"
   ],
   "ta": [
     "tan",
     "tal",
-    "tac",
-    "tam",
-    "tao",
-    "tat",
-    "tau",
-    "tas",
-    "tae",
-    "tab",
-    "tai",
-    "taj",
-    "tap",
-    "tad",
-    "tav",
-    "tag",
-    "tax",
-    "tar"
+    "tac"
   ],
   "di": [
     "dia",
     "dio",
     "dio",
     "dia",
-    "dir",
-    "die",
-    "dic",
-    "din",
-    "dif",
-    "diu",
-    "dis",
-    "dip",
-    "diz",
-    "dix",
-    "dim",
-    "die",
-    "did",
-    "dib"
+    "dir"
   ],
   "añ": [
-    "año",
-    "aña"
+    "año"
   ],
   "le": [
     "les",
@@ -340,84 +143,27 @@
     "lee",
     "leo",
     "lei",
-    "lea",
-    "let",
-    "lej",
-    "lem",
-    "led",
-    "lex",
-    "lev",
-    "lei",
-    "leg",
-    "let",
-    "lel",
-    "len",
-    "lew"
+    "lea"
   ],
   "ho": [
     "hoy",
     "hoz",
-    "hoc",
-    "hot",
-    "hop",
-    "how",
-    "hol",
-    "hom",
-    "hox"
+    "hoc"
   ],
   "fi": [
     "fin",
-    "fig",
-    "fis",
-    "fiv",
-    "fia",
-    "fio",
-    "fia",
-    "fiu",
-    "fim",
-    "fic",
-    "fib",
-    "fiz",
-    "fin",
-    "fit",
-    "fir",
-    "fie",
-    "fil"
+    "fig"
   ],
   "au": [
     "aun",
-    "aun",
-    "auc",
-    "aut",
-    "aub",
-    "aux",
-    "aus",
-    "auf",
-    "aut"
+    "aun"
   ],
   "sa": [
     "san",
     "sal",
     "sao",
     "sam",
-    "sab",
-    "sat",
-    "sar",
-    "sas",
-    "sai",
-    "sac",
-    "sae",
-    "saa",
-    "sap",
-    "sau",
-    "saa",
-    "say",
-    "sab",
-    "sad",
-    "saf",
-    "sag",
-    "sax",
-    "saw"
+    "sab"
   ],
   "mi": [
     "mis",
@@ -425,71 +171,33 @@
     "mio",
     "mia",
     "min",
-    "mir",
-    "mia",
-    "mig",
-    "mit",
-    "mix",
-    "mio",
-    "mid",
-    "mie",
-    "mic"
+    "mir"
   ],
   "da": [
     "dar",
     "dan",
-    "das",
-    "day",
-    "dax",
-    "dau",
-    "dad",
-    "dao",
-    "dai",
-    "dal",
-    "dac",
-    "dat",
-    "daf",
-    "dam",
-    "dae"
+    "das"
   ],
   "vo": [
     "voz",
     "voy",
     "vos",
-    "von",
-    "vol",
-    "vox",
-    "voi",
-    "vov"
+    "von"
   ],
   "lu": [
     "luz",
-    "lun",
-    "luc",
-    "lux",
-    "lui",
-    "lua"
+    "lun"
   ],
   "ib": [
     "iba",
-    "ibm",
-    "ibn",
-    "ibi"
+    "ibm"
   ],
   "va": [
     "van",
-    "vas",
-    "val",
-    "vab",
-    "var",
-    "vai",
-    "vaz",
-    "val"
+    "vas"
   ],
   "ah": [
-    "ahi",
-    "ahi",
-    "ahu"
+    "ahi"
   ],
   "pa": [
     "paz",
@@ -497,109 +205,39 @@
     "pan",
     "pag",
     "pau",
-    "pat",
-    "pas",
-    "pac",
-    "pal",
-    "pam",
-    "pax",
-    "pay",
-    "pag",
-    "pap",
-    "pad",
-    "paf",
-    "pai",
-    "pao",
-    "paa",
-    "pak",
-    "pae"
+    "pat"
   ],
   "et": [
     "etc",
-    "eta",
-    "ets",
-    "ett",
-    "etb",
-    "eti"
+    "eta"
   ],
   "us": [
     "uso",
     "usa",
     "uso",
-    "use",
-    "usd",
-    "usb",
-    "use",
-    "uss"
+    "use"
   ],
   "me": [
-    "mes",
-    "mec",
-    "mea",
-    "mel",
-    "men",
-    "mer",
-    "mef",
-    "med",
-    "mex",
-    "meu",
-    "met",
-    "meg",
-    "meo",
-    "mep",
-    "mes",
-    "meq",
-    "mex",
-    "mei"
+    "mes"
   ],
   "re": [
     "rey",
     "red",
     "res",
-    "reo",
-    "rem",
-    "rex",
-    "rei",
-    "rei",
-    "reg",
-    "ref",
-    "rea",
-    "rev",
-    "rep",
-    "rec",
-    "ree",
-    "reg",
-    "ren"
+    "reo"
   ],
   "pi": [
     "pie",
     "pib",
     "pio",
-    "pia",
-    "pin",
-    "pis",
-    "pip",
-    "pil",
-    "pia",
-    "pic",
-    "pie",
-    "pit",
-    "pim",
-    "pio"
+    "pia"
   ],
   "ri": [
     "rio",
     "rie",
     "rio",
     "ria",
-    "rio",
-    "rin",
-    "rif",
-    "rii",
-    "riu",
-    "rie",
-    "rip",
-    "ris"
+    "rio"
   ],
   "vi": [
     "via",
@@ -608,114 +246,46 @@
     "vii",
     "vie",
     "vid",
-    "vil",
-    "via",
-    "vio",
-    "vic",
-    "vis",
-    "vip",
-    "vin",
-    "vit",
-    "vif"
+    "vil"
   ],
   "or": [
     "oro",
-    "ora",
-    "org",
-    "ori",
-    "ort",
-    "ors",
-    "oro",
-    "ore",
-    "ory"
+    "ora"
   ],
   "id": [
     "ido",
-    "ida",
-    "idc",
-    "ide",
-    "idt",
-    "idi",
-    "idm"
+    "ida"
   ],
   "tu": [
-    "tus",
-    "tul",
-    "tuy",
-    "tui",
-    "tue",
-    "tun",
-    "tur",
-    "tum",
-    "tua",
-    "tuc"
+    "tus"
   ],
   "ef": [
-    "efe",
-    "efa"
+    "efe"
   ],
   "th": [
-    "the",
-    "ths",
-    "the",
-    "thc",
-    "tha"
+    "the"
   ],
   "ti": [
     "tio",
     "tia",
     "tim",
-    "tic",
-    "tia",
-    "tit",
-    "tin",
-    "tip",
-    "tie",
-    "tii",
-    "tig",
-    "tio",
-    "tir",
-    "til",
-    "tio",
-    "tie",
-    "tit"
+    "tic"
   ],
   "an": [
     "ana",
     "and",
-    "ano",
-    "ann",
-    "anf",
-    "anp",
-    "anr",
-    "ani",
-    "ang",
-    "ant",
-    "anc",
-    "any",
-    "ana",
-    "ane"
+    "ano"
   ],
   "oj": [
-    "ojo",
-    "ojd"
+    "ojo"
   ],
   "ga": [
     "gas",
     "gal",
-    "gay",
-    "gag",
-    "gan",
-    "gap",
-    "gao",
-    "gav",
-    "gam",
-    "gar",
-    "gat"
+    "gay"
   ],
   "ii": [
-    "iii",
-    "iiu"
+    "iii"
   ],
   "xi": [
     "xix",
@@ -723,27 +293,11 @@
     "xiv"
   ],
   "go": [
-    "gol",
-    "god",
-    "gog",
-    "gov",
-    "got",
-    "goa",
-    "gon",
-    "gob",
-    "gou"
+    "gol"
   ],
   "oi": [
     "oir",
-    "oia",
-    "oil",
-    "oit",
-    "oir",
-    "oij",
-    "ois",
-    "oid",
-    "oic",
-    "oid"
+    "oia"
   ],
   "oy": [
     "oye",
@@ -752,21 +306,7 @@
   "ba": [
     "bar",
     "bar",
-    "bah",
-    "bay",
-    "ban",
-    "bam",
-    "bat",
-    "bad",
-    "bal",
-    "bac",
-    "bas",
-    "bab",
-    "bag",
-    "bao",
-    "baz",
-    "bab",
-    "bae"
+    "bah"
   ],
   "ej": [
     "eje"
@@ -777,238 +317,93 @@
     "cap",
     "can",
     "cai",
-    "cam",
-    "car",
-    "cai",
-    "cat",
-    "cas",
-    "caf",
-    "cao",
-    "cad",
-    "cac",
-    "can",
-    "cab",
-    "cau",
-    "cav",
-    "can"
+    "cam"
   ],
   "ci": [
     "ciu",
     "cia",
     "cid",
-    "cit",
-    "cis",
-    "cia",
-    "cig",
-    "cie",
-    "civ",
-    "cip",
-    "cio",
-    "cic",
-    "cif",
-    "cir",
-    "cim",
-    "cii"
+    "cit"
   ],
   "ar": [
     "art",
     "arn",
-    "aro",
-    "ara",
-    "ary",
-    "are",
-    "arq",
-    "ari",
-    "ars",
-    "arp",
-    "arg",
-    "arc",
-    "ard",
-    "arr"
+    "aro"
   ],
   "gi": [
-    "gil",
-    "gin",
-    "gia",
-    "gif",
-    "gis"
+    "gil"
   ],
   "pr": [
     "pri",
     "pro",
     "prd",
-    "pre",
-    "prc",
-    "pra",
-    "prt"
+    "pre"
   ],
   "on": [
     "onu",
     "ong",
-    "one",
-    "onc",
-    "ong",
-    "ono",
-    "ona",
-    "ons",
-    "oni"
+    "one"
   ],
   "ac": [
     "aca",
-    "acb",
-    "act",
-    "ace",
-    "aca",
-    "acp",
-    "acs",
-    "acc",
-    "acf"
+    "acb"
   ],
   "pn": [
     "pnv",
-    "pnc",
-    "pnp",
-    "pnb",
-    "pnn",
-    "pnr"
+    "pnc"
   ],
   "te": [
     "tel",
-    "ten",
-    "tez",
-    "teo",
-    "ted",
-    "tec",
-    "tea",
-    "tec",
-    "ter",
-    "tem",
-    "tes",
-    "tes",
-    "tey",
-    "tep",
-    "tex",
-    "teu",
-    "tee"
+    "ten"
   ],
   "ug": [
-    "ugt",
-    "ugo"
+    "ugt"
   ],
   "aj": [
     "ajo",
-    "aji",
-    "aja",
-    "ajo",
-    "aja"
+    "aji"
   ],
   "xv": [
     "xvi"
   ],
   "tv": [
-    "tve",
-    "tvn",
-    "tvm",
-    "tvg",
-    "tvp",
-    "tva"
+    "tve"
   ],
   "ec": [
-    "eco",
-    "ecu",
-    "eca",
-    "ecg",
-    "ecp"
+    "eco"
   ],
   "ne": [
     "new",
-    "net",
-    "neo",
-    "nel",
-    "nec",
-    "nen",
-    "ned",
-    "neb",
-    "nef",
-    "ney",
-    "nea"
+    "net"
   ],
   "ab": [
     "abc",
-    "abu",
-    "abd",
-    "abs",
-    "abr",
-    "abm",
-    "abi",
-    "abe",
-    "abb",
-    "abu",
-    "aba",
-    "abn"
+    "abu"
   ],
   "ev": [
-    "eva",
-    "evo",
-    "eve"
+    "eva"
   ],
   "am": [
     "ama",
-    "amo",
-    "amo",
-    "amb",
-    "amy",
-    "ame",
-    "ami",
-    "ame",
-    "amd",
-    "amp",
-    "amp",
-    "ams",
-    "amq"
+    "amo"
   ],
   "af": [
-    "afp",
-    "afa",
-    "afe",
-    "afl",
-    "afi"
+    "afp"
   ],
   "ad": [
-    "adn",
-    "ada",
-    "ado",
-    "ade",
-    "adp",
-    "adr",
-    "adi",
-    "adc",
-    "add"
+    "adn"
   ],
   "uc": [
     "ucd",
-    "ucr",
-    "uci",
-    "ucv",
-    "ucs",
-    "ucm",
-    "uca",
-    "ucp",
-    "ucn",
-    "uce"
+    "ucr"
   ],
   "ir": [
     "ira",
     "ira",
-    "ire",
-    "irc",
-    "iru"
+    "ire"
   ],
   "we": [
-    "web",
-    "wei",
-    "wen",
-    "wet"
+    "web"
   ],
   "ro": [
     "rol",
@@ -1016,1917 +411,280 @@
     "rom",
     "roy",
     "ros",
-    "roa",
-    "roo",
-    "rob",
-    "rod",
-    "roe",
-    "rof",
-    "roc",
-    "roi",
-    "roh",
-    "rot"
+    "roa"
   ],
   "av": [
-    "ave",
-    "ava",
-    "avt",
-    "avi"
+    "ave"
   ],
   "fa": [
     "fax",
-    "faz",
-    "fao",
-    "fan",
-    "far",
-    "fas",
-    "fad",
-    "fac",
-    "faa",
-    "fap",
-    "fai",
-    "fat",
-    "fal",
-    "fam",
-    "fab",
-    "fay",
-    "fau"
+    "faz"
   ],
   "ce": [
     "cee",
-    "ces",
-    "cea",
-    "cen",
-    "cem",
-    "cei",
-    "cet",
-    "ceu",
-    "cel",
-    "cep",
-    "ceo",
-    "cec",
-    "cef",
-    "cev"
+    "ces"
   ],
   "ol": [
     "ola",
-    "olp",
-    "old",
-    "ole",
-    "ole",
-    "oli",
-    "oli"
+    "olp"
   ],
   "ww": [
-    "www",
-    "wwf"
+    "www"
   ],
   "iv": [
-    "iva",
-    "ivo",
-    "ivy",
-    "ive"
+    "iva"
   ],
   "xx": [
-    "xxi",
-    "xxv",
-    "xxx"
+    "xxi"
   ],
   "ch": [
-    "che",
-    "chi",
-    "cha",
-    "che",
-    "chu",
-    "cha",
-    "cho",
-    "chu"
+    "che"
   ],
   "pe": [
     "per",
     "pez",
-    "pet",
-    "pen",
-    "pep",
-    "pea",
-    "pem",
-    "peg",
-    "pec",
-    "peu",
-    "pes",
-    "pel"
+    "pet"
   ],
   "fm": [
-    "fmi",
-    "fmf",
-    "fmc",
-    "fmv"
+    "fmi"
   ],
   "ps": [
     "psc",
     "pse",
-    "psv",
-    "psa",
-    "psp",
-    "psi",
-    "psd",
-    "psn",
-    "psg",
-    "pss",
-    "pst",
-    "psf"
+    "psv"
   ],
   "ge": [
-    "gen",
-    "gel",
-    "geo",
-    "gea",
-    "gew",
-    "get",
-    "ger",
-    "ges"
+    "gen"
   ],
   "al": [
     "ala",
     "ali",
-    "all",
-    "ali",
-    "ala",
-    "ale",
-    "alt",
-    "alo",
-    "alp"
+    "all"
   ],
   "pc": [
-    "pce",
-    "pcr",
-    "pcf",
-    "pcn",
-    "pci",
-    "pca",
-    "pcs",
-    "pcc",
-    "pct",
-    "pcm",
-    "pcp",
-    "pcb",
-    "pcl",
-    "pcd",
-    "pcv"
+    "pce"
   ],
   "in": [
     "ing",
     "ini",
     "inc",
-    "ine",
-    "ins",
-    "int",
-    "inn",
-    "inf",
-    "ina",
-    "ind",
-    "inh",
-    "inv",
-    "inp",
-    "inj",
-    "ino"
+    "ine"
   ],
   "fe": [
     "feo",
-    "fea",
-    "fer",
-    "fed",
-    "fez",
-    "fef",
-    "feb",
-    "fes",
-    "fet",
-    "fem",
-    "feu",
-    "fei"
+    "fea"
   ],
   "to": [
     "tom",
     "tos",
-    "top",
-    "ton",
-    "toc",
-    "too",
-    "tot",
-    "toa",
-    "tom",
-    "toi",
-    "tor",
-    "toy",
-    "tod"
+    "top"
   ],
   "uv": [
-    "uva",
-    "uvi",
-    "uve",
-    "uvg"
+    "uva"
   ],
   "fo": [
     "fox",
-    "for",
-    "fot",
-    "foz",
-    "fol",
-    "foc",
-    "fob",
-    "fos",
-    "fou"
+    "for"
   ],
   "bo": [
     "boe",
     "bob",
     "bol",
-    "boy",
-    "box",
-    "bon",
-    "boj",
-    "boa",
-    "bos",
-    "bou",
-    "boc",
-    "boi",
-    "boo",
-    "boh",
-    "bop",
-    "bom",
-    "bow"
+    "boy"
   ],
   "os": [
-    "oso",
-    "osa",
-    "oso",
-    "ose"
+    "oso"
   ],
   "be": [
-    "ben",
-    "bea",
-    "bel",
-    "bes",
-    "bei",
-    "bee",
-    "bed",
-    "bes",
-    "bey",
-    "bex",
-    "ber",
-    "bet"
+    "ben"
   ],
   "cd": [
     "cds",
-    "cdc",
-    "cdu",
-    "cde",
-    "cdn",
-    "cda",
-    "cdt",
-    "cdr",
-    "cdp"
+    "cdc"
   ],
   "li": [
     "lio",
-    "lic",
-    "lin",
-    "liz",
-    "lis",
-    "lid",
-    "lia",
-    "lib",
-    "liu",
-    "lio",
-    "liv",
-    "lit",
-    "lie",
-    "lig"
+    "lic"
   ],
   "of": [
     "off"
   ],
   "ru": [
     "rua",
-    "rue",
-    "ruy",
-    "rus",
-    "run",
-    "rui",
-    "rua",
-    "ruz",
-    "rum",
-    "ruc"
+    "rue"
   ],
   "jo": [
     "joe",
-    "jon",
-    "joy",
-    "job",
-    "joc",
-    "jol",
-    "jos",
-    "joe"
+    "jon"
   ],
   "om": [
     "oms",
-    "omc",
-    "omb",
-    "omt",
-    "omi",
-    "omm",
-    "oma"
+    "omc"
   ],
   "zo": [
     "zoe",
-    "zoo",
-    "zoe",
-    "zoa"
+    "zoo"
   ],
   "ki": [
     "kid",
     "kim",
-    "kio",
-    "kit",
-    "kin",
-    "kia"
+    "kio"
   ],
   "oe": [
     "oea"
   ],
   "ai": [
-    "air",
-    "ain",
-    "aid",
-    "aim",
-    "ait",
-    "aie",
-    "aix"
+    "air"
   ],
   "du": [
-    "duo",
-    "dur",
-    "duo",
-    "dum",
-    "dun",
-    "due",
-    "duc",
-    "dui",
-    "dux"
+    "duo"
   ],
   "bu": [
-    "bus",
-    "bup",
-    "but",
-    "bum",
-    "bud",
-    "buc",
-    "bun"
+    "bus"
   ],
   "fb": [
-    "fbi",
-    "fbf"
+    "fbi"
   ],
   "ep": [
-    "epr",
-    "epa",
-    "epl",
-    "epi",
-    "eps",
-    "epo"
+    "epr"
   ],
   "bb": [
     "bbv",
-    "bbc",
-    "bbk",
-    "bbs"
+    "bbc"
   ],
   "gr": [
-    "grs",
-    "gro",
-    "gri",
-    "gre"
+    "grs"
   ],
   "ji": [
-    "jim",
-    "jit"
+    "jim"
   ],
   "ip": [
-    "ipc",
-    "ipi",
-    "ips",
-    "ipn",
-    "ipa"
+    "ipc"
   ],
   "rf": [
     "rfa"
   ],
   "em": [
-    "emi",
-    "emt",
-    "ema",
-    "emv",
-    "emp",
-    "eme",
-    "ems",
-    "emg",
-    "emc"
+    "emi"
   ],
   "mn": [
     "mnr"
   ],
   "dn": [
-    "dna",
-    "dni",
-    "dns",
-    "dnc"
+    "dna"
   ],
   "el": [
     "els",
-    "eln",
-    "ela",
-    "ele",
-    "ely",
-    "eli",
-    "elf",
-    "elo"
+    "eln"
   ],
   "nb": [
-    "nba",
-    "nbc"
+    "nba"
   ],
   "yo": [
-    "you",
-    "yon",
-    "yom",
     "you"
   ],
   "bi": [
     "bid",
-    "big",
-    "bis",
-    "bin",
-    "bio",
-    "bit",
-    "bio",
-    "bip",
-    "bic",
-    "bir"
+    "big"
   ],
   "pp": [
-    "ppd",
-    "ppm",
-    "ppc",
-    "ppp",
-    "ppi",
-    "ppe",
-    "pps",
-    "ppa"
+    "ppd"
   ],
   "pg": [
-    "pgr",
-    "pgp",
-    "pga",
-    "pge"
+    "pgr"
   ],
   "eg": [
     "ego",
-    "egb",
-    "egm",
-    "ega"
+    "egb"
   ],
   "cg": [
-    "cgt",
-    "cgr",
-    "cgi",
-    "cge",
-    "cgc"
+    "cgt"
   ],
   "ra": [
     "ras",
-    "ray",
-    "ram",
-    "rai",
-    "rap",
-    "rae",
-    "rac",
-    "raf",
-    "rad",
-    "ran",
-    "rat",
-    "rao",
-    "rau"
+    "ray"
   ],
   "tl": [
-    "tlc",
-    "tlf"
+    "tlc"
   ],
   "pl": [
-    "pla",
-    "pld",
-    "plc",
-    "pln",
-    "pla",
-    "pla",
-    "pli"
+    "pla"
   ],
   "dr": [
-    "dra",
-    "dry",
-    "dri",
-    "dro"
+    "dra"
   ],
   "mr": [
-    "mrs",
-    "mri"
+    "mrs"
   ],
   "rn": [
-    "rne",
-    "rna",
-    "rnd"
+    "rne"
   ],
   "ud": [
-    "udi",
-    "udc",
-    "udf",
-    "uds",
-    "udp",
-    "ude",
-    "udo"
+    "udi"
   ],
   "nu": [
-    "num",
-    "nun",
-    "nux",
-    "num",
-    "nui",
-    "nur"
+    "num"
   ],
   "cm": [
-    "cms",
-    "cmb",
-    "cmt",
-    "cmv",
-    "cmc",
-    "cmf",
-    "cma",
-    "cmq"
+    "cms"
   ],
   "at": [
-    "atp",
-    "ate",
-    "ata",
-    "ati",
-    "ats",
-    "atc",
-    "ato",
-    "att",
-    "atm",
-    "ate",
-    "atl",
-    "atv",
-    "ato",
-    "ath",
-    "atr",
-    "atb"
+    "atp"
   ],
   "sr": [
-    "sra",
-    "sri",
-    "sre",
-    "srm",
-    "srl"
+    "sra"
   ],
   "bm": [
-    "bmw",
-    "bmv",
-    "bmg",
-    "bmp"
+    "bmw"
   ],
   "ou": [
-    "out",
-    "oua",
-    "oud",
-    "oui",
-    "our"
+    "out"
   ],
   "ja": [
-    "jan",
-    "jay",
-    "jam",
-    "jal",
-    "jai",
-    "jap",
-    "jad",
-    "jac"
+    "jan"
   ],
   "je": [
-    "jet",
-    "jeb",
-    "jeu"
+    "jet"
   ],
   "bc": [
-    "bch",
-    "bce",
-    "bcv",
-    "bcr",
-    "bcp",
-    "bcg",
-    "bcn",
-    "bcu",
-    "bci",
-    "bcc"
+    "bch"
   ],
   "hi": [
     "hit",
-    "hiv",
-    "hip",
-    "his",
-    "hic",
-    "him"
+    "hiv"
   ],
   "op": [
-    "opa",
-    "ops",
-    "opv"
+    "opa"
   ],
   "za": [
-    "zar",
-    "zas",
-    "zag",
-    "zac"
+    "zar"
   ],
   "pt": [
-    "pts",
-    "ptj",
-    "pte",
-    "pta",
-    "pto"
+    "pts"
   ],
   "uñ": [
     "uña"
   ],
   "cn": [
     "cnn",
-    "cnt",
-    "cni",
-    "cne",
-    "cna",
-    "cnc",
-    "cnu",
-    "cnl",
-    "cnm",
-    "cnd",
-    "cnp",
-    "cns",
-    "cno",
-    "cnj"
+    "cnt"
   ],
   "dv": [
     "dvd"
   ],
   "oc": [
-    "oca",
-    "oct",
-    "ocu",
-    "ocm",
-    "ocp",
-    "ocb",
-    "oci"
+    "oca"
   ],
   "is": [
-    "iso",
-    "isa",
-    "iss",
-    "isr",
-    "isp",
-    "isi",
-    "ist"
+    "iso"
   ],
   "ia": [
-    "ian",
-    "iac",
-    "iam",
-    "iae",
-    "iad",
-    "iaa",
-    "iag"
+    "ian"
   ],
   "dp": [
-    "dpa",
-    "dpi"
+    "dpa"
   ],
   "bn": [
-    "bng",
-    "bnp",
-    "bnt",
-    "bnf"
-  ],
-  "cb": [
-    "cbs",
-    "cbi",
-    "cba"
-  ],
-  "ka": [
-    "kas",
-    "kay",
-    "kai",
-    "kan",
-    "kat"
-  ],
-  "up": [
-    "upi",
-    "upn",
-    "upa",
-    "upc",
-    "upr",
-    "ups",
-    "upf",
-    "upp",
-    "upv",
-    "upk",
-    "upm"
-  ],
-  "pd": [
-    "pdc",
-    "pdp",
-    "pds",
-    "pdk",
-    "pdf",
-    "pdr",
-    "pda",
-    "pdm",
-    "pdi"
-  ],
-  "pu": [
-    "pub",
-    "pum",
-    "pus",
-    "pua",
-    "puc",
-    "puf",
-    "pue",
-    "puy",
-    "pur",
-    "put"
-  ],
-  "rd": [
-    "rda",
-    "rdc"
-  ],
-  "bl": [
-    "bla"
-  ],
-  "wa": [
-    "way",
-    "war",
-    "was",
-    "wal",
-    "wan",
-    "wap",
-    "wai",
-    "wav"
-  ],
-  "ku": [
-    "kus",
-    "kus",
-    "kuo"
-  ],
-  "ze": [
-    "zen",
-    "zea",
-    "zec"
-  ],
-  "fd": [
-    "fda",
-    "fdg",
-    "fdp",
-    "fdn",
-    "fdo",
-    "fdr"
-  ],
-  "fr": [
-    "fra",
-    "frg",
-    "fry",
-    "fri"
-  ],
-  "ts": [
-    "tse",
-    "tsj",
-    "tse",
-    "tsu",
-    "tsh"
-  ],
-  "mo": [
-    "mor",
-    "mon",
-    "mop",
-    "mol",
-    "moi",
-    "mot",
-    "mos",
-    "mod",
-    "moy",
-    "moa",
-    "mof",
-    "mob"
-  ],
-  "mh": [
-    "mhz",
-    "mhc"
-  ],
-  "ke": [
-    "ken",
-    "key",
-    "kel",
-    "kee"
-  ],
-  "gu": [
-    "guy",
-    "gui",
-    "gus",
-    "gua",
-    "gun"
-  ],
-  "az": [
-    "azt",
-    "aza"
-  ],
-  "it": [
-    "ita",
-    "its",
-    "itt",
-    "ito",
-    "itv",
-    "itc",
-    "ite",
-    "itp",
-    "itf",
-    "itb"
-  ],
-  "yi": [
-    "yin"
-  ],
-  "kg": [
-    "kgb",
-    "kgs"
-  ],
-  "ed": [
-    "edu",
-    "edh",
-    "edo",
-    "edi",
-    "eds",
-    "ede",
-    "edf",
-    "edp",
-    "edy"
-  ],
-  "dy": [
-    "dyn",
-    "dya"
-  ],
-  "ye": [
-    "yen",
-    "yes"
-  ],
-  "dg": [
-    "dgi",
-    "dgt",
-    "dgb",
-    "dga",
-    "dgs"
-  ],
-  "ic": [
-    "ice",
-    "ico",
-    "ica",
-    "icc",
-    "ici",
-    "ich",
-    "icf",
-    "icv",
-    "icd",
-    "icp",
-    "icq",
-    "ics"
-  ],
-  "io": [
-    "ion",
-    "ion",
-    "ior"
-  ],
-  "pb": [
-    "pbi"
-  ],
-  "sp": [
-    "spd",
-    "spp",
-    "spa",
-    "spe",
-    "spv",
-    "sps"
-  ],
-  "ds": [
-    "dsm",
-    "dsl"
-  ],
-  "hu": [
-    "huy",
-    "hum",
-    "hua",
-    "hun",
-    "hui",
-    "hui",
-    "hue",
-    "hut",
-    "hur",
-    "hud"
-  ],
-  "yp": [
-    "ypf"
-  ],
-  "gm": [
-    "gmt",
-    "gma",
-    "gmc"
-  ],
-  "ct": [
-    "ctm",
-    "ctc",
-    "ctv",
-    "cti",
-    "cta",
-    "cte",
-    "ctn",
-    "cts"
-  ],
-  "ue": [
-    "ueo",
-    "uem",
-    "ues",
-    "uer"
-  ],
-  "pv": [
-    "pvp",
-    "pvc"
-  ],
-  "ig": [
-    "ige",
-    "igs",
-    "igg",
-    "igv",
-    "igm",
-    "iga"
-  ],
-  "td": [
-    "tdk"
-  ],
-  "if": [
-    "ife",
-    "ifa",
-    "ifi"
-  ],
-  "en": [
-    "end",
-    "ena",
-    "ene",
-    "ens",
-    "env",
-    "eno",
-    "ent",
-    "eni",
-    "enp"
-  ],
-  "km": [
-    "kms"
-  ],
-  "sh": [
-    "sha",
-    "she",
-    "shi",
-    "shu"
-  ],
-  "eu": [
-    "eua",
-    "eug",
-    "eul",
-    "eug",
-    "eus",
-    "eur"
-  ],
-  "cs": [
-    "csd",
-    "cse",
-    "csj",
-    "csi",
-    "csu",
-    "csf",
-    "csn",
-    "css",
-    "cst"
-  ],
-  "tr": [
-    "tre",
-    "tri",
-    "trh",
-    "try",
-    "tra"
-  ],
-  "ae": [
-    "aes",
-    "aee",
-    "aeb",
-    "aec",
-    "aea",
-    "aeg",
-    "aek"
-  ],
-  "tw": [
-    "two",
-    "twa"
-  ],
-  "zi": [
-    "zin",
-    "zig",
-    "ziy",
-    "zia",
-    "zip"
-  ],
-  "od": [
-    "oda"
-  ],
-  "sn": [
-    "snc",
-    "sni",
-    "sns",
-    "snp",
-    "snd",
-    "sne"
-  ],
-  "ua": [
-    "uam",
-    "uab",
-    "uax"
-  ],
-  "gh": [
-    "ghz",
-    "ghi"
-  ],
-  "cu": [
-    "cut",
-    "cum",
-    "cup",
-    "cuc",
-    "cuy",
-    "cua",
-    "cul",
-    "cue",
-    "cui",
-    "cus",
-    "cub",
-    "cuy"
-  ],
-  "sk": [
-    "sky",
-    "ski",
-    "ska",
-    "skf"
-  ],
-  "ls": [
-    "lsd"
-  ],
-  "mc": [
-    "mci",
-    "mcg",
-    "mcc",
-    "mca"
-  ],
-  "fs": [
-    "fsm",
-    "fsh",
-    "fsc",
-    "fsp",
-    "fse"
-  ],
-  "mt": [
-    "mtv",
-    "mts",
-    "mtc",
-    "mta",
-    "mti"
-  ],
-  "sm": [
-    "sme",
-    "sms",
-    "smi",
-    "smn"
-  ],
-  "dd": [
-    "ddf",
-    "ddt",
-    "ddi",
-    "ddn",
-    "ddc",
-    "ddr",
-    "ddp",
-    "ddd",
-    "dde"
-  ],
-  "ao": [
-    "aol",
-    "aod"
-  ],
-  "kw": [
-    "kwh"
-  ],
-  "ag": [
-    "age",
-    "aga",
-    "ago",
-    "agf",
-    "agr",
-    "agp",
-    "ags",
-    "agd",
-    "agb"
-  ],
-  "im": [
-    "ime",
-    "imc",
-    "ims",
-    "imm",
-    "imp",
-    "imd",
-    "ima"
-  ],
-  "lf": [
-    "lfp"
-  ],
-  "ni": [
-    "nin",
-    "nit",
-    "nic",
-    "nih",
-    "nix",
-    "nif",
-    "nil"
-  ],
-  "fc": [
-    "fcc",
-    "fce",
-    "fca",
-    "fco"
-  ],
-  "ie": [
-    "ies",
-    "ieo",
-    "ies",
-    "iec",
-    "iee",
-    "ied",
-    "iet"
-  ],
-  "ei": [
-    "eia",
-    "ein",
-    "eix",
-    "eis",
-    "eic"
-  ],
-  "lc": [
-    "lcr",
-    "lcd"
-  ],
-  "mb": [
-    "mbl",
-    "mba",
-    "mbe",
-    "mbp",
-    "mbi"
-  ],
-  "gl": [
-    "glp",
-    "glu",
-    "gli"
-  ],
-  "cf": [
-    "cfr",
-    "cfc",
-    "cfe",
-    "cfi",
-    "cfn",
-    "cfp"
-  ],
-  "rp": [
-    "rpr",
-    "rpm"
-  ],
-  "ut": [
-    "ute",
-    "uta",
-    "uti",
-    "utc",
-    "utu",
-    "utm"
-  ],
-  "gt": [
-    "gtc",
-    "gte",
-    "gti"
-  ],
-  "rc": [
-    "rca",
-    "rcp",
-    "rcd",
-    "rcn",
-    "rch"
-  ],
-  "sc": [
-    "sch",
-    "sct",
-    "sch",
-    "sci",
-    "scs",
-    "sca",
-    "sco"
-  ],
-  "iz": [
-    "izq",
-    "iza",
-    "izo"
-  ],
-  "lt": [
-    "ltd",
-    "lts",
-    "ltr"
-  ],
-  "br": [
-    "bru",
-    "bre",
-    "bra"
-  ],
-  "vu": [
-    "vuh"
-  ],
-  "wh": [
-    "who",
-    "why"
-  ],
-  "aa": [
-    "aaa",
-    "aae",
-    "aap"
-  ],
-  "hl": [
-    "hla"
-  ],
-  "ee": [
-    "eeg",
-    "eeb",
-    "eem",
-    "eet",
-    "eee"
-  ],
-  "na": [
-    "nat",
-    "nao",
-    "nam",
-    "nav",
-    "nan",
-    "nas"
-  ],
-  "ui": [
-    "uia",
-    "uit",
-    "uip"
-  ],
-  "hd": [
-    "hdl",
-    "hdr"
-  ],
-  "ju": [
-    "jul",
-    "jun",
-    "jue",
-    "jus"
-  ],
-  "ht": [
-    "htm",
-    "hta"
-  ],
-  "lr": [
-    "lru"
-  ],
-  "cy": [
-    "cyt"
-  ],
-  "ea": [
-    "eaj",
-    "eat",
-    "eau"
-  ],
-  "ay": [
-    "aya",
-    "ayo"
-  ],
-  "ld": [
-    "ldl"
-  ],
-  "cr": [
-    "cra",
-    "crc",
-    "crm",
-    "cri",
-    "cro",
-    "cre",
-    "crt",
-    "cru"
-  ],
-  "bs": [
-    "bso",
-    "bse"
-  ],
-  "bt": [
-    "btt"
-  ],
-  "ss": [
-    "ssa",
-    "ssp",
-    "ssi"
-  ],
-  "ap": [
-    "apa",
-    "api",
-    "apc",
-    "apm",
-    "aps",
-    "apd",
-    "apg",
-    "apo",
-    "app"
-  ],
-  "cp": [
-    "cpu",
-    "cpi",
-    "cpt",
-    "cpr",
-    "cpa",
-    "cpc",
-    "cps"
-  ],
-  "ur": [
-    "url",
-    "uri",
-    "urb"
-  ],
-  "vh": [
-    "vhs",
-    "vhf",
-    "vhc"
-  ],
-  "by": [
-    "bye"
-  ],
-  "gs": [
-    "gsm"
-  ],
-  "um": [
-    "uma",
-    "umd"
-  ],
-  "wi": [
-    "wim",
-    "win"
-  ],
-  "ob": [
-    "obs",
-    "obi",
-    "obc"
-  ],
-  "st": [
-    "stv",
-    "sta",
-    "stc",
-    "sts",
-    "sta",
-    "sto",
-    "stt"
-  ],
-  "he": [
-    "hey",
-    "her",
-    "hel",
-    "hem",
-    "hez"
-  ],
-  "cc": [
-    "ccd",
-    "ccc",
-    "cce",
-    "cci",
-    "ccn",
-    "ccu",
-    "ccr"
-  ],
-  "ms": [
-    "msp",
-    "msn",
-    "mst",
-    "msi",
-    "msc",
-    "msd"
-  ],
-  "ub": [
-    "uba",
-    "ubs",
-    "ubu",
-    "ubi"
-  ],
-  "pm": [
-    "pma",
-    "pme",
-    "pmd",
-    "pms"
-  ],
-  "rt": [
-    "rte",
-    "rtv",
-    "rtp",
-    "rtl"
-  ],
-  "ex": [
-    "ext",
-    "exe"
-  ],
-  "py": [
-    "pym"
-  ],
-  "fl": [
-    "fly",
-    "fln",
-    "flo",
-    "fla"
-  ],
-  "mv": [
-    "mvr"
-  ],
-  "vp": [
-    "vph",
-    "vpo",
-    "vpn",
-    "vpp",
-    "vpr"
-  ],
-  "mm": [
-    "mme",
-    "mmx",
-    "mmm"
-  ],
-  "hb": [
-    "hbo"
-  ],
-  "jn": [
-    "jne"
-  ],
-  "tn": [
-    "tnt",
-    "tne",
-    "tnc",
-    "tnp",
-    "tnf"
-  ],
-  "ft": [
-    "ftp"
-  ],
-  "ot": [
-    "oti",
-    "otr",
-    "otp",
-    "ott",
-    "ota"
-  ],
-  "ll": [
-    "llu"
-  ],
-  "cv": [
-    "cvc",
-    "cvg",
-    "cvr"
-  ],
-  "gp": [
-    "gps"
-  ],
-  "mg": [
-    "mgm",
-    "mgr",
-    "mgs"
-  ],
-  "sd": [
-    "sds",
-    "sda",
-    "sdi"
-  ],
-  "wt": [
-    "wta"
-  ],
-  "iu": [
-    "ius"
-  ],
-  "ml": [
-    "mls",
-    "mln"
-  ],
-  "fp": [
-    "fpr",
-    "fpl"
-  ],
-  "pk": [
-    "pkk"
-  ],
-  "dc": [
-    "dcl",
-    "dca"
-  ],
-  "hr": [
-    "hrs"
-  ],
-  "kl": [
-    "klm"
-  ],
-  "vc": [
-    "vct",
-    "vcm"
-  ],
-  "oa": [
-    "oar",
-    "oak"
-  ],
-  "ny": [
-    "nyt"
-  ],
-  "tc": [
-    "tcp",
-    "tce"
-  ],
-  "ko": [
-    "kok",
-    "kon"
-  ],
-  "ul": [
-    "ulm",
-    "ula",
-    "uli",
-    "ulf",
-    "ull"
-  ],
-  "eb": [
-    "ebb",
-    "eba"
-  ],
-  "kt": [
-    "ktm"
-  ],
-  "ng": [
-    "ngc"
-  ],
-  "ya": [
-    "yan",
-    "yak",
-    "yao"
-  ],
-  "ky": [
-    "kyo"
-  ],
-  "sb": [
-    "sbs"
-  ],
-  "zu": [
-    "zur",
-    "zum"
-  ],
-  "jf": [
-    "jfk"
-  ],
-  "uh": [
-    "uhf"
-  ],
-  "dh": [
-    "dhl",
-    "dhu"
-  ],
-  "ey": [
-    "eye"
-  ],
-  "md": [
-    "mdp",
-    "mdd",
-    "mdc"
-  ],
-  "tz": [
-    "tzu"
-  ],
-  "il": [
-    "ile",
-    "ilo",
-    "ils"
-  ],
-  "kd": [
-    "kda"
-  ],
-  "gg": [
-    "ggt"
-  ],
-  "sq": [
-    "sql"
-  ],
-  "vr": [
-    "vrs"
-  ],
-  "dt": [
-    "dtn",
-    "dtp",
-    "dth",
-    "dto"
-  ],
-  "rm": [
-    "rmn",
-    "rms"
-  ],
-  "xm": [
-    "xml"
-  ],
-  "jc": [
-    "jce"
-  ],
-  "ak": [
-    "aki",
-    "aka"
-  ],
-  "gb": [
-    "gbr",
-    "gbm"
-  ],
-  "my": [
-    "myc"
-  ],
-  "gw": [
-    "gwh"
-  ],
-  "uz": [
-    "uzi"
-  ],
-  "dj": [
-    "djk"
-  ],
-  "ph": [
-    "phn",
-    "phu",
-    "phd"
-  ],
-  "bp": [
-    "bpr",
-    "bps",
-    "bpa"
-  ],
-  "wo": [
-    "woo"
-  ],
-  "nf": [
-    "nfl",
-    "nfr"
-  ],
-  "sg": [
-    "sgp",
-    "sgt"
-  ],
-  "uw": [
-    "uwe"
-  ],
-  "kh": [
-    "khz"
-  ],
-  "sv": [
-    "sva"
-  ],
-  "vd": [
-    "vda",
-    "vds"
-  ],
-  "kr": [
-    "krt"
-  ],
-  "sf": [
-    "sfp"
-  ],
-  "uj": [
-    "uji",
-    "ujc"
-  ],
-  "hm": [
-    "hmg",
-    "hms",
-    "hmm"
-  ],
-  "jv": [
-    "jvm"
-  ],
-  "zh": [
-    "zhu"
-  ],
-  "dñ": [
-    "dña"
-  ],
-  "tp": [
-    "tpi",
-    "tpm",
-    "tps",
-    "tpa"
-  ],
-  "uf": [
-    "uff",
-    "ufa",
-    "ufp"
-  ],
-  "vt": [
-    "vtr"
-  ],
-  "bd": [
-    "bda",
-    "bdc"
-  ],
-  "kp": [
-    "kph"
-  ],
-  "sy": [
-    "sys"
-  ],
-  "ty": [
-    "tyc"
-  ],
-  "wr": [
-    "wrc"
-  ],
-  "np": [
-    "npc",
-    "nps"
-  ],
-  "oz": [
-    "ozu",
-    "ozu"
-  ],
-  "vg": [
-    "vga"
-  ],
-  "bh": [
-    "bhn"
-  ],
-  "fg": [
-    "fgd",
-    "fgr"
-  ],
-  "hw": [
-    "hwy",
-    "hwa"
-  ],
-  "tg": [
-    "tgv"
-  ],
-  "zs": [
-    "zsa"
-  ],
-  "gn": [
-    "gnu"
-  ],
-  "ln": [
-    "lnp"
-  ],
-  "xe": [
-    "xew"
-  ],
-  "oh": [
-    "ohl"
-  ],
-  "ow": [
-    "own"
-  ],
-  "nr": [
-    "nro",
-    "nrc"
-  ],
-  "hs": [
-    "hsu"
-  ],
-  "tb": [
-    "tbc"
-  ],
-  "tf": [
-    "tfp",
-    "tft"
-  ],
-  "jm": [
-    "jmc"
-  ],
-  "nc": [
-    "ncr"
-  ],
-  "ov": [
-    "ovn",
-    "ovo"
-  ],
-  "uo": [
-    "uom",
-    "uoc"
-  ],
-  "fn": [
-    "fnt",
-    "fna",
-    "fni"
-  ],
-  "oñ": [
-    "oña"
-  ],
-  "ez": [
-    "ezp"
-  ],
-  "rs": [
-    "rsu"
-  ],
-  "gd": [
-    "gdf"
-  ],
-  "ik": [
-    "ike"
-  ],
-  "rk": [
-    "rko"
-  ],
-  "tt": [
-    "tte",
-    "ttl"
-  ],
-  "dl": [
-    "dls"
-  ],
-  "lp": [
-    "lps"
-  ],
-  "zd": [
-    "zdf"
-  ],
-  "tm": [
-    "tms",
-    "tmb"
-  ],
-  "cj": [
-    "cjd",
-    "cjm"
-  ],
-  "mp": [
-    "mpd"
-  ],
-  "ns": [
-    "nsa"
-  ],
-  "tx": [
-    "txt"
-  ],
-  "hg": [
-    "hgb"
-  ],
-  "jp": [
-    "jpg"
-  ],
-  "bf": [
-    "bfp"
-  ],
-  "nh": [
-    "nhk"
-  ],
-  "pj": [
-    "pjf"
-  ],
-  "qa": [
-    "qap"
-  ],
-  "rr": [
-    "rrv"
-  ],
-  "hc": [
-    "hcl",
-    "hch"
-  ],
-  "cl": [
-    "cll"
-  ],
-  "eh": [
-    "ehp"
-  ],
-  "eo": [
-    "eoc"
-  ],
-  "ff": [
-    "ffs"
+    "bng"
   ]
 }

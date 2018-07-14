@@ -55,7 +55,7 @@ lineReader.on('close', function(){
     console.log("Palabras leidas:" + palabras.length);
     fs.writeFileSync("./palabras.json", JSON.stringify(palabras,null,2));
 
-    palabras = palabras.slice(0,palabras.length/7);
+    palabras = palabras.slice(0,20000);
     
     palabrasEncadenadas(palabras, [8,7,5,6], 2);
 })
@@ -109,6 +109,18 @@ function preprocesaPalabras(palabras, letrasComunes ){
 }
 
 
+let ultimaCombinacion = null;
+function combinacionEncontrada(combinacion){
+    //    console.log( "------" + combinacion );
+    if( ultimaCombinacion == null ){
+        console.log( "" + combinacion );
+    }
+    else if( combinacion[0] != ultimaCombinacion[0] ){
+        console.log( "" + combinacion );
+    }
+    ultimaCombinacion = combinacion.slice(0);
+}
+
 function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
 
     const log = function(){};
@@ -118,7 +130,7 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
 
     if( nivel == letras.length ){
         if( combinacion[0].substr(0,letrasComunes) == combinacion[nivel-1].substr(-letrasComunes) ){
-            console.log( "COMBINACION:" + combinacion );
+            combinacionEncontrada(combinacion);
             return true;
         }
         return false;
@@ -151,25 +163,6 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
     }
 }
 
-function histogramaLetras( palabra, histograma ){
-    histograma = histograma || [];
-    for( val i = 0 ; i < palabra.length ; i+= 1 ){
-        const letra = palabra.substr(i,1);
-        val index = letra - "a";
-        if( )
-    }
-}
-
-
-function anagramas(anagrama, palabras){
-    for(val i = 0; i < anagrama.length/2 ; i += 1 ){
-        const longitud1 = i;
-        for( val p = 0 ; p < palabras.length ; p += 1 ){
-            const palabra = palabras[p];
-            
-        }
-    }
-}
 
 
 function palabrasEncadenadas(palabras, letras, letrasComunes){
@@ -177,7 +170,7 @@ function palabrasEncadenadas(palabras, letras, letrasComunes){
     const preprocesadas = preprocesaPalabras(palabras,letrasComunes);
 
 
-    busca( 0, [], preprocesadas, [8,7,5,6], letrasComunes );
+    busca( 0, [], preprocesadas, [7,7,10,8], letrasComunes );
 }
 
 
