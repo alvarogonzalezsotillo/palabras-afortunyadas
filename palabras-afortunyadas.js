@@ -55,9 +55,11 @@ lineReader.on('close', function(){
     console.log("Palabras leidas:" + palabras.length);
     fs.writeFileSync("./palabras.json", JSON.stringify(palabras,null,2));
 
-    palabras = palabras.slice(0,20000);
-    
-    palabrasEncadenadas(palabras, [8,7,5,6], 2);
+    palabras = palabras.slice(0);
+    palabras.push("molinete");
+    palabras.sort();
+    console.log("Palabras ordenadas:" + palabras.length);
+    palabrasEncadenadas(palabras, [8,9,9,9], 2);
 })
 
 
@@ -111,14 +113,14 @@ function preprocesaPalabras(palabras, letrasComunes ){
 
 let ultimaCombinacion = null;
 function combinacionEncontrada(combinacion){
-    //    console.log( "------" + combinacion );
-    if( ultimaCombinacion == null ){
-        console.log( "" + combinacion );
-    }
-    else if( combinacion[0] != ultimaCombinacion[0] ){
-        console.log( "" + combinacion );
-    }
-    ultimaCombinacion = combinacion.slice(0);
+    console.log( "------" + combinacion );
+    //if( ultimaCombinacion == null ){
+    //    console.log( "" + combinacion );
+    //}
+    //else if( combinacion[0] != ultimaCombinacion[0] ){
+    //    console.log( "" + combinacion );
+    //}
+    //ultimaCombinacion = combinacion.slice(0);
 }
 
 function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
@@ -168,10 +170,19 @@ function busca( nivel, combinacion, preprocesadas, letras, letrasComunes ){
 function palabrasEncadenadas(palabras, letras, letrasComunes){
     //const palabrasConLongitud = letras.map( l => palabrasConLetras(palabras,l) );
     const preprocesadas = preprocesaPalabras(palabras,letrasComunes);
+    console.log( "Palabras preprocesadas");
 
-
-    busca( 0, [], preprocesadas, [7,7,10,8], letrasComunes );
+    //busca( 0, [], preprocesadas, letras, letrasComunes );
+    // MOLINETE 8, * 9, * 9, ASTRONOMO 9
+    // ASTRONOMO 9, MOLINETE 8, * 9, * 9
+    busca( 2, ["astronomo","molinete"], preprocesadas, letras, letrasComunes);
 }
+
+//domingo 15 julio 2018
+// cuando le da la ventolera juega a dar vueltas sin parar 8 letras molinete
+// sociedad de individuos con un gran poder devastador 9 letras ¿tertulias?
+// Abrigo de marineros 9 letras  estrellas
+// examina las estrellas haciendo las observaciones pertinentes 9 letras astronomo
 
 
 

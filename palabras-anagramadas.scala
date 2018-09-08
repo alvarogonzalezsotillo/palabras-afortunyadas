@@ -8,8 +8,6 @@ object PalabrasAnagramadas extends App {
   import scala.collection.Iterator
   import java.io._
   import java.util._
-  import scala.concurrent.{Await, Future}
-  import scala.concurrent.duration.Duration
 
 
   type Frase = Array[Palabra]
@@ -65,37 +63,39 @@ object PalabrasAnagramadas extends App {
     ret.updated(1, Array("a", "o", "y").map(Palabra(_)))
   }
 
-  implicit class HistogramaOps(h:Histograma){
-
-    def sumaHistograma(h2: Histograma): Histograma = {
-      (for (k <- h.keys ++ h2.keys) yield {
-        val v1 = h.getOrElse(k, 0)
-        val v2 = h.getOrElse(k, 0)
-        (k, v1 + v2)
-      }).toMap
-    }
-
-    def restaHistograma(sustraendo: Histograma): Option[Histograma] = {
-      val minuendo: Histograma = h
-      sustraendo.entraEn(minuendo) match {
-        case false =>
-          None
-        case true =>
-          val ret = minuendo.map { case (c, n) => (c, n - sustraendo.getOrElse(c, 0)) }.
-            filter { case (c, n) => n > 0 }
-          Some(ret)
-      }
-    }
-
-    def entraEn(contenedor: Histograma) = {
-      val contenido: Histograma = h
-      contenido.keys.forall(c => contenedor.isDefinedAt(c) && contenido(c) <= contenedor(c))
-    }
-  }
 
 
 
   def buscaCoincidenciaMultiple(buscado: Histograma, maximo: Int = 2, previas: Seq[Palabra] = Seq()): Unit = {
+
+    implicit class HistogramaOps(h:Histograma){
+
+      def sumaHistograma(h2: Histograma): Histograma = {
+        (for (k <- h.keys ++ h2.keys) yield {
+          val v1 = h.getOrElse(k, 0)
+          val v2 = h.getOrElse(k, 0)
+          (k, v1 + v2)
+        }).toMap
+      }
+
+      def restaHistograma(sustraendo: Histograma): Option[Histograma] = {
+        val minuendo: Histograma = h
+        sustraendo.entraEn(minuendo) match {
+          case false =>
+            None
+          case true =>
+            val ret = minuendo.map { case (c, n) => (c, n - sustraendo.getOrElse(c, 0)) }.
+              filter { case (c, n) => n > 0 }
+            Some(ret)
+        }
+      }
+
+      def entraEn(contenedor: Histograma) = {
+        val contenido: Histograma = h
+        contenido.keys.forall(c => contenedor.isDefinedAt(c) && contenido(c) <= contenedor(c))
+      }
+    }
+
     if (maximo == 0) {
       return
     }
@@ -116,7 +116,7 @@ object PalabrasAnagramadas extends App {
   }
 
   def buscaCoincidenciaExacta(buscado: Palabra) = {
-    for (p <- palabras(buscado.palabra.size) if p.histograma == buscado.histograma) yield {
+    for (p <- palabras(buscado.palabra.size).view if p.histograma == buscado.histograma) yield {
       p
     }
   }
@@ -124,19 +124,18 @@ object PalabrasAnagramadas extends App {
 
   def buscaExactoEnFrase( frase: String, letras: Int ) ={
 
-    val f = frase.split("""\s+""").map(Palabra(_))
+    val f = frase.split("""\s+""")
 
     val combinacionesDePalabrasConLetras = {
       for (from <- (0 to f.size).view;
         until <- (from to f.size).view;
         slice = f.slice(from, until) if slice.map(_.size).sum == letras) yield {
-        slice
+        slice.mkString
       }
     }
 
     for (c <- combinacionesDePalabrasConLetras;
-      s = c.foldLeft("") { case (accum, p) => accum + p.palabra };
-      palabra = Palabra(s);
+      palabra = Palabra(c);
       p <- buscaCoincidenciaExacta(palabra)) yield {
       p
     }
@@ -173,10 +172,40 @@ object PalabrasAnagramadas extends App {
     }
   }
 
-  dia2018_07_14();
+  def dia2018_07_21(){
+    println( "SABADO 21 JULIO 2018");
 
 
-  buscaCoincidenciaMultiple(Palabra("bodacara").histograma )
+    val p2 = Palabra("otramadre"); // es el encargado de dar la patada definitiva
+    println("EXACTO:" + p2 );
+    for (p <- buscaCoincidenciaExacta(p2)) {
+      println(p)
+    }
+
+    val p1 = Palabra("leercinta"); //la marcha le obliga a soplar por un tubo
+    println("EXACTO:" + p1 );
+    for (p <- buscaCoincidenciaExacta(p1)) {
+      println(p)
+    }
+
+
+    val frase = "la corrupción del primo decente está fuera de lugar"; // 12 letras
+    println("EXACTO EN FRASE: " + frase)
+    for (p <- buscaExactoEnFrase(frase, 12) ) {
+      println(p)
+    }
+
+    val p4 = Palabra("rrceie");// orden de clausura; primera y última letra de las anteriores
+    println("EXACTO:" + p4 );
+    for (p <- buscaCoincidenciaExacta(p4)) {
+      println(p)
+    }
+  }
+
+  dia2018_07_21();
+
+
+  //buscaCoincidenciaMultiple(Palabra("bodacara").histograma )
 }
 
 PalabrasAnagramadas.main(args)
