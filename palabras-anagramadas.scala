@@ -282,39 +282,38 @@ object PalabrasAnagramadas extends App {
       "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
       "No es verdad y a menudo parece mentira" -> Palabra("CLIMA RUSO"),
       "Estaba hecho un andrajo pero logró completar el trabajo del día" -> 7,
-      Array("tigresa","simulacro","jornada","atajos")   
+      "Ahorra espacio" -> Array("tigresa","simulacro","jornada","atajos")
     );
 
 
-    for( pista <- pistas ){
-      pista match{
-        // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS 
-        case a:Array[String] =>
-          val s = a.take(3).map( p => p.head.toString + p.last.toString ).mkString
-          val p = Palabra(s);
-          println("EXACTO:" + p );
-          for (c <- buscaCoincidenciaExacta(p)) {
-            println("  " + c)
-          }
+    for( pista <- pistas ) pista match{
+      // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS
+      case (msg,a:Array[String]) =>
+        val s = a.take(3).map( p => p.head.toString + p.last.toString ).mkString
+        val p = Palabra(s);
+        println(msg + " -- EXACTO:" + p );
+        for (c <- buscaCoincidenciaExacta(p)) {
+          println("  " + c)
+        }
 
-        // NOS DAN UNA PALABRA PARA EL ANAGRAMA  
-        case (_:String,p:Palabra) =>
-          println("EXACTO:" + p );
-          for (c <- buscaCoincidenciaExacta(p)) {
-            println("  " + c)
-          }
+      // NOS DAN UNA PALABRA PARA EL ANAGRAMA
+      case (msg,p:Palabra) =>
+        println(msg + " -- EXACTO:" + p );
+        for (c <- buscaCoincidenciaExacta(p)) {
+          println("  " + c)
+        }
 
-        // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS  
-        case (frase:String,size:Int) =>
-          println("EXACTO EN FRASE: " + frase)
-          for (c <- buscaExactoEnFrase(frase, size) ) {
-            println("  " + c)
-          }
+      // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS
+      case (frase:String,size:Int) =>
+        println("EXACTO EN FRASE: " + frase)
+        for (c <- buscaExactoEnFrase(frase, size) ) {
+          println("  " + c)
+        }
 
-        case _ =>
-          throw new Error("Se espera String->Palabra, String->Int o Array[String]" )
-          
-      }
+      case _ =>
+        throw new Error("Se espera String->Palabra, String->Int o String->Array[String]" )
+        
+        
     }
   }
 
