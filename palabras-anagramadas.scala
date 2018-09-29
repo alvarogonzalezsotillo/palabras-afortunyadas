@@ -17,7 +17,7 @@ object PalabrasAnagramadas extends App {
 
     import scala.concurrent.ExecutionContext.Implicits.global
 
-    private def quitaAcentos(s: String): String = {
+    private def quitaAcentosYEspacios(s: String): String = {
       val acentos = Map(
         'á' -> 'a',
         'é' -> 'e',
@@ -26,11 +26,12 @@ object PalabrasAnagramadas extends App {
         'ú' -> 'u',
         'ü' -> 'u'
       )
-      s.toLowerCase.map(c => if (acentos.isDefinedAt(c)) acentos(c) else c)
+      val sinAcentos = s.toLowerCase.map(c => if (acentos.isDefinedAt(c)) acentos(c) else c)
+      sinAcentos.replace(" ", "" )
     }
 
-    val size = p.size
-    lazy val palabra = quitaAcentos(p)
+    val size = palabra.size
+    lazy val palabra = quitaAcentosYEspacios(p)
 
     lazy val histograma : Histograma = {
       val ret = palabra.groupBy(c => c)
@@ -239,11 +240,85 @@ object PalabrasAnagramadas extends App {
 
   }
 
-  dia2018_09_15();
+  def dia2018_09_22(){
+    println( "22 septiembre 2018");
+
+    // 1) Ha provocado la exfoliación de muchas margaritas: CISNE INDIO
+    // 2) Siempre canté muy mal, sin duda alguna (en la definición, 12 letras)
+    // 3) Las canarias desenfrenadas dan muestras de dulzura (en la definición, 8 letras)
+    // 4) Sus castillos son espectaculares, pero resultan efímeros
+
+    val p2 = Palabra("cisneindio");
+    println("EXACTO:" + p2 );
+    for (p <- buscaCoincidenciaExacta(p2)) {
+      println(p)
+    }
+
+    val frase = "Siempre canté muy mal, sin duda alguna";
+    println("EXACTO EN FRASE: " + frase)
+    for (p <- buscaExactoEnFrase(frase, 12) ) {
+      println(p)
+    }
+
+    val frase2 = "Las canarias desenfrenadas dan muestras de dulzura";
+    println("EXACTO EN FRASE: " + frase2)
+    for (p <- buscaExactoEnFrase(frase2, 8) ) {
+      println(p)
+    }
 
 
-  //buscaCoincidenciaMultiple(Palabra("bodacara").histograma )
+    val p4 = Palabra("inpesa");// indecisión precisamente sacarina
+    println("EXACTO:" + p4 );
+    for (p <- buscaCoincidenciaExacta(p4)) {
+      println(p)
+    }
+
+  }
+
+  def dia2018_09_29(){
+    println( "29 septiembre 2018");
+
+    val pistas = Array(
+      "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
+      "No es verdad y a menudo parece mentira" -> Palabra("CLIMA RUSO"),
+      "Estaba hecho un andrajo pero logró completar el trabajo del día" -> 7,
+      Array("tigresa","simulacro","jornada","atajos")   
+    );
+
+
+    for( pista <- pistas ){
+      pista match{
+        // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS 
+        case a:Array[String] =>
+          val s = a.take(3).map( p => p.head.toString + p.last.toString ).mkString
+          val p = Palabra(s);
+          println("EXACTO:" + p );
+          for (c <- buscaCoincidenciaExacta(p)) {
+            println("  " + c)
+          }
+
+        // NOS DAN UNA PALABRA PARA EL ANAGRAMA  
+        case (_:String,p:Palabra) =>
+          println("EXACTO:" + p );
+          for (c <- buscaCoincidenciaExacta(p)) {
+            println("  " + c)
+          }
+
+        // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS  
+        case (frase:String,size:Int) =>
+          println("EXACTO EN FRASE: " + frase)
+          for (c <- buscaExactoEnFrase(frase, size) ) {
+            println("  " + c)
+          }
+
+        case _ =>
+          throw new Error("Se espera String->Palabra, String->Int o Array[String]" )
+          
+      }
+    }
+  }
+
+  dia2018_09_29();
 }
 
-PalabrasAnagramadas.main(args)
 
