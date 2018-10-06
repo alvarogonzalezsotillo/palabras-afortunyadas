@@ -39,8 +39,15 @@ object PalabrasAnagramadas extends App {
     }
   }
 
+  def cronometro[T](msg: String)( proc : => T ) = {
+    val ini = System.currentTimeMillis()
+    val ret = proc
+    val fin = System.currentTimeMillis()
+    println( s"$msg: ${fin-ini} ms" )
+    ret
+  }
 
-  val palabras: Map[Int, Array[Palabra]] = {
+  val palabras: Map[Int, Array[Palabra]] = cronometro("Lectura de palabras"){
 
     val iterator = new Iterator[String] {
 
@@ -275,21 +282,11 @@ object PalabrasAnagramadas extends App {
 
   }
 
-  def dia2018_09_29(){
-    println( "29 septiembre 2018");
 
-    val pistas = Array(
-      "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
-      "No es verdad y a menudo parece mentira" -> Palabra("CLIMA RUSO"),
-      "Estaba hecho un andrajo pero logró completar el trabajo del día" -> 7,
-      Array("tigresa","simulacro","jornada","atajos")   
-    );
-
-
-    for( pista <- pistas ){
+  def resuelvePista( pista : Any ) = {
       pista match{
         // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS 
-        case a:Array[String] =>
+        case (_:String, a:Array[String]) =>
           val s = a.take(3).map( p => p.head.toString + p.last.toString ).mkString
           val p = Palabra(s);
           println("EXACTO:" + p );
@@ -313,12 +310,40 @@ object PalabrasAnagramadas extends App {
 
         case _ =>
           throw new Error("Se espera String->Palabra, String->Int o Array[String]" )
-          
       }
-    }
   }
 
-  dia2018_09_29();
+  def dia2018_09_29(){
+    println( "29 septiembre 2018");
+
+    val pistas = Array(
+      "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
+      "No es verdad y a menudo parece mentira" -> Palabra("CLIMA RUSO"),
+      "Estaba hecho un andrajo pero logró completar el trabajo del día" -> 7,
+      "Acortan el espacio pero pueden alargar el tiempo" -> Array("tigresa","simulacro","jornada","atajos")   
+    );
+
+
+    pistas.foreach( resuelvePista );
+  }
+
+  def dia2018_10_06(){
+    println( "6 octubre 2018");
+
+    val pistas = Array(
+      "Vino de Francia" -> Palabra("piromántico"),
+      "Rediseña la licorería para poder albergar buenos recuerdos" -> 9 ,
+      "Vivir de administrar los remanentes de forma adecuada" -> 10,
+      "Trabaja de cara a la galería" -> Array("importación","relicario","mantenerse")   
+    );
+
+    pistas.foreach( resuelvePista );
+  }
+
+
+  cronometro("Solución"){
+    dia2018_10_06()
+  }
 }
 
 
