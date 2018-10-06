@@ -283,38 +283,39 @@ object PalabrasAnagramadas extends App {
   }
 
 
-  def resuelvePista( pista : Any ) = {
+  def resuelvePista( pista : (String,Any) ) = {
       pista match{
         // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS 
-        case (_:String, a:Array[String]) =>
-          val s = a.take(3).map( p => p.head.toString + p.last.toString ).mkString
+        case (msg, a:Array[String]) =>
+          val palabras = a.take(3)
+          println( s"${msg.toUpperCase}: Con inicio y fin de ${palabras.mkString(",")}" );
+          val s = palabras.map( p => p.head.toString + p.last.toString ).mkString
           val p = Palabra(s);
-          println("EXACTO:" + p );
           for (c <- buscaCoincidenciaExacta(p)) {
             println("  " + c)
           }
 
         // NOS DAN UNA PALABRA PARA EL ANAGRAMA  
-        case (_:String,p:Palabra) =>
-          println("EXACTO:" + p );
+        case (msg,p:Palabra) =>
+          println( s"${msg.toUpperCase}: Con anagrama $p" );
           for (c <- buscaCoincidenciaExacta(p)) {
             println("  " + c)
           }
 
         // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS  
-        case (frase:String,size:Int) =>
-          println("EXACTO EN FRASE: " + frase)
+        case (frase,size:Int) =>
+          println( s"${frase.toUpperCase}: Anagrama en la fase, longitud $size" );
           for (c <- buscaExactoEnFrase(frase, size) ) {
             println("  " + c)
           }
 
         case _ =>
-          throw new Error("Se espera String->Palabra, String->Int o Array[String]" )
+          throw new Error("Se espera String->Palabra, String->Int o String->Array[String]" )
       }
   }
 
   def dia2018_09_29(){
-    println( "29 septiembre 2018");
+    println( "*********** 29 septiembre 2018");
 
     val pistas = Array(
       "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
@@ -328,7 +329,7 @@ object PalabrasAnagramadas extends App {
   }
 
   def dia2018_10_06(){
-    println( "6 octubre 2018");
+    println( "************ 6 octubre 2018");
 
     val pistas = Array(
       "Vino de Francia" -> Palabra("piromántico"),
@@ -340,6 +341,10 @@ object PalabrasAnagramadas extends App {
     pistas.foreach( resuelvePista );
   }
 
+
+  cronometro("Solución"){
+    dia2018_09_29()
+  }
 
   cronometro("Solución"){
     dia2018_10_06()
