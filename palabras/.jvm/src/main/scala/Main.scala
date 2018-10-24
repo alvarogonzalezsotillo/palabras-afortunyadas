@@ -7,7 +7,7 @@ class LineIterator(file: String, encoding : String = "latin1") extends scala.col
 
   val scanner = new Scanner(new FileInputStream(file), encoding)
   def hasNext: Boolean = scanner.hasNext
-  def next(): String = scanner.next
+  def next(): String = scanner.nextLine
 }
 
 object Main extends App{

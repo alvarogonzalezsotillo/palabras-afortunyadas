@@ -43,7 +43,7 @@ object Corpus{
       regex.findAllMatchIn(line).next.subgroups(1)
     }
 
-    val limite = 3000000
+    val limite = 300000
     val todas = iterator.take(limite).filter(_!="").map(p => Palabra(p)).toArray.sortBy(_.palabra).toArray
     println( s"todas:${todas.size}")
     val ret = todas.groupBy(p => p.size)
