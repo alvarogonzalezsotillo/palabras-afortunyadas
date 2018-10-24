@@ -1,1 +1,4 @@
 palabras-preprocesadas*
+**/classes/
+**/target/
+.idea
