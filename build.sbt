@@ -45,11 +45,13 @@ val sharedSettings = Seq(
 )
 
 val jsSettings = Seq(
-  scalaJSUseMainModuleInitializer := false,
+  scalaJSUseMainModuleInitializer := true,
   mainClass := Some("rne.Main"),
   scalaJSModuleKind := ModuleKind.CommonJSModule,
-  libraryDependencies += "io.scalajs" %%% "nodejs" % "0.4.2"
+  libraryDependencies += "io.scalajs" %%% "nodejs" % "0.4.2",
+  libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.1"
 
+  //scalaJSOutputWrapper := ("", "Main.main();")
 )
 
 val jvmSettings = Seq(

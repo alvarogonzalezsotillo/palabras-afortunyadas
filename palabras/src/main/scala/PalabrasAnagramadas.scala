@@ -37,7 +37,7 @@ object Corpus{
 
   val regex = """(?:\s*)(?:(\d|\.)*)(?:\s*)(\S*).*""".r
 
-  def palabras(lineIterator: LineIterator): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras"){
+  def palabras(lineIterator: Iterator[String]): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras"){
 
     val iterator = lineIterator.map{ line =>
       regex.findAllMatchIn(line).next.subgroups(1)
