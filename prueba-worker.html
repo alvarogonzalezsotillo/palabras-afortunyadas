@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>prueba-worker</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+        <div id="root">
+        </div>
+
+        
+        <script type="text/javascript">
+         let visibleFromScala = {}
+         visibleFromScala.worker = new Worker("./palabras/.js/src/main/js/prueba-worker.js");
+
+         visibleFromScala.worker.onmessage = function(msg){
+             let m = msg.data
+             console.log( "Recibido en html del worker:" + m )
+             if( m == "Corpus cargado" ){
+                 visibleFromScala.worker.postMessage("Mantenerse");
+             }
+             else{
+                 console.log( "Ya hemos encontrado las coincidencias:" + m );
+             }
+         }
+        </script>
+
+    </body>
+</html>
