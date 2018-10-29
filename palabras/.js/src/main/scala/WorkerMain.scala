@@ -23,7 +23,7 @@ object WorkerMain {
   def main(): Unit = {
     println( "WorkerMain.main")
     WorkerGlobal.addEventListener("message", onMessage _ )
-    Main.cargaCorpus("./corpus-100000.txt"){ c =>
+    Main.cargaCorpus("./corpus-300000.txt"){ c =>
       corpus = c
       WorkerGlobal.postMessage(s"Corpus cargado")
     }

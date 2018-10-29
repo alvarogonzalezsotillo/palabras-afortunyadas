@@ -10,17 +10,27 @@
 
         
         <script type="text/javascript">
+         function log(msg){
+             console.log(msg);
+             document.getElementById("root").innerHTML += ("<pre>" + msg + "</pre>");
+         }
          let visibleFromScala = {}
+         log( "Creo el worker");
          visibleFromScala.worker = new Worker("./palabras/.js/src/main/js/prueba-worker.js");
 
          visibleFromScala.worker.onmessage = function(msg){
              let m = msg.data
-             console.log( "Recibido en html del worker:" + m )
+             log( "Recibido en html del worker:" + m )
              if( m == "Corpus cargado" ){
-                 visibleFromScala.worker.postMessage("Mantenerse");
+                 let p = "Mantenerse";
+                 log( "Envio la palabra: " + p );
+                 visibleFromScala.worker.postMessage(p);
+                 visibleFromScala.worker.postMessage("buenavista");
+                 visibleFromScala.worker.postMessage("acabado");
+
              }
              else{
-                 console.log( "Ya hemos encontrado las coincidencias:" + m );
+                 log( "Ya hemos encontrado las coincidencias:" + m );
              }
          }
         </script>
