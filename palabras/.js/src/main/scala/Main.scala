@@ -118,14 +118,18 @@ object Main extends JSApp {
     cargaCorpus( "./corpus-100000.txt")(PalabrasAnagramadas.resuelve(_))
   }
 
-
-  @JSExport
-  def main(){
+  def ejecutaPruebaJSON() = {
     cargaCorpusJSON("./corpus.json"){ c =>
       println("Lo tengo")
       println(c(4).mkString(","))
     }
-    println( "Main ejecutado")
+ 
+  }
+
+
+  @JSExport
+  def main(){
+   println( "Main ejecutado")
   }
 }
 
