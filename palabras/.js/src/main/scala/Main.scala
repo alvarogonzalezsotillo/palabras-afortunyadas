@@ -59,18 +59,13 @@ object Main extends JSApp {
   def fileContents( file: String, encoding: String = "latin1" )(callback: (String) => Unit ) = {
 
     if( isNode ) {
-
-
       import io.scalajs.nodejs.fs.Fs
       import io.scalajs.nodejs.fs.FileInputOptions
       import io.scalajs.nodejs.FileIOError
 
-
       Fs.readFile(file, encoding, (err:FileIOError,data:String) => {
         callback(data)
       })
-      
-      //throw new Error("No sé hacer a la vez algo para el browser y para nodejs")
     }
 
     else{
@@ -88,13 +83,11 @@ object Main extends JSApp {
     }
   }
 
-  private var corpus : Corpus.Corpus = null
-
   def cargaCorpus( file: String )( callback: (Corpus.Corpus) => Unit ) = {
     fileContents( file ){ data =>
       println( s"File '$file' readed")
       val li = new ManualLineIterator(data)
-      corpus = Corpus.palabras(li)
+      val corpus = Corpus.palabras(li)
       callback(corpus)
     }
   }
@@ -108,7 +101,7 @@ object Main extends JSApp {
       val jsarray = data.asInstanceOf[js.Array[js.Array[String]]]
       val array : Array[Array[String]] = jsarray.toArray.map( _.toArray )
         println( s"JSON File '$file' converted to Array")
-      corpus = Corpus.palabras(array)
+      val corpus = Corpus.palabras(array)
       println( s"JSON File '$file' converted to corpus")
       callback(corpus)
     }
@@ -120,7 +113,6 @@ object Main extends JSApp {
 
   def ejecutaPruebaJSON() = {
     cargaCorpusJSON("./corpus.json"){ c =>
-      println("Lo tengo")
       println(c(4).mkString(","))
     }
  
@@ -129,7 +121,10 @@ object Main extends JSApp {
 
   @JSExport
   def main(){
-   println( "Main ejecutado")
+    if( isNode ){
+      ejecutaPruebaJSON()
+    }
+    println( "Main ejecutado")
   }
 }
 

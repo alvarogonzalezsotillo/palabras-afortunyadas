@@ -22,17 +22,20 @@
              let m = msg.data
              log( "Recibido en html del worker:" + m )
              if( m == "Corpus cargado" ){
-                 let p = "Mantenerse";
-                 log( "Envio la palabra: " + p );
-                 visibleFromScala.worker.postMessage(p);
-                 visibleFromScala.worker.postMessage("buenavista");
-                 visibleFromScala.worker.postMessage("acabado");
-                 visibleFromScala.worker.postMessage("camión");
+                 enviar( "Mantenerse" );
+                 enviar("buenavista");
+                 enviar("acabado");
+                 enviar("camión");
 
              }
              else{
                  log( "Ya hemos encontrado las coincidencias:" + m );
              }
+         }
+
+         function enviar(p){
+             log( "Envío palabra: " + p )
+             visibleFromScala.worker.postMessage(p);
          }
         </script>
 
