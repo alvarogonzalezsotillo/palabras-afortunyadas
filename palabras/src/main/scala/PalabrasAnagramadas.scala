@@ -9,7 +9,7 @@ object Corpus{
   type Histograma = Map[Char, Int]
 
 
-  case class Palabra(p: String) {
+  case class Palabra(original: String) {
 
 
     private def quitaAcentosYEspacios(s: String): String = {
@@ -26,7 +26,7 @@ object Corpus{
     }
 
     lazy val size = palabra.size
-    lazy val palabra = quitaAcentosYEspacios(p)
+    lazy val palabra = quitaAcentosYEspacios(original)
 
     lazy val histograma : Histograma = {
       val ret = palabra.groupBy(c => c)
@@ -37,14 +37,25 @@ object Corpus{
 
   val regex = """(?:\s*)(?:(\d|\.)*)(?:\s*)(\S*).*""".r
 
-  def palabras(lineIterator: Iterator[String]): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras"){
+  def palabras(array: Array[Array[String]]): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras de array"){
+    array.zipWithIndex.
+      map{
+        case (a:Array[String],i:Int ) =>
+          val palabras = a.map( s => Palabra(s) )
+          (i+1,palabras)
+      }.
+      toMap
+  }
+
+
+  def palabras(lineIterator: Iterator[String]): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras de fichero original"){
 
     val iterator = lineIterator.map{ line =>
       regex.findAllMatchIn(line).next.subgroups(1)
     }
 
     val limite = 300000
-    val todas = iterator.take(limite).filter(_!="").map(p => Palabra(p)).toArray.sortBy(_.palabra).toArray
+    val todas = iterator.take(limite).filter(_!="").map(p => Palabra(p)).toArray
     println( s"todas:${todas.size}")
     val ret = todas.groupBy(p => p.size)
 
@@ -124,7 +135,10 @@ object PalabrasAnagramadas {
   }
 
   def buscaCoincidenciaExacta(buscado: Palabra)(implicit palabras: Corpus) = {
-    palabras(buscado.palabra.size).view.filter( _.histograma == buscado.histograma )
+    palabras.get(buscado.palabra.size) match{
+      case Some(candidatas) => candidatas.view.filter( _.histograma == buscado.histograma )
+      case None => Seq()
+    }
   }
 
 

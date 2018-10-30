@@ -9,11 +9,6 @@ import scala.concurrent.Await
 import scala.scalajs.js.annotation._
 import scala.scalajs.js.JSApp
 
-/*
-import io.scalajs.nodejs.fs.Fs
-import io.scalajs.nodejs.fs.FileInputOptions
-import io.scalajs.nodejs.FileIOError
-*/
 
 
 @JSExportTopLevel("Main")
@@ -64,12 +59,18 @@ object Main extends JSApp {
   def fileContents( file: String, encoding: String = "latin1" )(callback: (String) => Unit ) = {
 
     if( isNode ) {
-      /*
+
+
+      import io.scalajs.nodejs.fs.Fs
+      import io.scalajs.nodejs.fs.FileInputOptions
+      import io.scalajs.nodejs.FileIOError
+
+
       Fs.readFile(file, encoding, (err:FileIOError,data:String) => {
         callback(data)
       })
-       */
-      throw new Error("No sé hacer a la vez algo para el browser y para nodejs")
+      
+      //throw new Error("No sé hacer a la vez algo para el browser y para nodejs")
     }
 
     else{
@@ -98,6 +99,21 @@ object Main extends JSApp {
     }
   }
 
+  def cargaCorpusJSON( file: String )( callback: (Corpus.Corpus) => Unit ) = {
+    import scala.scalajs.js
+    fileContents( file, "utf8" ){ json =>
+      println( s"JSON File '$file' readed")
+      val data = scala.scalajs.js.JSON.parse(json)
+      println( s"JSON File '$file' parsed")
+      val jsarray = data.asInstanceOf[js.Array[js.Array[String]]]
+      val array : Array[Array[String]] = jsarray.toArray.map( _.toArray )
+        println( s"JSON File '$file' converted to Array")
+      corpus = Corpus.palabras(array)
+      println( s"JSON File '$file' converted to corpus")
+      callback(corpus)
+    }
+  }
+
   def ejecutaPrueba() = {
     cargaCorpus( "./corpus-100000.txt")(PalabrasAnagramadas.resuelve(_))
   }
@@ -105,6 +121,10 @@ object Main extends JSApp {
 
   @JSExport
   def main(){
+    cargaCorpusJSON("./corpus.json"){ c =>
+      println("Lo tengo")
+      println(c(4).mkString(","))
+    }
     println( "Main ejecutado")
   }
 }
