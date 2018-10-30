@@ -5,6 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
+
+        <div id="ui">
+            <input id="palabra" type="text" name="palabra" value="" placeholder="anagrama o frase" />
+            <input id="button" type="button" value="Busca"  disabled="true"/>
+        </div>    
+        
         <div id="root">
         </div>
 
@@ -20,23 +26,28 @@
 
          visibleFromScala.worker.onmessage = function(msg){
              let m = msg.data
-             log( "Recibido en html del worker:" + m )
              if( m == "Corpus cargado" ){
-                 enviar( "Mantenerse" );
-                 enviar("buenavista");
-                 enviar("acabado");
-                 enviar("camión");
-
+                 document.getElementById("button").disabled = false;
              }
              else{
-                 log( "Ya hemos encontrado las coincidencias:" + m );
+                 log( "Ya hemos encontrado las coincidencias:"  );
+                 for( let i = 0 ; i < m.length ; i++ ){
+                     log( "  " + m[i] );
+                 }
              }
-         }
-
+         };
+         
          function enviar(p){
              log( "Envío palabra: " + p )
              visibleFromScala.worker.postMessage(p);
          }
+         
+         document.getElementById("button").onclick = function(){
+             let palabra = document.getElementById("palabra").value;
+             document.getElementById("root").innerHTML = "";
+             enviar(palabra);
+         }
+         
         </script>
 
     </body>

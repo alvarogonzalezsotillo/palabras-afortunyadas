@@ -35,7 +35,15 @@ object WorkerMain {
 
     val coincidencias = PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra(s) );
 
-    WorkerGlobal.postMessage( coincidencias.mkString(",") )
+    val ret = js.Array[String]()
+
+    for( i <- 0 until coincidencias.size ){
+      val p = coincidencias(i)
+      ret += p.original
+    }
+
+
+    WorkerGlobal.postMessage( ret )
 
 
   }
