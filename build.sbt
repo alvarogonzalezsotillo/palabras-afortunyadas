@@ -2,34 +2,34 @@
 
 
 /*
-enablePlugins(ScalaJSPlugin)
+ enablePlugins(ScalaJSPlugin)
 
-name := "Palabras anagramadas"
-scalaVersion := "2.12.4" // or any other Scala version >= 2.10.2
+ name := "Palabras anagramadas"
+ scalaVersion := "2.12.4" // or any other Scala version >= 2.10.2
 
-// This is an application with a main method
-mainClass in  (Compile, run) := Some("rne.PalabrasAnagramadas")
-scalaJSUseMainModuleInitializer := true
+ // This is an application with a main method
+ mainClass in  (Compile, run) := Some("rne.PalabrasAnagramadas")
+ scalaJSUseMainModuleInitializer := true
 
-// DOM DESDE SCALA
-libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+ // DOM DESDE SCALA
+ libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.1"
 
-// JQUERY
-libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.1"
+ // JQUERY
+ libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.1"
 
-// SCALATEST
-libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.0" % "test"
+ // SCALATEST
+ libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.0" % "test"
 
-// NO HAY LIBRERÍA PARA XML PARA SCALAJS
-// HE PUESTO LOS FUENTES EN SRC
-// DE TODAS FORMAS, HACE FALTA ESTA DEPENDENCIA PARA QUE FUNCIONE EL COMPILADOR
-// https://stackoverflow.com/questions/41830090/scala-js-support-for-scala-xml-and-scala-compiler
-libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "1.0.6"
+ // NO HAY LIBRERÍA PARA XML PARA SCALAJS
+ // HE PUESTO LOS FUENTES EN SRC
+ // DE TODAS FORMAS, HACE FALTA ESTA DEPENDENCIA PARA QUE FUNCIONE EL COMPILADOR
+ // https://stackoverflow.com/questions/41830090/scala-js-support-for-scala-xml-and-scala-compiler
+ libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "1.0.6"
 
 
-// USAR WEBJARS PARA JQUERY
-skip in packageJSDependencies := false
-jsDependencies += "org.webjars" % "jquery" % "2.1.4" / "2.1.4/jquery.js"
+ // USAR WEBJARS PARA JQUERY
+ skip in packageJSDependencies := false
+ jsDependencies += "org.webjars" % "jquery" % "2.1.4" / "2.1.4/jquery.js"
 
 
  */
@@ -49,7 +49,10 @@ val jsSettings = Seq(
   mainClass := Some("rne.Main"),
   scalaJSModuleKind := ModuleKind.CommonJSModule, //ModuleKind.NoModule,
   libraryDependencies += "io.scalajs" %%% "nodejs" % "0.4.2",
-  libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+  libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.1",
+  libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.1",
+  jsDependencies += "org.webjars" % "jquery" % "2.1.4" / "2.1.4/jquery.js"
+
 
   //scalaJSOutputWrapper := ("", "Main.main();")
 )
