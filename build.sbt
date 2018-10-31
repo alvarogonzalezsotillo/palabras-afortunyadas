@@ -61,7 +61,7 @@ val jvmSettings = Seq(
 lazy val palabras =
   // select supported platforms
   crossProject(JSPlatform, JVMPlatform, NativePlatform)
-    .crossType(CrossType.Pure) // [Pure, Full, Dummy], default: CrossType.Full
+    .crossType(CrossType.Full) // [Pure, Full, Dummy], default: CrossType.Full
     .settings(sharedSettings)
     .jsSettings(jsSettings) // defined in sbt-scalajs-crossproject
     .jvmSettings(jvmSettings)
