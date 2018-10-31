@@ -22,7 +22,7 @@
          }
          let visibleFromScala = {}
          log( "Creo el worker");
-         visibleFromScala.worker = new Worker("./palabras/.js/src/main/js/prueba-worker.js");
+         visibleFromScala.worker = new Worker("./palabras/js/src/main/js/prueba-worker.js");
 
          visibleFromScala.worker.onmessage = function(msg){
              let m = msg.data
