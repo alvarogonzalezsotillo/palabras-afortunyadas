@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>prueba-worker</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+
+        <div id="ui">
+            <input id="palabra" type="text" name="palabra" value="" placeholder="anagrama o frase" />
+            <input id="button" type="button" value="Busca"  disabled="true"/>
+        </div>    
+        
+        <div id="root">
+        </div>
+
+        
+        <script type="text/javascript">
+         function log(msg){
+             console.log(msg);
+             document.getElementById("root").innerHTML += ("<pre>" + msg + "</pre>");
+         }
+         let visibleFromScala = {}
+         log( "Creo el worker");
+         visibleFromScala.worker = new Worker("./palabras/.js/src/main/js/prueba-worker.js");
+
+         visibleFromScala.worker.onmessage = function(msg){
+             let m = msg.data
+             if( m == "Corpus cargado" ){
+                 document.getElementById("button").disabled = false;
+             }
+             else{
+                 log( "Ya hemos encontrado las coincidencias:"  );
+                 for( let i = 0 ; i < m.length ; i++ ){
+                     log( "  " + m[i] );
+                 }
+             }
+         };
+         
+         function enviar(p){
+             log( "Envío palabra: " + p )
+             visibleFromScala.worker.postMessage(p);
+         }
+         
+         document.getElementById("button").onclick = function(){
+             let palabra = document.getElementById("palabra").value;
+             document.getElementById("root").innerHTML = "";
+             enviar(palabra);
+         }
+         
+        </script>
+
+    </body>
+</html>
