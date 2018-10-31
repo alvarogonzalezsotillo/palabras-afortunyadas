@@ -7,30 +7,45 @@
     <body>
 
         <div id="ui">
-            <input id="palabra" type="text" name="palabra" value="" placeholder="anagrama o frase" />
-            <input id="button" type="button" value="Busca"  disabled="true"/>
+            <input id="palabra" type="text" name="palabra" value="" placeholder="Anagrama" />
+            <input id="botonPalabra" type="button" value="Busca anagramas"  disabled="true"/>
         </div>    
+
+        <div id="uifrase">
+            <input id="frase" type="text" name="frase" value="" placeholder="Frase" />
+            <input id="botonFrase" type="button" value="Busca anagramas en la frase"  disabled="true"/>
+        </div>    
+
         
-        <div id="root">
+        <div id="output">
         </div>
 
         
         <script type="text/javascript">
          function log(msg){
              console.log(msg);
-             document.getElementById("root").innerHTML += ("<pre>" + msg + "</pre>");
+             e("output").innerHTML += ("<pre>" + msg + "</pre>");
+         }
+         function e(id){
+             return document.getElementById(id);
          }
          let visibleFromScala = {}
-         log( "Creo el worker");
+         log( "Cargando corpus...");
          visibleFromScala.worker = new Worker("./palabras/js/src/main/js/prueba-worker.js");
 
          visibleFromScala.worker.onmessage = function(msg){
              let m = msg.data
              if( m == "Corpus cargado" ){
-                 document.getElementById("button").disabled = false;
+                 //e("botonFrase").disabled = false;
+                 e("botonPalabra").disabled = false;
+                 e("output").innerHTML = "";
+                 log( "Corpus cargado");
              }
              else{
-                 log( "Ya hemos encontrado las coincidencias:"  );
+                 e("botonPalabra").disabled = false;
+                 e("botonPalabra").value = "Busca anagramas";
+                 
+                 log( "Se han econtrado " + m.length + " coincidencias"  );
                  for( let i = 0 ; i < m.length ; i++ ){
                      log( "  " + m[i] );
                  }
@@ -38,13 +53,15 @@
          };
          
          function enviar(p){
-             log( "Envío palabra: " + p )
-             visibleFromScala.worker.postMessage(p);
+             log( "Envío palabra: " + p );
+             setTimeout( () => visibleFromScala.worker.postMessage(p), 1 );
          }
          
-         document.getElementById("button").onclick = function(){
-             let palabra = document.getElementById("palabra").value;
-             document.getElementById("root").innerHTML = "";
+         e("botonPalabra").onclick = function(){
+             e("botonPalabra").disabled = true;
+             e("botonPalabra").value = "Buscando...";
+             let palabra = e("palabra").value;
+             e("output").innerHTML = "";
              enviar(palabra);
          }
          
