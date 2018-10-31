@@ -9,51 +9,16 @@ import scala.concurrent.Await
 import scala.scalajs.js.annotation._
 import scala.scalajs.js.JSApp
 
+import org.scalajs.dom
+import dom.document
 
 
 @JSExportTopLevel("Main")
 object Main extends JSApp {
 
-  class RegexLineIterator( data: String ) extends scala.collection.Iterator[String]{
-
-    val lineRegExp = """(.*)(\r\n|\r|\n)""".r
-
-    val lines = lineRegExp.findAllMatchIn(data)
-
-
-    def hasNext: Boolean = lines.hasNext
-    def next(): String = lines.next.group(1)
-  }
-
-  class ManualLineIterator( data: String ) extends scala.collection.Iterator[String]{
-
-    def findNextEndOfLine(from:Int) =  data.indexWhere( _ == '\n', from )
-
-    private var ini : Int = 0
-    private var end : Int = findNextEndOfLine(0)
-
-    def hasNext: Boolean = end > ini
-    def next(): String = {
-      val ret = data.slice(ini,end)
-      ini = end+1
-      end = findNextEndOfLine(ini)
-      ret
-    }
-  }
-
-
-  def isBrowser = {
-    import org.scalajs.dom
-    import dom.document
-    import dom.window
-    import scala.util.Try
-
-    Try{
-      new dom.XMLHttpRequest()
-    }.isSuccess
-  }
-
-  def isNode = !isBrowser
+  def isBrowserPage = !scala.scalajs.js.isUndefined(document)
+  def isBrowserWorker = !scala.scalajs.js.isUndefined(scala.scalajs.js.Dynamic.global.importScripts)
+  def isNode = !isBrowserPage && !isBrowserWorker
 
 
   def fileContents( file: String, encoding: String = "latin1" )(callback: (String) => Unit ) = {
@@ -83,32 +48,15 @@ object Main extends JSApp {
     }
   }
 
-  def cargaCorpus( file: String )( callback: (Corpus.Corpus) => Unit ) = {
-    fileContents( file ){ data =>
-      println( s"File '$file' readed")
-      val li = new ManualLineIterator(data)
-      val corpus = Corpus.palabras(li)
-      callback(corpus)
-    }
-  }
-
   def cargaCorpusJSON( file: String )( callback: (Corpus.Corpus) => Unit ) = {
     import scala.scalajs.js
     fileContents( file, "utf8" ){ json =>
-      println( s"JSON File '$file' readed")
       val data = scala.scalajs.js.JSON.parse(json)
-      println( s"JSON File '$file' parsed")
       val jsarray = data.asInstanceOf[js.Array[js.Array[String]]]
       val array : Array[Array[String]] = jsarray.toArray.map( _.toArray )
-        println( s"JSON File '$file' converted to Array")
       val corpus = Corpus.palabras(array)
-      println( s"JSON File '$file' converted to corpus")
       callback(corpus)
     }
-  }
-
-  def ejecutaPrueba() = {
-    cargaCorpus( "./corpus-100000.txt")(PalabrasAnagramadas.resuelve(_))
   }
 
   def ejecutaPruebaJSON() = {
@@ -119,11 +67,27 @@ object Main extends JSApp {
   }
 
 
+  def setupUI(): Unit = {
+    import org.scalajs.jquery._
+    jQuery("#output").text("Desde jquery")
+  }
+
   @JSExport
   def main(){
+    println( s"isNode:$isNode")
+    println( s"isBrowserPage:$isBrowserPage")
+    println( s"isBrowserWorker:$isBrowserWorker")
+    println( scala.scalajs.js.isUndefined(WorkerGlobal.postMessage _ ) )
+
     if( isNode ){
       ejecutaPruebaJSON()
     }
+
+    if( isBrowserPage ){
+      import org.scalajs.jquery._
+      jQuery(() => setupUI())
+    }
+
     println( "Main ejecutado")
   }
 }

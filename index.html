@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>prueba-worker</title>
+        <title>Palabras anagramadas</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
@@ -13,6 +13,29 @@
 
         <div id="uifrase">
             <input id="frase" type="text" name="frase" value="" placeholder="Frase" />
+            <select id="selectFrase" type="text" name="selectFrase" value="" placeholder="Frase" >
+                <option  value="1">1 letra</option>
+                <option  value="2">2 letras</option>
+                <option  value="3">3 letras</option>
+                <option  value="4">4 letras</option>
+                <option  value="5">5 letras</option>
+                <option  value="6">6 letras</option>
+                <option  value="7">7 letras</option>
+                <option  value="8">8 letras</option>
+                <option  value="9">9 letras</option>
+                <option  value="10">10 letras</option>
+                <option  value="11">11 letras</option>
+                <option  value="12">12 letras</option>
+                <option  value="13">13 letras</option>
+                <option  value="14">14 letras</option>
+                <option  value="15">15 letras</option>
+                <option  value="16">16 letras</option>
+                <option  value="17">17 letras</option>
+                <option  value="18">18 letras</option>
+                <option  value="19">19 letras</option>
+                <option  value="10">20 letras</option>
+            </select>
+
             <input id="botonFrase" type="button" value="Busca anagramas en la frase"  disabled="true"/>
         </div>    
 
@@ -66,6 +89,21 @@
          }
          
         </script>
+
+        <script type="text/javascript">
+         // creo la variable exports para que no falle el modulo creado por scalajs
+         exports = {};
+         require = function(m){
+             console.log("Módulo no cargado: " + m);
+         }
+
+        </script>
+        
+        <!-- Include JavaScript dependencies, webjars -->
+        <script type="text/javascript" src="./palabras/js/target/scala-2.11/palabras-jsdeps.js"></script>
+
+        <!-- Include Scala.js compiled code, generated with fastOptJS|fullOptJS in sbt -->
+        <script type="text/javascript" src="./palabras/js/target/scala-2.11/palabras-fastopt.js"></script>
 
     </body>
 </html>

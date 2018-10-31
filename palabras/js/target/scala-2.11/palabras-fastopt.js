@@ -2363,6 +2363,116 @@ function $s_scm_ResizableArray$class__$$init$__scm_ResizableArray__V($$this) {
   $$this.size0$6 = 0
 }
 /** @constructor */
+function $c_Lorg_scalajs_dom_package$() {
+  $c_O.call(this);
+  this.ApplicationCache$1 = null;
+  this.Blob$1 = null;
+  this.BlobPropertyBag$1 = null;
+  this.ClipboardEventInit$1 = null;
+  this.DOMException$1 = null;
+  this.Event$1 = null;
+  this.EventException$1 = null;
+  this.EventSource$1 = null;
+  this.FileReader$1 = null;
+  this.FormData$1 = null;
+  this.KeyboardEvent$1 = null;
+  this.MediaError$1 = null;
+  this.MutationEvent$1 = null;
+  this.MutationObserverInit$1 = null;
+  this.Node$1 = null;
+  this.NodeFilter$1 = null;
+  this.PerformanceNavigation$1 = null;
+  this.PositionError$1 = null;
+  this.Range$1 = null;
+  this.TextEvent$1 = null;
+  this.TextTrack$1 = null;
+  this.URL$1 = null;
+  this.VisibilityState$1 = null;
+  this.WebSocket$1 = null;
+  this.WheelEvent$1 = null;
+  this.XMLHttpRequest$1 = null;
+  this.XPathResult$1 = null;
+  this.window$1 = null;
+  this.document$1 = null;
+  this.console$1 = null;
+  this.bitmap$0$1 = 0
+}
+$c_Lorg_scalajs_dom_package$.prototype = new $h_O();
+$c_Lorg_scalajs_dom_package$.prototype.constructor = $c_Lorg_scalajs_dom_package$;
+/** @constructor */
+function $h_Lorg_scalajs_dom_package$() {
+  /*<skip>*/
+}
+$h_Lorg_scalajs_dom_package$.prototype = $c_Lorg_scalajs_dom_package$.prototype;
+$c_Lorg_scalajs_dom_package$.prototype.init___ = (function() {
+  return this
+});
+$c_Lorg_scalajs_dom_package$.prototype.document__Lorg_scalajs_dom_raw_HTMLDocument = (function() {
+  return (((268435456 & this.bitmap$0$1) === 0) ? this.document$lzycompute__p1__Lorg_scalajs_dom_raw_HTMLDocument() : this.document$1)
+});
+$c_Lorg_scalajs_dom_package$.prototype.window__Lorg_scalajs_dom_raw_Window = (function() {
+  return (((134217728 & this.bitmap$0$1) === 0) ? this.window$lzycompute__p1__Lorg_scalajs_dom_raw_Window() : this.window$1)
+});
+$c_Lorg_scalajs_dom_package$.prototype.window$lzycompute__p1__Lorg_scalajs_dom_raw_Window = (function() {
+  if (((134217728 & this.bitmap$0$1) === 0)) {
+    this.window$1 = $g;
+    this.bitmap$0$1 = (134217728 | this.bitmap$0$1)
+  };
+  return this.window$1
+});
+$c_Lorg_scalajs_dom_package$.prototype.document$lzycompute__p1__Lorg_scalajs_dom_raw_HTMLDocument = (function() {
+  if (((268435456 & this.bitmap$0$1) === 0)) {
+    this.document$1 = this.window__Lorg_scalajs_dom_raw_Window().document;
+    this.bitmap$0$1 = (268435456 | this.bitmap$0$1)
+  };
+  return this.document$1
+});
+var $d_Lorg_scalajs_dom_package$ = new $TypeData().initClass({
+  Lorg_scalajs_dom_package$: 0
+}, false, "org.scalajs.dom.package$", {
+  Lorg_scalajs_dom_package$: 1,
+  O: 1
+});
+$c_Lorg_scalajs_dom_package$.prototype.$classData = $d_Lorg_scalajs_dom_package$;
+var $n_Lorg_scalajs_dom_package$ = (void 0);
+function $m_Lorg_scalajs_dom_package$() {
+  if ((!$n_Lorg_scalajs_dom_package$)) {
+    $n_Lorg_scalajs_dom_package$ = new $c_Lorg_scalajs_dom_package$().init___()
+  };
+  return $n_Lorg_scalajs_dom_package$
+}
+/** @constructor */
+function $c_Lorg_scalajs_jquery_package$() {
+  $c_O.call(this);
+  this.jQuery$1 = null
+}
+$c_Lorg_scalajs_jquery_package$.prototype = new $h_O();
+$c_Lorg_scalajs_jquery_package$.prototype.constructor = $c_Lorg_scalajs_jquery_package$;
+/** @constructor */
+function $h_Lorg_scalajs_jquery_package$() {
+  /*<skip>*/
+}
+$h_Lorg_scalajs_jquery_package$.prototype = $c_Lorg_scalajs_jquery_package$.prototype;
+$c_Lorg_scalajs_jquery_package$.prototype.init___ = (function() {
+  $n_Lorg_scalajs_jquery_package$ = this;
+  this.jQuery$1 = $g.jQuery;
+  return this
+});
+var $d_Lorg_scalajs_jquery_package$ = new $TypeData().initClass({
+  Lorg_scalajs_jquery_package$: 0
+}, false, "org.scalajs.jquery.package$", {
+  Lorg_scalajs_jquery_package$: 1,
+  O: 1
+});
+$c_Lorg_scalajs_jquery_package$.prototype.$classData = $d_Lorg_scalajs_jquery_package$;
+var $n_Lorg_scalajs_jquery_package$ = (void 0);
+function $m_Lorg_scalajs_jquery_package$() {
+  if ((!$n_Lorg_scalajs_jquery_package$)) {
+    $n_Lorg_scalajs_jquery_package$ = new $c_Lorg_scalajs_jquery_package$().init___()
+  };
+  return $n_Lorg_scalajs_jquery_package$
+}
+/** @constructor */
 function $c_Lrne_Corpus$() {
   $c_O.call(this);
   this.regex$1 = null
@@ -3156,17 +3266,6 @@ function $m_s_util_Either$() {
   return $n_s_util_Either$
 }
 /** @constructor */
-function $c_s_util_Try() {
-  $c_O.call(this)
-}
-$c_s_util_Try.prototype = new $h_O();
-$c_s_util_Try.prototype.constructor = $c_s_util_Try;
-/** @constructor */
-function $h_s_util_Try() {
-  /*<skip>*/
-}
-$h_s_util_Try.prototype = $c_s_util_Try.prototype;
-/** @constructor */
 function $c_s_util_control_Breaks() {
   $c_O.call(this);
   this.scala$util$control$Breaks$$breakException$1 = null
@@ -3189,52 +3288,6 @@ var $d_s_util_control_Breaks = new $TypeData().initClass({
   O: 1
 });
 $c_s_util_control_Breaks.prototype.$classData = $d_s_util_control_Breaks;
-function $is_s_util_control_ControlThrowable(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.s_util_control_ControlThrowable)))
-}
-function $as_s_util_control_ControlThrowable(obj) {
-  return (($is_s_util_control_ControlThrowable(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.util.control.ControlThrowable"))
-}
-function $isArrayOf_s_util_control_ControlThrowable(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.s_util_control_ControlThrowable)))
-}
-function $asArrayOf_s_util_control_ControlThrowable(obj, depth) {
-  return (($isArrayOf_s_util_control_ControlThrowable(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.util.control.ControlThrowable;", depth))
-}
-/** @constructor */
-function $c_s_util_control_NonFatal$() {
-  $c_O.call(this)
-}
-$c_s_util_control_NonFatal$.prototype = new $h_O();
-$c_s_util_control_NonFatal$.prototype.constructor = $c_s_util_control_NonFatal$;
-/** @constructor */
-function $h_s_util_control_NonFatal$() {
-  /*<skip>*/
-}
-$h_s_util_control_NonFatal$.prototype = $c_s_util_control_NonFatal$.prototype;
-$c_s_util_control_NonFatal$.prototype.init___ = (function() {
-  return this
-});
-$c_s_util_control_NonFatal$.prototype.apply__jl_Throwable__Z = (function(t) {
-  return (!($is_jl_VirtualMachineError(t) || ($is_jl_ThreadDeath(t) || ($is_jl_InterruptedException(t) || ($is_jl_LinkageError(t) || $is_s_util_control_ControlThrowable(t))))))
-});
-$c_s_util_control_NonFatal$.prototype.unapply__jl_Throwable__s_Option = (function(t) {
-  return (this.apply__jl_Throwable__Z(t) ? new $c_s_Some().init___O(t) : $m_s_None$())
-});
-var $d_s_util_control_NonFatal$ = new $TypeData().initClass({
-  s_util_control_NonFatal$: 0
-}, false, "scala.util.control.NonFatal$", {
-  s_util_control_NonFatal$: 1,
-  O: 1
-});
-$c_s_util_control_NonFatal$.prototype.$classData = $d_s_util_control_NonFatal$;
-var $n_s_util_control_NonFatal$ = (void 0);
-function $m_s_util_control_NonFatal$() {
-  if ((!$n_s_util_control_NonFatal$)) {
-    $n_s_util_control_NonFatal$ = new $c_s_util_control_NonFatal$().init___()
-  };
-  return $n_s_util_control_NonFatal$
-}
 /** @constructor */
 function $c_s_util_hashing_MurmurHash3() {
   $c_O.call(this)
@@ -4496,45 +4549,66 @@ function $h_Lrne_Main$() {
   /*<skip>*/
 }
 $h_Lrne_Main$.prototype = $c_Lrne_Main$.prototype;
+$c_Lrne_Main$.prototype.isBrowserWorker__Z = (function() {
+  var v = $g.importScripts;
+  return (!(v === (void 0)))
+});
+$c_Lrne_Main$.prototype.isBrowserPage__Z = (function() {
+  var v = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument();
+  return (!(v === (void 0)))
+});
 $c_Lrne_Main$.prototype.init___ = (function() {
   return this
 });
 $c_Lrne_Main$.prototype.cargaCorpusJSON__T__F1__V = (function(file, callback) {
-  this.fileContents__T__T__F1__V(file, "utf8", new $c_Lrne_Main$$anonfun$cargaCorpusJSON$1().init___T__F1(file, callback))
+  this.fileContents__T__T__F1__V(file, "utf8", new $c_Lrne_Main$$anonfun$cargaCorpusJSON$1().init___F1(callback))
 });
 $c_Lrne_Main$.prototype.isNode__Z = (function() {
-  return (!this.isBrowser__Z())
-});
-$c_Lrne_Main$.prototype.isBrowser__Z = (function() {
-  try {
-    var jsx$1 = new $c_s_util_Success().init___O(new $g.XMLHttpRequest())
-  } catch (e) {
-    var e$2 = $m_sjsr_package$().wrapJavaScriptException__O__jl_Throwable(e);
-    if ((e$2 !== null)) {
-      matchEnd8: {
-        var jsx$1;
-        var o11 = $m_s_util_control_NonFatal$().unapply__jl_Throwable__s_Option(e$2);
-        if ((!o11.isEmpty__Z())) {
-          var e$3 = $as_jl_Throwable(o11.get__O());
-          var jsx$1 = new $c_s_util_Failure().init___jl_Throwable(e$3);
-          break matchEnd8
-        };
-        throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(e$2)
-      }
-    } else {
-      var jsx$1;
-      throw e
-    }
-  };
-  return jsx$1.isSuccess__Z()
+  return ((!this.isBrowserPage__Z()) && (!this.isBrowserWorker__Z()))
 });
 $c_Lrne_Main$.prototype.main__V = (function() {
+  var array = ["isNode:", ""];
+  var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+  var array$1 = [this.isNode__Z()];
+  var x = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+  var this$6 = $m_s_Console$();
+  var this$7 = $as_Ljava_io_PrintStream(this$6.outVar$2.v$1);
+  this$7.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
+  var array$2 = ["isBrowserPage:", ""];
+  var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+  var array$3 = [this.isBrowserPage__Z()];
+  var x$1 = jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
+  var this$13 = $m_s_Console$();
+  var this$14 = $as_Ljava_io_PrintStream(this$13.outVar$2.v$1);
+  this$14.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
+  var array$4 = ["isBrowserWorker:", ""];
+  var jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
+  var array$5 = [this.isBrowserWorker__Z()];
+  var x$2 = jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5));
+  var this$20 = $m_s_Console$();
+  var this$21 = $as_Ljava_io_PrintStream(this$20.outVar$2.v$1);
+  this$21.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
+  var v = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(data$2) {
+    $g.postMessage(data$2)
+  }));
+  var x$3 = (v === (void 0));
+  var this$24 = $m_s_Console$();
+  var this$25 = $as_Ljava_io_PrintStream(this$24.outVar$2.v$1);
+  this$25.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$3 + "\n"));
   if (this.isNode__Z()) {
     this.ejecutaPruebaJSON__V()
   };
-  var this$2 = $m_s_Console$();
-  var this$3 = $as_Ljava_io_PrintStream(this$2.outVar$2.v$1);
-  this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Main ejecutado\n")
+  if (this.isBrowserPage__Z()) {
+    (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)((function() {
+      $m_Lrne_Main$().setupUI__V()
+    }))
+  };
+  var this$27 = $m_s_Console$();
+  var this$28 = $as_Ljava_io_PrintStream(this$27.outVar$2.v$1);
+  this$28.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Main ejecutado\n")
+});
+$c_Lrne_Main$.prototype.setupUI__V = (function() {
+  (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#output").text("Desde jquery")
 });
 $c_Lrne_Main$.prototype.$$js$exported$meth$main__O = (function() {
   this.main__V()
@@ -6903,30 +6977,6 @@ var $d_jl_Integer = new $TypeData().initClass({
 }, (void 0), (void 0), (function(x) {
   return $isInt(x)
 }));
-function $is_jl_InterruptedException(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_InterruptedException)))
-}
-function $as_jl_InterruptedException(obj) {
-  return (($is_jl_InterruptedException(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "java.lang.InterruptedException"))
-}
-function $isArrayOf_jl_InterruptedException(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_InterruptedException)))
-}
-function $asArrayOf_jl_InterruptedException(obj, depth) {
-  return (($isArrayOf_jl_InterruptedException(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.lang.InterruptedException;", depth))
-}
-function $is_jl_LinkageError(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_LinkageError)))
-}
-function $as_jl_LinkageError(obj) {
-  return (($is_jl_LinkageError(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "java.lang.LinkageError"))
-}
-function $isArrayOf_jl_LinkageError(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_LinkageError)))
-}
-function $asArrayOf_jl_LinkageError(obj, depth) {
-  return (($isArrayOf_jl_LinkageError(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.lang.LinkageError;", depth))
-}
 function $isArrayOf_jl_Long(obj, depth) {
   return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_Long)))
 }
@@ -7069,30 +7119,6 @@ var $d_jl_StringBuilder = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_jl_StringBuilder.prototype.$classData = $d_jl_StringBuilder;
-function $is_jl_ThreadDeath(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_ThreadDeath)))
-}
-function $as_jl_ThreadDeath(obj) {
-  return (($is_jl_ThreadDeath(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "java.lang.ThreadDeath"))
-}
-function $isArrayOf_jl_ThreadDeath(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_ThreadDeath)))
-}
-function $asArrayOf_jl_ThreadDeath(obj, depth) {
-  return (($isArrayOf_jl_ThreadDeath(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.lang.ThreadDeath;", depth))
-}
-function $is_jl_VirtualMachineError(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.jl_VirtualMachineError)))
-}
-function $as_jl_VirtualMachineError(obj) {
-  return (($is_jl_VirtualMachineError(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "java.lang.VirtualMachineError"))
-}
-function $isArrayOf_jl_VirtualMachineError(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.jl_VirtualMachineError)))
-}
-function $asArrayOf_jl_VirtualMachineError(obj, depth) {
-  return (($isArrayOf_jl_VirtualMachineError(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.lang.VirtualMachineError;", depth))
-}
 /** @constructor */
 function $c_s_Array$() {
   $c_s_FallbackArrayBuilding.call(this)
@@ -8206,8 +8232,7 @@ $c_Lrne_Corpus$Palabra.prototype.$classData = $d_Lrne_Corpus$Palabra;
 /** @constructor */
 function $c_Lrne_Main$$anonfun$cargaCorpusJSON$1() {
   $c_sr_AbstractFunction1.call(this);
-  this.file$2$2 = null;
-  this.callback$3$2 = null
+  this.callback$2$2 = null
 }
 $c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype = new $h_sr_AbstractFunction1();
 $c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype.constructor = $c_Lrne_Main$$anonfun$cargaCorpusJSON$1;
@@ -8220,34 +8245,20 @@ $c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype.apply__O__O = (function(v1) {
   this.apply__T__V($as_T(v1))
 });
 $c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype.apply__T__V = (function(json) {
-  var array = ["JSON File '", "' readed"];
-  var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-  var array$1 = [this.file$2$2];
-  var x = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
-  var this$6 = $m_s_Console$();
-  var this$7 = $as_Ljava_io_PrintStream(this$6.outVar$2.v$1);
-  this$7.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
   var data = $g.JSON.parse(json);
-  var array$2 = ["JSON File '", "' parsed"];
-  var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-  var array$3 = [this.file$2$2];
-  var x$1 = jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
-  var this$13 = $m_s_Console$();
-  var this$14 = $as_Ljava_io_PrintStream(this$13.outVar$2.v$1);
-  this$14.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
   var len = $uI(data.length);
   var result = $newArrayObject($d_sjs_js_Array.getArrayOf(), [len]);
   var len$1 = result.u.length;
   var i = 0;
   var j = 0;
-  var x$2 = $uI(data.length);
-  var x$3 = ((x$2 < len$1) ? x$2 : len$1);
+  var x = $uI(data.length);
+  var x$1 = ((x < len$1) ? x : len$1);
   var that = result.u.length;
-  var end = ((x$3 < that) ? x$3 : that);
+  var end = ((x$1 < that) ? x$1 : that);
   while ((i < end)) {
-    var jsx$3 = j;
+    var jsx$1 = j;
     var index = i;
-    result.set(jsx$3, data[index]);
+    result.set(jsx$1, data[index]);
     i = ((1 + i) | 0);
     j = ((1 + j) | 0)
   };
@@ -8263,41 +8274,26 @@ $c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype.apply__T__V = (function(json) 
     var len$4 = result$1.u.length;
     var i$2 = 0;
     var j$1 = 0;
-    var x$4 = $uI(arg1.length);
-    var x$5 = ((x$4 < len$4) ? x$4 : len$4);
+    var x$2 = $uI(arg1.length);
+    var x$3 = ((x$2 < len$4) ? x$2 : len$4);
     var that$1 = result$1.u.length;
-    var end$1 = ((x$5 < that$1) ? x$5 : that$1);
+    var end$1 = ((x$3 < that$1) ? x$3 : that$1);
     while ((i$2 < end$1)) {
-      var jsx$4 = j$1;
+      var jsx$2 = j$1;
       var index$2 = i$2;
-      result$1.set(jsx$4, arg1[index$2]);
+      result$1.set(jsx$2, arg1[index$2]);
       i$2 = ((1 + i$2) | 0);
       j$1 = ((1 + j$1) | 0)
     };
     elems$2.push(result$1);
     i$1 = ((1 + i$1) | 0)
   };
-  var array$4 = $makeNativeArrayWrapper($d_T.getArrayOf().getArrayOf(), elems$2);
-  var array$5 = ["JSON File '", "' converted to Array"];
-  var jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5));
-  var array$6 = [this.file$2$2];
-  var x$6 = jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
-  var this$50 = $m_s_Console$();
-  var this$51 = $as_Ljava_io_PrintStream(this$50.outVar$2.v$1);
-  this$51.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$6 + "\n"));
-  var corpus = $m_Lrne_Corpus$().palabras__AAT__sci_Map(array$4);
-  var array$7 = ["JSON File '", "' converted to corpus"];
-  var jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7));
-  var array$8 = [this.file$2$2];
-  var x$7 = jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-  var this$57 = $m_s_Console$();
-  var this$58 = $as_Ljava_io_PrintStream(this$57.outVar$2.v$1);
-  this$58.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$7 + "\n"));
-  this.callback$3$2.apply__O__O(corpus)
+  var array = $makeNativeArrayWrapper($d_T.getArrayOf().getArrayOf(), elems$2);
+  var corpus = $m_Lrne_Corpus$().palabras__AAT__sci_Map(array);
+  this.callback$2$2.apply__O__O(corpus)
 });
-$c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype.init___T__F1 = (function(file$2, callback$3) {
-  this.file$2$2 = file$2;
-  this.callback$3$2 = callback$3;
+$c_Lrne_Main$$anonfun$cargaCorpusJSON$1.prototype.init___F1 = (function(callback$2) {
+  this.callback$2$2 = callback$2;
   return this
 });
 var $d_Lrne_Main$$anonfun$cargaCorpusJSON$1 = new $TypeData().initClass({
@@ -10210,168 +10206,6 @@ var $d_s_StringContext$InvalidEscapeException = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_s_StringContext$InvalidEscapeException.prototype.$classData = $d_s_StringContext$InvalidEscapeException;
-/** @constructor */
-function $c_s_util_Failure() {
-  $c_s_util_Try.call(this);
-  this.exception$2 = null
-}
-$c_s_util_Failure.prototype = new $h_s_util_Try();
-$c_s_util_Failure.prototype.constructor = $c_s_util_Failure;
-/** @constructor */
-function $h_s_util_Failure() {
-  /*<skip>*/
-}
-$h_s_util_Failure.prototype = $c_s_util_Failure.prototype;
-$c_s_util_Failure.prototype.productPrefix__T = (function() {
-  return "Failure"
-});
-$c_s_util_Failure.prototype.productArity__I = (function() {
-  return 1
-});
-$c_s_util_Failure.prototype.isSuccess__Z = (function() {
-  return false
-});
-$c_s_util_Failure.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_s_util_Failure(x$1)) {
-    var Failure$1 = $as_s_util_Failure(x$1);
-    var x = this.exception$2;
-    var x$2 = Failure$1.exception$2;
-    return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
-  } else {
-    return false
-  }
-});
-$c_s_util_Failure.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.exception$2;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_s_util_Failure.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_s_util_Failure.prototype.init___jl_Throwable = (function(exception) {
-  this.exception$2 = exception;
-  return this
-});
-$c_s_util_Failure.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_s_util_Failure.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_s_util_Failure(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.s_util_Failure)))
-}
-function $as_s_util_Failure(obj) {
-  return (($is_s_util_Failure(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.util.Failure"))
-}
-function $isArrayOf_s_util_Failure(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.s_util_Failure)))
-}
-function $asArrayOf_s_util_Failure(obj, depth) {
-  return (($isArrayOf_s_util_Failure(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.util.Failure;", depth))
-}
-var $d_s_util_Failure = new $TypeData().initClass({
-  s_util_Failure: 0
-}, false, "scala.util.Failure", {
-  s_util_Failure: 1,
-  s_util_Try: 1,
-  O: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_s_util_Failure.prototype.$classData = $d_s_util_Failure;
-/** @constructor */
-function $c_s_util_Success() {
-  $c_s_util_Try.call(this);
-  this.value$2 = null
-}
-$c_s_util_Success.prototype = new $h_s_util_Try();
-$c_s_util_Success.prototype.constructor = $c_s_util_Success;
-/** @constructor */
-function $h_s_util_Success() {
-  /*<skip>*/
-}
-$h_s_util_Success.prototype = $c_s_util_Success.prototype;
-$c_s_util_Success.prototype.productPrefix__T = (function() {
-  return "Success"
-});
-$c_s_util_Success.prototype.productArity__I = (function() {
-  return 1
-});
-$c_s_util_Success.prototype.isSuccess__Z = (function() {
-  return true
-});
-$c_s_util_Success.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_s_util_Success(x$1)) {
-    var Success$1 = $as_s_util_Success(x$1);
-    return $m_sr_BoxesRunTime$().equals__O__O__Z(this.value$2, Success$1.value$2)
-  } else {
-    return false
-  }
-});
-$c_s_util_Success.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.value$2;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_s_util_Success.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_s_util_Success.prototype.init___O = (function(value) {
-  this.value$2 = value;
-  return this
-});
-$c_s_util_Success.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_s_util_Success.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_s_util_Success(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.s_util_Success)))
-}
-function $as_s_util_Success(obj) {
-  return (($is_s_util_Success(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.util.Success"))
-}
-function $isArrayOf_s_util_Success(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.s_util_Success)))
-}
-function $asArrayOf_s_util_Success(obj, depth) {
-  return (($isArrayOf_s_util_Success(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.util.Success;", depth))
-}
-var $d_s_util_Success = new $TypeData().initClass({
-  s_util_Success: 0
-}, false, "scala.util.Success", {
-  s_util_Success: 1,
-  s_util_Try: 1,
-  O: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_s_util_Success.prototype.$classData = $d_s_util_Success;
 /** @constructor */
 function $c_scg_SeqFactory() {
   $c_scg_GenSeqFactory.call(this)
