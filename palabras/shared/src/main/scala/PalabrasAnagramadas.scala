@@ -54,7 +54,7 @@ object Corpus{
       regex.findAllMatchIn(line).next.subgroups(1)
     }
 
-    val limite = 300000
+    val limite = 3000000
     val todas = iterator.take(limite).filter(_!="").map(p => Palabra(p)).toArray
     println( s"todas:${todas.size}")
     val ret = todas.groupBy(p => p.size)
@@ -333,12 +333,25 @@ object PalabrasAnagramadas {
     pistas.foreach( resuelvePista );
   }
 
+  def dia2018_11_03()(implicit palabras: Corpus){
+    println( "************ 3 noviembre 2018");
+
+    val pistas = Seq(
+      "Puede servir de ejemplo para medio mundo" -> Palabra("esa es firme"),
+      "Confusa plática que no siempre resulta suficientemente interesate" -> 7 ,
+      "Una terrible aversión la sacó de quicio" -> 8,
+      "Aun sin pista" -> Array("semiesfera","capital","nerviosa")   
+    );
+
+    pistas.foreach( resuelvePista );
+  }
+
   def resuelve(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
     cronometro("Solución"){
-      dia2018_10_06()
+      dia2018_11_03()
     }
   }
 }

@@ -8,6 +8,8 @@ import scala.concurrent.Await
 
 import scala.scalajs.js.annotation._
 import scala.scalajs.js.JSApp
+import scala.scalajs.js
+
 
 import org.scalajs.dom
 import dom.document
@@ -16,14 +18,15 @@ import dom.document
 @JSExportTopLevel("Main")
 object Main extends JSApp {
 
-  def isBrowserPage = !scala.scalajs.js.isUndefined(document)
-  def isBrowserWorker = !scala.scalajs.js.isUndefined(scala.scalajs.js.Dynamic.global.importScripts)
+  def isBrowserPage = !js.isUndefined(document)
+  def isBrowserWorker = !js.isUndefined(js.Dynamic.global.importScripts)
   def isNode = !isBrowserPage && !isBrowserWorker
 
 
   def fileContents( file: String, encoding: String = "latin1" )(callback: (String) => Unit ) = {
 
     if( isNode ) {
+      /*
       import io.scalajs.nodejs.fs.Fs
       import io.scalajs.nodejs.fs.FileInputOptions
       import io.scalajs.nodejs.FileIOError
@@ -31,6 +34,8 @@ object Main extends JSApp {
       Fs.readFile(file, encoding, (err:FileIOError,data:String) => {
         callback(data)
       })
+       */
+      throw new Error("Para node, ModuleKind.CommonJSModule")
     }
 
     else{
@@ -72,23 +77,39 @@ object Main extends JSApp {
     jQuery("#output").text("Desde jquery")
   }
 
+  def lastLoadedScript() : String = {
+    println( "Hay que implementar lastLoadedScript")
+    "./palabras/js/target/scala-2.11/palabras-fastopt.js"
+  }
+
   @JSExport
   def main(){
-    println( s"isNode:$isNode")
-    println( s"isBrowserPage:$isBrowserPage")
-    println( s"isBrowserWorker:$isBrowserWorker")
-    println( scala.scalajs.js.isUndefined(WorkerGlobal.postMessage _ ) )
-
+ 
     if( isNode ){
       ejecutaPruebaJSON()
     }
 
     if( isBrowserPage ){
+      println( "Desde la página" )
+
       import org.scalajs.jquery._
       jQuery(() => setupUI())
+      val worker = new org.scalajs.dom.raw.Worker(lastLoadedScript)
+      
+      worker.onmessage = (m : org.scalajs.dom.raw.MessageEvent) =>  {
+        println( s"Mensaje recibido en html")
+        println( s"  $m" )
+      }
+
+      val data = new LoadCorpus("./corpus-100000.txt")
+      js.Dynamic.global.console.log(data.asInstanceOf[js.Any])
+      worker.postMessage( data.asInstanceOf[js.Any] )
     }
 
-    println( "Main ejecutado")
+    if( isBrowserWorker ){
+      println( "Desde el worker" )
+      WorkerMain.main()
+    }
   }
 }
 

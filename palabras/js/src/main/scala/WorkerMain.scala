@@ -31,20 +31,29 @@ object WorkerMain {
 
   def onMessage(msg: dom.MessageEvent) = {
     println( "WorkkerMain.onMessage:" + msg.data )
-    val s = msg.data.asInstanceOf[String]
 
-    val coincidencias = PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra(s) );
+    msg.data match{
+      /*
+      case LoadCorpus(file) =>
+        println( s"  worker: carga el corpus: $file")
 
-    val ret = js.Array[String]()
+      case SearchAnagram(s) =>
+        println( s"  worker: busca anagrama: $s" )
 
-    for( i <- 0 until coincidencias.size ){
-      val p = coincidencias(i)
-      ret += p.original
+        val coincidencias = PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra(s) );
+
+        val ret = js.Array[String]()
+
+        for( i <- 0 until coincidencias.size ){
+          val p = coincidencias(i)
+          ret += p.original
+        }
+        WorkerGlobal.postMessage( ret )
+       */
+      case data =>
+        println( s"  worker: me llega algo que no sé lo que es: $data" )
+        js.Dynamic.global.console.log(data.asInstanceOf[js.Any])
+
     }
-
-
-    WorkerGlobal.postMessage( ret )
-
-
   }
 }
