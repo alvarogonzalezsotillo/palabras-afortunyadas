@@ -19,12 +19,14 @@ object Message{
     if( js.isUndefined(value) ) None else Some(value.asInstanceOf[T])
   }
 
-  def unapply( o: Any ) : Option[String] = getJSProperty[String](o)("messageType")
+  def getJSStr(o: Any) = getJSProperty[String](o) _
+
+  def unapply( o: Any ) : Option[String] = getJSStr(o)("messageType")
 
   object LoadCorpus{
     def apply( file: String ) = js.Dynamic.literal( "messageType" -> "LoadCorpus", "file" -> file )
     def unapply( o: Any ) : Option[String] = o match{
-      case Message("LoadCorpus") => getJSProperty[String](o)("file")
+      case Message("LoadCorpus") => getJSStr(o)("file")
       case _ => None
     }
   }
@@ -32,7 +34,7 @@ object Message{
   object CorpusLoaded{
     def apply( file: String ) = js.Dynamic.literal( "messageType" -> "CorpusLoaded", "file" -> file )
     def unapply( o: Any ) : Option[String] = o match{
-      case Message("CorpusLoaded") => getJSProperty[String](o)("file")
+      case Message("CorpusLoaded") => getJSStr(o)("file")
       case _ => None
     }
   }
@@ -40,7 +42,24 @@ object Message{
   object SearchAnagram{
     def apply( anagram: String ) = js.Dynamic.literal( "messageType" -> "SearchAnagram", "anagram" -> anagram )
     def unapply( o: Any ) : Option[String] = o match{
-      case Message("SearchAnagram") => getJSProperty[String](o)("anagram")
+      case Message("SearchAnagram") => getJSStr(o)("anagram")
+      case _ => None
+    }
+  }
+
+  object AnagramFound{
+    def apply( found: String, anagram: String ) = js.Dynamic.literal( "messageType" -> "AnagramFound", "found" -> found, "anagram" -> anagram )
+    def unapply( o: Any ) : Option[(String,String)] = o match{
+      case Message("AnagramFound") =>
+        for( found <- getJSStr(o)("found"); anagram <- getJSStr(o)("anagram") ) yield (found,anagram)
+      case _ => None
+    }
+  }
+
+  object NoMoreAnagrams{
+    def apply(anagram:String) = js.Dynamic.literal( "messageType" -> "NoMoreAnagrams", "anagram" -> anagram )
+    def unapply( o: Any ) : Option[String] = o match{
+      case Message("NoMoreAnagrams") => getJSStr(o)("anagram")
       case _ => None
     }
   }

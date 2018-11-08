@@ -43,13 +43,12 @@ object WorkerMain {
 
         val coincidencias = PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra(s) );
 
-        val ret = js.Array[String]()
-
-        for( i <- 0 until coincidencias.size ){
-          val p = coincidencias(i)
-          ret += p.original
+        for( c <- coincidencias ){
+          WorkerGlobal.postMessage( AnagramFound(c.original,s) )
         }
-        WorkerGlobal.postMessage( ret )
+
+        WorkerGlobal.postMessage( NoMoreAnagrams(s) )
+
 
       case data =>
         println( s"  worker: me llega algo que no sé lo que es: $data" )

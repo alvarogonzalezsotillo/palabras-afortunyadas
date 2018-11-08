@@ -84,8 +84,11 @@ object Main extends JSApp {
 
     jQuery("#output").text("Desde jquery")
     jQuery("#botonPalabra").click{ event : js.Any =>
+      jQuery("#botonPalabra").prop("disabled", true)
+      jQuery("#botonPalabra").value("Buscando")
       val palabra = jQuery("#palabra").value().toString
       println( s"Voy a enviar SearchAnagram($palabra)")
+      jQuery("#output").text("")
       worker.postMessage( SearchAnagram(palabra) )
     }
   }
@@ -119,6 +122,12 @@ object Main extends JSApp {
         js.Dynamic.global.console.log(m.data.asInstanceOf[js.Any])
         m.data match{
           case CorpusLoaded(_) => jQuery("#botonPalabra").prop("disabled",false)
+          case AnagramFound(found,_) => jQuery("#output").append( jQuery(s"<p>$found</p>" ) )
+          case NoMoreAnagrams(s) =>
+            jQuery("#botonPalabra").prop("disabled", false)
+            jQuery("#botonPalabra").value("Busca anagramas")
+            jQuery("#output").append( jQuery(s"<p>No se encuentran más anagramas para $s</p>" ) )
+
           case data =>
             println( s"No entiendo el mensaje en html:$data")
             js.Dynamic.global.console.log(data.asInstanceOf[js.Any])

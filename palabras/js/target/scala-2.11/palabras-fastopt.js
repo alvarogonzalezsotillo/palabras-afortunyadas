@@ -2602,6 +2602,17 @@ $c_Lrne_Message$.prototype.getJSProperty__O__T__s_Option = (function(o, property
   var value = o[property];
   return ((value === (void 0)) ? $m_s_None$() : new $c_s_Some().init___O(value))
 });
+$c_Lrne_Message$.prototype.getJSStr__O__F1 = (function(o) {
+  return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(o$2) {
+    return (function(property$2) {
+      var property = $as_T(property$2);
+      return $m_Lrne_Message$().getJSProperty__O__T__s_Option(o$2, property)
+    })
+  })(o))
+});
+$c_Lrne_Message$.prototype.unapply__O__s_Option = (function(o) {
+  return $as_s_Option(this.getJSStr__O__F1(o).apply__O__O("messageType"))
+});
 var $d_Lrne_Message$ = new $TypeData().initClass({
   Lrne_Message$: 0
 }, false, "rne.Message$", {
@@ -2615,6 +2626,65 @@ function $m_Lrne_Message$() {
     $n_Lrne_Message$ = new $c_Lrne_Message$().init___()
   };
   return $n_Lrne_Message$
+}
+/** @constructor */
+function $c_Lrne_Message$AnagramFound$() {
+  $c_O.call(this)
+}
+$c_Lrne_Message$AnagramFound$.prototype = new $h_O();
+$c_Lrne_Message$AnagramFound$.prototype.constructor = $c_Lrne_Message$AnagramFound$;
+/** @constructor */
+function $h_Lrne_Message$AnagramFound$() {
+  /*<skip>*/
+}
+$h_Lrne_Message$AnagramFound$.prototype = $c_Lrne_Message$AnagramFound$.prototype;
+$c_Lrne_Message$AnagramFound$.prototype.init___ = (function() {
+  return this
+});
+$c_Lrne_Message$AnagramFound$.prototype.apply__T__T__sjs_js_Object = (function(found, anagram) {
+  return {
+    "messageType": "AnagramFound",
+    "found": found,
+    "anagram": anagram
+  }
+});
+$c_Lrne_Message$AnagramFound$.prototype.unapply__O__s_Option = (function(o) {
+  var o9 = $m_Lrne_Message$().unapply__O__s_Option(o);
+  if ((!o9.isEmpty__Z())) {
+    var p3 = $as_T(o9.get__O());
+    if ((p3 === "AnagramFound")) {
+      var this$1 = $as_s_Option($m_Lrne_Message$().getJSStr__O__F1(o).apply__O__O("found"));
+      if (this$1.isEmpty__Z()) {
+        return $m_s_None$()
+      } else {
+        var v1 = this$1.get__O();
+        var found = $as_T(v1);
+        var this$2 = $as_s_Option($m_Lrne_Message$().getJSStr__O__F1(o).apply__O__O("anagram"));
+        if (this$2.isEmpty__Z()) {
+          return $m_s_None$()
+        } else {
+          var arg1 = this$2.get__O();
+          var anagram = $as_T(arg1);
+          return new $c_s_Some().init___O(new $c_T2().init___O__O(found, anagram))
+        }
+      }
+    }
+  };
+  return $m_s_None$()
+});
+var $d_Lrne_Message$AnagramFound$ = new $TypeData().initClass({
+  Lrne_Message$AnagramFound$: 0
+}, false, "rne.Message$AnagramFound$", {
+  Lrne_Message$AnagramFound$: 1,
+  O: 1
+});
+$c_Lrne_Message$AnagramFound$.prototype.$classData = $d_Lrne_Message$AnagramFound$;
+var $n_Lrne_Message$AnagramFound$ = (void 0);
+function $m_Lrne_Message$AnagramFound$() {
+  if ((!$n_Lrne_Message$AnagramFound$)) {
+    $n_Lrne_Message$AnagramFound$ = new $c_Lrne_Message$AnagramFound$().init___()
+  };
+  return $n_Lrne_Message$AnagramFound$
 }
 /** @constructor */
 function $c_Lrne_Message$CorpusLoaded$() {
@@ -2631,12 +2701,11 @@ $c_Lrne_Message$CorpusLoaded$.prototype.init___ = (function() {
   return this
 });
 $c_Lrne_Message$CorpusLoaded$.prototype.unapply__O__s_Option = (function(o) {
-  var this$1 = $m_Lrne_Message$();
-  var o9 = this$1.getJSProperty__O__T__s_Option(o, "messageType");
+  var o9 = $m_Lrne_Message$().unapply__O__s_Option(o);
   if ((!o9.isEmpty__Z())) {
     var p3 = $as_T(o9.get__O());
     if ((p3 === "CorpusLoaded")) {
-      return $m_Lrne_Message$().getJSProperty__O__T__s_Option(o, "file")
+      return $as_s_Option($m_Lrne_Message$().getJSStr__O__F1(o).apply__O__O("file"))
     }
   };
   return $m_s_None$()
@@ -2676,12 +2745,11 @@ $c_Lrne_Message$LoadCorpus$.prototype.init___ = (function() {
   return this
 });
 $c_Lrne_Message$LoadCorpus$.prototype.unapply__O__s_Option = (function(o) {
-  var this$1 = $m_Lrne_Message$();
-  var o9 = this$1.getJSProperty__O__T__s_Option(o, "messageType");
+  var o9 = $m_Lrne_Message$().unapply__O__s_Option(o);
   if ((!o9.isEmpty__Z())) {
     var p3 = $as_T(o9.get__O());
     if ((p3 === "LoadCorpus")) {
-      return $m_Lrne_Message$().getJSProperty__O__T__s_Option(o, "file")
+      return $as_s_Option($m_Lrne_Message$().getJSStr__O__F1(o).apply__O__O("file"))
     }
   };
   return $m_s_None$()
@@ -2707,6 +2775,50 @@ function $m_Lrne_Message$LoadCorpus$() {
   return $n_Lrne_Message$LoadCorpus$
 }
 /** @constructor */
+function $c_Lrne_Message$NoMoreAnagrams$() {
+  $c_O.call(this)
+}
+$c_Lrne_Message$NoMoreAnagrams$.prototype = new $h_O();
+$c_Lrne_Message$NoMoreAnagrams$.prototype.constructor = $c_Lrne_Message$NoMoreAnagrams$;
+/** @constructor */
+function $h_Lrne_Message$NoMoreAnagrams$() {
+  /*<skip>*/
+}
+$h_Lrne_Message$NoMoreAnagrams$.prototype = $c_Lrne_Message$NoMoreAnagrams$.prototype;
+$c_Lrne_Message$NoMoreAnagrams$.prototype.init___ = (function() {
+  return this
+});
+$c_Lrne_Message$NoMoreAnagrams$.prototype.unapply__O__s_Option = (function(o) {
+  var o9 = $m_Lrne_Message$().unapply__O__s_Option(o);
+  if ((!o9.isEmpty__Z())) {
+    var p3 = $as_T(o9.get__O());
+    if ((p3 === "NoMoreAnagrams")) {
+      return $as_s_Option($m_Lrne_Message$().getJSStr__O__F1(o).apply__O__O("anagram"))
+    }
+  };
+  return $m_s_None$()
+});
+$c_Lrne_Message$NoMoreAnagrams$.prototype.apply__T__sjs_js_Object = (function(anagram) {
+  return {
+    "messageType": "NoMoreAnagrams",
+    "anagram": anagram
+  }
+});
+var $d_Lrne_Message$NoMoreAnagrams$ = new $TypeData().initClass({
+  Lrne_Message$NoMoreAnagrams$: 0
+}, false, "rne.Message$NoMoreAnagrams$", {
+  Lrne_Message$NoMoreAnagrams$: 1,
+  O: 1
+});
+$c_Lrne_Message$NoMoreAnagrams$.prototype.$classData = $d_Lrne_Message$NoMoreAnagrams$;
+var $n_Lrne_Message$NoMoreAnagrams$ = (void 0);
+function $m_Lrne_Message$NoMoreAnagrams$() {
+  if ((!$n_Lrne_Message$NoMoreAnagrams$)) {
+    $n_Lrne_Message$NoMoreAnagrams$ = new $c_Lrne_Message$NoMoreAnagrams$().init___()
+  };
+  return $n_Lrne_Message$NoMoreAnagrams$
+}
+/** @constructor */
 function $c_Lrne_Message$SearchAnagram$() {
   $c_O.call(this)
 }
@@ -2721,12 +2833,11 @@ $c_Lrne_Message$SearchAnagram$.prototype.init___ = (function() {
   return this
 });
 $c_Lrne_Message$SearchAnagram$.prototype.unapply__O__s_Option = (function(o) {
-  var this$1 = $m_Lrne_Message$();
-  var o9 = this$1.getJSProperty__O__T__s_Option(o, "messageType");
+  var o9 = $m_Lrne_Message$().unapply__O__s_Option(o);
   if ((!o9.isEmpty__Z())) {
     var p3 = $as_T(o9.get__O());
     if ((p3 === "SearchAnagram")) {
-      return $m_Lrne_Message$().getJSProperty__O__T__s_Option(o, "anagram")
+      return $as_s_Option($m_Lrne_Message$().getJSStr__O__F1(o).apply__O__O("anagram"))
     }
   };
   return $m_s_None$()
@@ -2775,11 +2886,11 @@ $c_Lrne_PalabrasAnagramadas$.prototype.buscaCoincidenciaExacta__Lrne_Corpus$Pala
     var candidatas = $asArrayOf_Lrne_Corpus$Palabra(x2.x$2, 1);
     var this$6 = new $c_scm_ArrayOps$ofRef().init___AO(candidatas);
     var this$7 = new $c_scm_IndexedSeqLike$$anon$1().init___scm_IndexedSeqLike(this$6);
-    var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(buscado$2) {
+    var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(buscado$1) {
       return (function(x$6$2) {
         var x$6 = $as_Lrne_Corpus$Palabra(x$6$2);
         var x$1 = x$6.histograma__sci_Map();
-        var x$2 = buscado$2.histograma__sci_Map();
+        var x$2 = buscado$1.histograma__sci_Map();
         return ((x$1 === null) ? (x$2 === null) : $s_sc_GenMapLike$class__equals__sc_GenMapLike__O__Z(x$1, x$2))
       })
     })(buscado));
@@ -2858,33 +2969,22 @@ $c_Lrne_WorkerMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__O = 
     var this$17 = $as_Ljava_io_PrintStream(this$16.outVar$2.v$1);
     this$17.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
     var coincidencias = $m_Lrne_PalabrasAnagramadas$().buscaCoincidenciaExacta__Lrne_Corpus$Palabra__sci_Map__sc_Seq(new $c_Lrne_Corpus$Palabra().init___T(s), this.corpus$1);
-    var ret = [];
-    var end = coincidencias.size__I();
-    var isEmpty$4 = (end <= 0);
-    var lastElement$4 = (isEmpty$4 ? (-1) : (((-1) + end) | 0));
-    if ((!isEmpty$4)) {
-      var i = 0;
-      while (true) {
-        var arg1 = i;
-        var p = $as_Lrne_Corpus$Palabra(coincidencias.apply__I__O(arg1));
-        var elem = p.original$1;
-        ret.push(elem);
-        if ((i === lastElement$4)) {
-          break
-        };
-        i = ((1 + i) | 0)
-      }
-    };
-    $g.postMessage(ret);
+    coincidencias.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(s$1) {
+      return (function(c$2$1) {
+        var c$1 = $as_Lrne_Corpus$Palabra(c$2$1);
+        $g.postMessage($m_Lrne_Message$AnagramFound$().apply__T__T__sjs_js_Object(c$1.original$1, s$1))
+      })
+    })(s)));
+    $g.postMessage($m_Lrne_Message$NoMoreAnagrams$().apply__T__sjs_js_Object(s));
     return (void 0)
   };
   var array$4 = ["  worker: me llega algo que no s\u00e9 lo que es: ", ""];
   var jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
   var array$5 = [x1];
   var x$3 = jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5));
-  var this$27 = $m_s_Console$();
-  var this$28 = $as_Ljava_io_PrintStream(this$27.outVar$2.v$1);
-  this$28.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$3 + "\n"));
+  var this$23 = $m_s_Console$();
+  var this$24 = $as_Ljava_io_PrintStream(this$23.outVar$2.v$1);
+  this$24.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$3 + "\n"));
   return $g.console.log(x1)
 });
 $c_Lrne_WorkerMain$.prototype.main__V = (function() {
@@ -4838,31 +4938,55 @@ $c_Lrne_Main$.prototype.main__V = (function() {
       this$8.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
       $g.console.log(m$2.data);
       var x1 = m$2.data;
-      var o8 = $m_Lrne_Message$CorpusLoaded$().unapply__O__s_Option(x1);
-      if ((!o8.isEmpty__Z())) {
+      var o11 = $m_Lrne_Message$CorpusLoaded$().unapply__O__s_Option(x1);
+      if ((!o11.isEmpty__Z())) {
         return (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#botonPalabra").prop("disabled", false)
       };
-      var array$1 = ["No entiendo el mensaje en html:", ""];
-      var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
-      var array$2 = [x1];
-      var x$1 = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-      var this$17 = $m_s_Console$();
-      var this$18 = $as_Ljava_io_PrintStream(this$17.outVar$2.v$1);
-      this$18.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
+      var o13 = $m_Lrne_Message$AnagramFound$().unapply__O__s_Option(x1);
+      if ((!o13.isEmpty__Z())) {
+        var found = $as_T($as_T2(o13.get__O()).$$und1__O());
+        var jsx$4 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#output");
+        var jsx$3 = $m_Lorg_scalajs_jquery_package$().jQuery$1;
+        var array$1 = ["<p>", "</p>"];
+        var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+        var array$2 = [found];
+        var jsx$1 = jsx$3(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)));
+        return jsx$4.append(jsx$1)
+      };
+      var o15 = $m_Lrne_Message$NoMoreAnagrams$().unapply__O__s_Option(x1);
+      if ((!o15.isEmpty__Z())) {
+        var s = $as_T(o15.get__O());
+        (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#botonPalabra").prop("disabled", false);
+        (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#botonPalabra").val("Busca anagramas");
+        var jsx$8 = (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#output");
+        var jsx$7 = $m_Lorg_scalajs_jquery_package$().jQuery$1;
+        var array$3 = ["<p>No se encuentran m\u00e1s anagramas para ", "</p>"];
+        var jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
+        var array$4 = [s];
+        var jsx$5 = jsx$7(jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4)));
+        return jsx$8.append(jsx$5)
+      };
+      var array$5 = ["No entiendo el mensaje en html:", ""];
+      var jsx$9 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5));
+      var array$6 = [x1];
+      var x$1 = jsx$9.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
+      var this$26 = $m_s_Console$();
+      var this$27 = $as_Ljava_io_PrintStream(this$26.outVar$2.v$1);
+      this$27.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
       return $g.console.log(x1)
     });
     var data = $m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json");
     var x$2 = ("Envio desde html: " + data);
-    var this$22 = $m_s_Console$();
-    var this$23 = $as_Ljava_io_PrintStream(this$22.outVar$2.v$1);
-    this$23.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
+    var this$31 = $m_s_Console$();
+    var this$32 = $as_Ljava_io_PrintStream(this$31.outVar$2.v$1);
+    this$32.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
     var qual$2 = this.worker$1;
     qual$2.postMessage(data)
   };
   if (this.isBrowserWorker__Z()) {
-    var this$25 = $m_s_Console$();
-    var this$26 = $as_Ljava_io_PrintStream(this$25.outVar$2.v$1);
-    this$26.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Desde el worker\n");
+    var this$34 = $m_s_Console$();
+    var this$35 = $as_Ljava_io_PrintStream(this$34.outVar$2.v$1);
+    this$35.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Desde el worker\n");
     $m_Lrne_WorkerMain$().main__V()
   }
 });
@@ -4875,14 +4999,17 @@ $c_Lrne_Main$.prototype.lastLoadedScript__T = (function() {
 $c_Lrne_Main$.prototype.setupUI__V = (function() {
   (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#output").text("Desde jquery");
   (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#botonPalabra").click((function(event$2) {
+    (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#botonPalabra").prop("disabled", true);
+    (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#botonPalabra").val("Buscando");
     var palabra = $objectToString((0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#palabra").val());
     var array = ["Voy a enviar SearchAnagram(", ")"];
     var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     var array$1 = [palabra];
     var x = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
-    var this$6 = $m_s_Console$();
-    var this$7 = $as_Ljava_io_PrintStream(this$6.outVar$2.v$1);
-    this$7.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
+    var this$7 = $m_s_Console$();
+    var this$8 = $as_Ljava_io_PrintStream(this$7.outVar$2.v$1);
+    this$8.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
+    (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)("#output").text("");
     var qual$1 = $m_Lrne_Main$().worker$1;
     var x$2 = $m_Lrne_Message$SearchAnagram$().apply__T__sjs_js_Object(palabra);
     qual$1.postMessage(x$2)
@@ -8868,6 +8995,18 @@ $h_s_Option.prototype = $c_s_Option.prototype;
 $c_s_Option.prototype.isDefined__Z = (function() {
   return (!this.isEmpty__Z())
 });
+function $is_s_Option(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.s_Option)))
+}
+function $as_s_Option(obj) {
+  return (($is_s_Option(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.Option"))
+}
+function $isArrayOf_s_Option(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.s_Option)))
+}
+function $asArrayOf_s_Option(obj, depth) {
+  return (($isArrayOf_s_Option(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.Option;", depth))
+}
 /** @constructor */
 function $c_s_Predef$$anon$1() {
   $c_s_Predef$$less$colon$less.call(this)
@@ -15367,9 +15506,6 @@ $h_sci_List.prototype = $c_sci_List.prototype;
 $c_sci_List.prototype.seq__sc_TraversableOnce = (function() {
   return this
 });
-$c_sci_List.prototype.apply__I__O = (function(n) {
-  return $s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this, n)
-});
 $c_sci_List.prototype.lengthCompare__I__I = (function(len) {
   return $s_sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I(this, len)
 });
@@ -15713,9 +15849,6 @@ $c_sci_Stream.prototype.reverse__sci_Stream = (function() {
     these = $as_sci_Stream(these.tail__O())
   };
   return $as_sci_Stream(result.elem$1)
-});
-$c_sci_Stream.prototype.apply__I__O = (function(n) {
-  return $s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this, n)
 });
 $c_sci_Stream.prototype.lengthCompare__I__I = (function(len) {
   return $s_sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I(this, len)
