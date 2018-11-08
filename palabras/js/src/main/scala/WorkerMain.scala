@@ -16,6 +16,7 @@ object WorkerGlobal extends js.GlobalScope {
 object WorkerMain {
 
 
+  import Message._
   
   implicit var corpus : Corpus.Corpus = null
 
@@ -23,19 +24,19 @@ object WorkerMain {
   def main(): Unit = {
     println( "WorkerMain.main")
     WorkerGlobal.addEventListener("message", onMessage _ )
-    Main.cargaCorpusJSON("./corpus.json"){ c =>
-      corpus = c
-      WorkerGlobal.postMessage(s"Corpus cargado")
-    }
   }
 
   def onMessage(msg: dom.MessageEvent) = {
     println( "WorkkerMain.onMessage:" + msg.data )
 
     msg.data match{
-      /*
       case LoadCorpus(file) =>
         println( s"  worker: carga el corpus: $file")
+        Main.cargaCorpusJSON(file){ c =>
+          corpus = c
+          WorkerGlobal.postMessage( CorpusLoaded(file) )
+        }
+
 
       case SearchAnagram(s) =>
         println( s"  worker: busca anagrama: $s" )
@@ -49,7 +50,7 @@ object WorkerMain {
           ret += p.original
         }
         WorkerGlobal.postMessage( ret )
-       */
+
       case data =>
         println( s"  worker: me llega algo que no sé lo que es: $data" )
         js.Dynamic.global.console.log(data.asInstanceOf[js.Any])

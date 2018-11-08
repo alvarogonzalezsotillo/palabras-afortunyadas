@@ -34,8 +34,10 @@ object Main extends JSApp {
       Fs.readFile(file, encoding, (err:FileIOError,data:String) => {
         callback(data)
       })
-       */
+      
       throw new Error("Para node, ModuleKind.CommonJSModule")
+       */
+      false
     }
 
     else{
@@ -55,11 +57,15 @@ object Main extends JSApp {
 
   def cargaCorpusJSON( file: String )( callback: (Corpus.Corpus) => Unit ) = {
     import scala.scalajs.js
+
+    println( s"Voy a cargar el corpus:$file")
+
     fileContents( file, "utf8" ){ json =>
       val data = scala.scalajs.js.JSON.parse(json)
       val jsarray = data.asInstanceOf[js.Array[js.Array[String]]]
       val array : Array[Array[String]] = jsarray.toArray.map( _.toArray )
       val corpus = Corpus.palabras(array)
+      println( s"Cargado el corpus: $corpus")
       callback(corpus)
     }
   }
@@ -74,7 +80,14 @@ object Main extends JSApp {
 
   def setupUI(): Unit = {
     import org.scalajs.jquery._
+    import Message._
+
     jQuery("#output").text("Desde jquery")
+    jQuery("#botonPalabra").click{ event : js.Any =>
+      val palabra = jQuery("#palabra").value().toString
+      println( s"Voy a enviar SearchAnagram($palabra)")
+      worker.postMessage( SearchAnagram(palabra) )
+    }
   }
 
   def lastLoadedScript() : String = {
@@ -82,9 +95,14 @@ object Main extends JSApp {
     "./palabras/js/target/scala-2.11/palabras-fastopt.js"
   }
 
+  var worker : org.scalajs.dom.raw.Worker = null
+
   @JSExport
   def main(){
- 
+    import Message._
+
+
+
     if( isNode ){
       ejecutaPruebaJSON()
     }
@@ -94,16 +112,25 @@ object Main extends JSApp {
 
       import org.scalajs.jquery._
       jQuery(() => setupUI())
-      val worker = new org.scalajs.dom.raw.Worker(lastLoadedScript)
+      worker = new org.scalajs.dom.raw.Worker(lastLoadedScript)
       
       worker.onmessage = (m : org.scalajs.dom.raw.MessageEvent) =>  {
         println( s"Mensaje recibido en html")
-        println( s"  $m" )
+        js.Dynamic.global.console.log(m.data.asInstanceOf[js.Any])
+        m.data match{
+          case CorpusLoaded(_) => jQuery("#botonPalabra").prop("disabled",false)
+          case data =>
+            println( s"No entiendo el mensaje en html:$data")
+            js.Dynamic.global.console.log(data.asInstanceOf[js.Any])
+            
+        }
+
       }
 
-      val data = new LoadCorpus("./corpus-100000.txt")
-      js.Dynamic.global.console.log(data.asInstanceOf[js.Any])
-      worker.postMessage( data.asInstanceOf[js.Any] )
+      val data = LoadCorpus("./corpus.json")
+      println("Envio desde html: " + data )
+
+      worker.postMessage( data )
     }
 
     if( isBrowserWorker ){
