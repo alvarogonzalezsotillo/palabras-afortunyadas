@@ -338,7 +338,7 @@ object PalabrasAnagramadas {
 
     val pistas = Seq(
       "Puede servir de ejemplo para medio mundo" -> Palabra("esa es firme"),
-      "Confusa plática que no siempre resulta suficientemente interesate" -> 7 ,
+      "Confusa plática que no siempre resulta suficientemente interesante" -> 7 ,
       "Una terrible aversión la sacó de quicio" -> 8,
       "Son pesadas, pero en el fondo son útiles" -> Array("semiesfera","capital","nerviosa","ancla")   
     );

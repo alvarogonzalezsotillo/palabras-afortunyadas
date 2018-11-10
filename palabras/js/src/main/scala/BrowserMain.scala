@@ -35,6 +35,11 @@ object BrowserMain {
     }
   }
 
+  def addWord( word: String ) = {
+    val e = jQuery( s"""<span class="word">$word</span>""")
+    ui.output.append(e)
+  }
+
   def disableButtons() = {
     ui.botonPalabra.prop("disabled", true)
     ui.botonFrase.prop("disabled", true)
@@ -81,7 +86,7 @@ object BrowserMain {
         enableButtons()
 
       case AnagramFound(found,_) =>
-        ui.output.append( jQuery(s"<p>$found</p>" ) )
+        addWord(found)
 
       case NoMoreAnagrams(s) =>
         enableButtons()
