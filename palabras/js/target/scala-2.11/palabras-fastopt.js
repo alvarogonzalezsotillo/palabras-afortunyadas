@@ -2730,7 +2730,7 @@ $c_Lrne_BrowserMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs
     var s = $as_T(o15.get__O());
     this.enableButtons__Lorg_scalajs_jquery_JQuery();
     $m_Lrne_BrowserMain$ui$().botonPalabra$1.val("Busca anagramas");
-    $m_Lrne_BrowserMain$ui$().botonPalabra$1.val("Busca anagramas en la frase");
+    $m_Lrne_BrowserMain$ui$().botonFrase$1.val("Busca anagramas en la frase");
     var jsx$4 = $m_Lrne_BrowserMain$ui$().output$1;
     var jsx$3 = $m_Lorg_scalajs_jquery_package$().jQuery$1;
     var array$1 = ["<p>No se encuentran m\u00e1s anagramas para ", "</p>"];
@@ -3298,11 +3298,11 @@ $c_Lrne_PalabrasAnagramadas$.prototype.buscaCoincidenciaExacta__Lrne_Corpus$Pala
     var candidatas = $asArrayOf_Lrne_Corpus$Palabra(x2.x$2, 1);
     var this$6 = new $c_scm_ArrayOps$ofRef().init___AO(candidatas);
     var this$7 = new $c_scm_IndexedSeqLike$$anon$1().init___scm_IndexedSeqLike(this$6);
-    var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(buscado$1) {
+    var p = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(buscado$2) {
       return (function(x$6$2) {
         var x$6 = $as_Lrne_Corpus$Palabra(x$6$2);
         var x$1 = x$6.histograma__sci_Map();
-        var x$2 = buscado$1.histograma__sci_Map();
+        var x$2 = buscado$2.histograma__sci_Map();
         return ((x$1 === null) ? (x$2 === null) : $s_sc_GenMapLike$class__equals__sc_GenMapLike__O__Z(x$1, x$2))
       })
     })(buscado));

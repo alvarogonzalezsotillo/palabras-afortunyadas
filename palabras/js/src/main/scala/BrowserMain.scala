@@ -91,7 +91,7 @@ object BrowserMain {
       case NoMoreAnagrams(s) =>
         enableButtons()
         ui.botonPalabra.value("Busca anagramas")
-        ui.botonPalabra.value("Busca anagramas en la frase")
+        ui.botonFrase.value("Busca anagramas en la frase")
         ui.output.append( jQuery(s"<p>No se encuentran más anagramas para $s</p>" ) )
 
       case data =>
