@@ -346,12 +346,24 @@ object PalabrasAnagramadas {
     pistas.foreach( resuelvePista );
   }
 
+  def dia2018_11_10()(implicit palabras: Corpus){
+    println( "************ 10 noviembre 2018");
+
+    val pistas = Seq(
+      "Cuando le hablan del imsomnio se desvela" -> Palabra("ripio cachondo"),
+      "Familia muy arraigada en el campo" -> Palabra("La muesca") ,
+      "La patrona se alteró, pero consiguió cerrar la boca" -> 7,
+      "Pulimentos realizados sin elementos agresivos" -> Array("hipocondriaco","ulmáceas","taponar","hurtos")   
+    );
+
+    pistas.foreach( resuelvePista );
+  }
   def resuelve(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
     cronometro("Solución"){
-      dia2018_11_03()
+      dia2018_11_10()
     }
   }
 }
