@@ -49,6 +49,17 @@ object WorkerMain {
 
         WorkerGlobal.postMessage( NoMoreAnagrams(s) )
 
+      case SearchAnagramInSentence(s,size) =>
+        println( s"  worker: busca anagrama en frase: $s: $size" )
+
+        val coincidencias = PalabrasAnagramadas.buscaExactoEnFrase( s, size );
+
+        for( c <- coincidencias ){
+          WorkerGlobal.postMessage( AnagramFound(c.original,s) )
+        }
+
+        WorkerGlobal.postMessage( NoMoreAnagrams(s) )
+
 
       case data =>
         println( s"  worker: me llega algo que no sé lo que es: $data" )

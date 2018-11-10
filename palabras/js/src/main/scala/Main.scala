@@ -70,76 +70,21 @@ object Main extends JSApp {
     }
   }
 
-  def ejecutaPruebaJSON() = {
-    cargaCorpusJSON("./corpus.json"){ c =>
-      println(c(4).mkString(","))
-    }
  
-  }
-
-
-  def setupUI(): Unit = {
-    import org.scalajs.jquery._
-    import Message._
-
-    jQuery("#output").text("Desde jquery")
-    jQuery("#botonPalabra").click{ event : js.Any =>
-      jQuery("#botonPalabra").prop("disabled", true)
-      jQuery("#botonPalabra").value("Buscando")
-      val palabra = jQuery("#palabra").value().toString
-      println( s"Voy a enviar SearchAnagram($palabra)")
-      jQuery("#output").text("")
-      worker.postMessage( SearchAnagram(palabra) )
-    }
-  }
-
-  def lastLoadedScript() : String = {
-    println( "Hay que implementar lastLoadedScript")
-    "./palabras/js/target/scala-2.11/palabras-fastopt.js"
-  }
-
-  var worker : org.scalajs.dom.raw.Worker = null
 
   @JSExport
   def main(){
     import Message._
 
 
-
     if( isNode ){
-      ejecutaPruebaJSON()
+      println( "Desde nodejs" )
     }
 
     if( isBrowserPage ){
       println( "Desde la página" )
 
-      import org.scalajs.jquery._
-      jQuery(() => setupUI())
-      worker = new org.scalajs.dom.raw.Worker(lastLoadedScript)
-      
-      worker.onmessage = (m : org.scalajs.dom.raw.MessageEvent) =>  {
-        println( s"Mensaje recibido en html")
-        js.Dynamic.global.console.log(m.data.asInstanceOf[js.Any])
-        m.data match{
-          case CorpusLoaded(_) => jQuery("#botonPalabra").prop("disabled",false)
-          case AnagramFound(found,_) => jQuery("#output").append( jQuery(s"<p>$found</p>" ) )
-          case NoMoreAnagrams(s) =>
-            jQuery("#botonPalabra").prop("disabled", false)
-            jQuery("#botonPalabra").value("Busca anagramas")
-            jQuery("#output").append( jQuery(s"<p>No se encuentran más anagramas para $s</p>" ) )
-
-          case data =>
-            println( s"No entiendo el mensaje en html:$data")
-            js.Dynamic.global.console.log(data.asInstanceOf[js.Any])
-            
-        }
-
-      }
-
-      val data = LoadCorpus("./corpus.json")
-      println("Envio desde html: " + data )
-
-      worker.postMessage( data )
+      BrowserMain.main()
     }
 
     if( isBrowserWorker ){

@@ -64,6 +64,15 @@ object Message{
     }
   }
 
+  object SearchAnagramInSentence{
+    def apply(anagram:String, size: Int) = js.Dynamic.literal( "messageType" -> "SearchAnagramInSentence", "anagram" -> anagram, "size" -> size )
+    def unapply( o: Any ) : Option[(String,Int)] = o match{
+      case Message("SearchAnagramInSentence") =>
+        for( anagram <- getJSStr(o)("anagram") ; size <- getJSProperty[Int](o)("size") ) yield( anagram, size.toInt )
+      case _ => None
+    }
+  }
+
 }
 
 
