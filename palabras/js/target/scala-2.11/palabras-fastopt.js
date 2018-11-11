@@ -2631,20 +2631,6 @@ $c_Lrne_BrowserMain$.prototype.disableButtons__Lorg_scalajs_jquery_JQuery = (fun
   $m_Lrne_BrowserMain$ui$().botonPalabra$1.prop("disabled", true);
   return $m_Lrne_BrowserMain$ui$().botonFrase$1.prop("disabled", true)
 });
-$c_Lrne_BrowserMain$.prototype.main__V = (function() {
-  var this$1 = this.worker$1;
-  if ((!this$1.isEmpty__Z())) {
-    var v1 = this$1.get__O();
-    (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)((function() {
-      $m_Lrne_BrowserMain$().setupUI__V()
-    }));
-    v1.onmessage = (function(m$2) {
-      return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any(m$2)
-    });
-    $m_Lrne_BrowserMain$().addLog__T__Lorg_scalajs_jquery_JQuery("Cargando corpus...");
-    v1.postMessage($m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json"))
-  }
-});
 $c_Lrne_BrowserMain$.prototype.addWord__T__Lorg_scalajs_jquery_JQuery = (function(word) {
   var jsx$2 = $m_Lorg_scalajs_jquery_package$().jQuery$1;
   var array = ["<span class=\"word\">", "</span>"];
@@ -5313,13 +5299,32 @@ $c_Lrne_Main$.prototype.fileContents__T__T__F1__O = (function(file, encoding, ca
   } else {
     var xhr = new $g.XMLHttpRequest();
     xhr.open("GET", file);
-    xhr.onload = (function(callback$1, xhr$1) {
+    xhr.onload = (function(file$1, callback$1, xhr$1) {
       return (function(e$2) {
         if (($uI(xhr$1.status) === 200)) {
           callback$1.apply__O__O($as_T(xhr$1.responseText))
+        } else {
+          var array = ["Estado inesperado cargando '", "': ", ""];
+          var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+          var array$1 = [file$1, $uI(xhr$1.status)];
+          var x = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+          var this$6 = $m_s_Console$();
+          var this$7 = $as_Ljava_io_PrintStream(this$6.outVar$2.v$1);
+          this$7.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"))
         }
       })
-    })(callback, xhr);
+    })(file, callback, xhr);
+    xhr.onerror = (function(file$1$1, xhr$1$1) {
+      return (function(e$2$1) {
+        var array$2 = ["Error inesperado cargando '", "': ", ""];
+        var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+        var array$3 = [file$1$1, $uI(xhr$1$1.status)];
+        var x$1 = jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
+        var this$13 = $m_s_Console$();
+        var this$14 = $as_Ljava_io_PrintStream(this$13.outVar$2.v$1);
+        this$14.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"))
+      })
+    })(file, xhr);
     xhr.send();
     return (void 0)
   }
@@ -5344,12 +5349,24 @@ $c_Lrne_Main$.prototype.main__V = (function() {
     var this$5 = $m_s_Console$();
     var this$6 = $as_Ljava_io_PrintStream(this$5.outVar$2.v$1);
     this$6.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Desde la p\u00e1gina\n");
-    $m_Lrne_BrowserMain$().main__V()
+    var this$7 = $m_Lrne_BrowserMain$();
+    var this$8 = this$7.worker$1;
+    if ((!this$8.isEmpty__Z())) {
+      var v1 = this$8.get__O();
+      (0, $m_Lorg_scalajs_jquery_package$().jQuery$1)((function() {
+        $m_Lrne_BrowserMain$().setupUI__V()
+      }));
+      v1.onmessage = (function(m$2) {
+        return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any(m$2)
+      });
+      $m_Lrne_BrowserMain$().addLog__T__Lorg_scalajs_jquery_JQuery("Cargando corpus...");
+      v1.postMessage($m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json"))
+    }
   };
   if (this.isBrowserWorker__Z()) {
-    var this$8 = $m_s_Console$();
-    var this$9 = $as_Ljava_io_PrintStream(this$8.outVar$2.v$1);
-    this$9.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Desde el worker\n");
+    var this$10 = $m_s_Console$();
+    var this$11 = $as_Ljava_io_PrintStream(this$10.outVar$2.v$1);
+    this$11.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Desde el worker\n");
     $m_Lrne_WorkerMain$().main__V()
   }
 });

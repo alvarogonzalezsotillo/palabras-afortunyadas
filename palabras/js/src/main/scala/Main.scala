@@ -50,6 +50,12 @@ object Main extends JSApp {
         if (xhr.status == 200) {
           callback( xhr.responseText )
         }
+        else{
+          println( s"Estado inesperado cargando '$file': ${xhr.status}")
+        }
+      }
+      xhr.onerror = { (e: dom.Event) =>
+          println( s"Error inesperado cargando '$file': ${xhr.status}")
       }
       xhr.send()
     }
