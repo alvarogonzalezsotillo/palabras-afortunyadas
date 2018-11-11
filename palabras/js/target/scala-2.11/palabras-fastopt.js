@@ -2641,6 +2641,7 @@ $c_Lrne_BrowserMain$.prototype.main__V = (function() {
     v1.onmessage = (function(m$2) {
       return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any(m$2)
     });
+    $m_Lrne_BrowserMain$().addLog__T__Lorg_scalajs_jquery_JQuery("Cargando corpus...");
     v1.postMessage($m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json"))
   }
 });
@@ -2657,7 +2658,6 @@ $c_Lrne_BrowserMain$.prototype.enableButtons__Lorg_scalajs_jquery_JQuery = (func
   return $m_Lrne_BrowserMain$ui$().botonFrase$1.prop("disabled", false)
 });
 $c_Lrne_BrowserMain$.prototype.setupUI__V = (function() {
-  $m_Lrne_BrowserMain$ui$().output$1.text("Desde jquery");
   $m_Lrne_BrowserMain$ui$().botonPalabra$1.click((function(event$2) {
     $m_Lrne_BrowserMain$().disableButtons__Lorg_scalajs_jquery_JQuery();
     $m_Lrne_BrowserMain$ui$().botonPalabra$1.val("Buscando");
@@ -2696,6 +2696,14 @@ $c_Lrne_BrowserMain$.prototype.setupUI__V = (function() {
     qual$2.postMessage(x$4)
   }))
 });
+$c_Lrne_BrowserMain$.prototype.addLog__T__Lorg_scalajs_jquery_JQuery = (function(msg) {
+  var jsx$2 = $m_Lorg_scalajs_jquery_package$().jQuery$1;
+  var array = ["<span class=\"log\">", "</span>"];
+  var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+  var array$1 = [msg];
+  var e = jsx$2(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
+  return $m_Lrne_BrowserMain$ui$().output$1.append(e)
+});
 $c_Lrne_BrowserMain$.prototype.$$js$exported$meth$main__O = (function() {
   var this$1 = this.worker$1;
   if ((!this$1.isEmpty__Z())) {
@@ -2706,6 +2714,7 @@ $c_Lrne_BrowserMain$.prototype.$$js$exported$meth$main__O = (function() {
     v1.onmessage = (function(m$2) {
       return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any(m$2)
     });
+    $m_Lrne_BrowserMain$().addLog__T__Lorg_scalajs_jquery_JQuery("Cargando corpus...");
     v1.postMessage($m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json"))
   }
 });
@@ -2718,7 +2727,8 @@ $c_Lrne_BrowserMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs
   var x1 = m.data;
   var o11 = $m_Lrne_Message$CorpusLoaded$().unapply__O__s_Option(x1);
   if ((!o11.isEmpty__Z())) {
-    return this.enableButtons__Lorg_scalajs_jquery_JQuery()
+    this.enableButtons__Lorg_scalajs_jquery_JQuery();
+    return $m_Lrne_BrowserMain$ui$().output$1.text("")
   };
   var o13 = $m_Lrne_Message$AnagramFound$().unapply__O__s_Option(x1);
   if ((!o13.isEmpty__Z())) {
@@ -2731,18 +2741,15 @@ $c_Lrne_BrowserMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs
     this.enableButtons__Lorg_scalajs_jquery_JQuery();
     $m_Lrne_BrowserMain$ui$().botonPalabra$1.val("Busca anagramas");
     $m_Lrne_BrowserMain$ui$().botonFrase$1.val("Busca anagramas en la frase");
-    var jsx$4 = $m_Lrne_BrowserMain$ui$().output$1;
-    var jsx$3 = $m_Lorg_scalajs_jquery_package$().jQuery$1;
-    var array$1 = ["<p>No se encuentran m\u00e1s anagramas para ", "</p>"];
-    var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+    var array$1 = ["No se encuentran m\u00e1s anagramas para ", ""];
+    var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
     var array$2 = [s];
-    var jsx$1 = jsx$3(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)));
-    return jsx$4.append(jsx$1)
+    return this.addLog__T__Lorg_scalajs_jquery_JQuery(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)))
   };
   var array$3 = ["No entiendo el mensaje en html:", ""];
-  var jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
+  var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
   var array$4 = [x1];
-  var x$1 = jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
+  var x$1 = jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
   var this$15 = $m_s_Console$();
   var this$16 = $as_Ljava_io_PrintStream(this$15.outVar$2.v$1);
   this$16.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));

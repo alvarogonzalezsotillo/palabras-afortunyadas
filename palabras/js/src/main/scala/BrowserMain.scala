@@ -14,7 +14,6 @@ object BrowserMain {
 
   def setupUI(): Unit = {
 
-    ui.output.text("Desde jquery")
     ui.botonPalabra.click{ event : js.Any =>
       disableButtons()
       ui.botonPalabra.value("Buscando")
@@ -37,6 +36,11 @@ object BrowserMain {
 
   def addWord( word: String ) = {
     val e = jQuery( s"""<span class="word">$word</span>""")
+    ui.output.append(e)
+  }
+
+  def addLog( msg: String ) = {
+    val e = jQuery( s"""<span class="log">$msg</span>""")
     ui.output.append(e)
   }
 
@@ -84,6 +88,7 @@ object BrowserMain {
     m.data match{
       case CorpusLoaded(_) =>
         enableButtons()
+        ui.output.text("")
 
       case AnagramFound(found,_) =>
         addWord(found)
@@ -92,7 +97,7 @@ object BrowserMain {
         enableButtons()
         ui.botonPalabra.value("Busca anagramas")
         ui.botonFrase.value("Busca anagramas en la frase")
-        ui.output.append( jQuery(s"<p>No se encuentran más anagramas para $s</p>" ) )
+        addLog( s"No se encuentran más anagramas para $s" )
 
       case data =>
         println( s"No entiendo el mensaje en html:$data")
@@ -106,7 +111,8 @@ object BrowserMain {
     import org.scalajs.jquery._
     worker.foreach{ w =>
       jQuery(() => setupUI())
-       w.onmessage = onMessage _
+      w.onmessage = onMessage _
+      addLog( "Cargando corpus...")
       w.postMessage( LoadCorpus("./corpus.json") )
     }
   }

@@ -12,21 +12,61 @@
               border-radius: 5px;
               padding: 2px;
               margin: 3px;
-              display: inline-block;
+              display: block;
               text-align: left;
           }
+
+          .log{
+              display: block;
+              text-align: left;
+          }
+
+          .seccion{
+              padding-bottom: 10px;
+              margin-bottom: 10px;
+          }
+
+          .linea{
+              display: block;
+              min-width: 100%;
+              max-width: 100%;
+              width: 100%;
+              min-height: 3em;
+          }
+
+          .grande{
+              display: none;
+          }
+
+          @media only screen and (min-width: 500px) {
+              /* MAYOR DE 768px */
+              .linea{
+                  display: inline;
+                  min-width: 0px;
+                  width: inherit;
+                  min-height: 0em;
+
+              }
+
+              .grande{
+                  display: inline;
+              }
+          }
+
+          
         </style>
     </head>
     <body>
 
-        <div id="ui">
-            <input id="palabra" type="text" name="palabra" value="" placeholder="Anagrama" />
-            <input id="botonPalabra" type="button" value="Busca anagramas"  disabled="true"/>
+        <span class="grande">SOY GRANDE</span>
+        <div id="uipalabra" class="seccion">
+            <input class="linea" id="palabra" type="text" name="palabra" value="" placeholder="Anagrama" />
+            <input class="linea" id="botonPalabra" type="button" value="Busca anagramas"  disabled="true"/>
         </div>    
 
-        <div id="uifrase">
-            <input id="frase" type="text" name="frase" value="" placeholder="Frase" />
-            <select id="selectFrase" type="text" name="selectFrase" value="" placeholder="Frase" >
+        <div id="uifrase" class="seccion">
+            <input class="linea" id="frase" type="text" name="frase" value="" placeholder="Frase" />
+            <select class="linea" id="selectFrase" type="text" name="selectFrase" value="" placeholder="Frase" >
                 <option  value="1">1 letra</option>
                 <option  value="2">2 letras</option>
                 <option  value="3">3 letras</option>
@@ -49,7 +89,7 @@
                 <option  value="10">20 letras</option>
             </select>
 
-            <input id="botonFrase" type="button" value="Busca anagramas en la frase"  disabled="true"/>
+            <input class="linea" id="botonFrase" type="button" value="Busca anagramas en la frase"  disabled="true"/>
         </div>    
 
         
