@@ -1,117 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Palabras anagramadas</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Palabras anagramadas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <style>
-          .word{
-              text-align: center;
-              background: #ffd563;
-              border: 2px solid #ffbb00;
-              border-radius: 5px;
-              padding: 2px;
-              margin: 3px;
-              display: block;
-              text-align: left;
-          }
+    <style>
+      .word{
+          text-align: center;
+          background: #ffd563;
+          border: 2px solid #ffbb00;
+          border-radius: 5px;
+          padding: 2px;
+          margin: 3px;
+          display: block;
+          text-align: left;
+      }
 
-          .log{
-              display: block;
-              text-align: left;
-          }
+      .log{
+          display: block;
+          text-align: left;
+      }
 
-          .seccion{
-              padding-bottom: 10px;
-              margin-bottom: 10px;
-          }
+      .seccion{
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+      }
 
+      .linea{
+          display: block;
+          min-width: 100%;
+          max-width: 100%;
+          width: 100%;
+          min-height: 3em;
+      }
+
+      .grande{
+          display: none;
+      }
+
+      @media only screen and (min-width: 500px) {
+          /* MAYOR DE 768px */
           .linea{
-              display: block;
-              min-width: 100%;
-              max-width: 100%;
-              width: 100%;
-              min-height: 3em;
+              display: inline;
+              min-width: 0px;
+              width: inherit;
+              min-height: 0em;
+
           }
 
           .grande{
-              display: none;
+              display: inline;
           }
+      }
 
-          @media only screen and (min-width: 500px) {
-              /* MAYOR DE 768px */
-              .linea{
-                  display: inline;
-                  min-width: 0px;
-                  width: inherit;
-                  min-height: 0em;
+      
+    </style>
+  </head>
+  <body>
 
-              }
+    <!-- <span class="grande">SOY GRANDE</span> -->
+    
+    <div id="uipalabra" class="seccion">
+      <input class="linea" id="palabra" type="text" name="palabra" value="" placeholder="Anagrama" />
+      <input class="linea" id="botonPalabra" type="button" value="Busca anagramas"  disabled="true"/>
+    </div>    
 
-              .grande{
-                  display: inline;
-              }
-          }
+    <div id="uifrase" class="seccion">
+      <input class="linea" id="frase" type="text" name="frase" value="" placeholder="Frase" />
+      <select class="linea" id="selectFrase" type="text" name="selectFrase" value="" placeholder="Frase" >
+        <option  value="1">1 letra</option>
+        <option  value="2">2 letras</option>
+        <option  value="3">3 letras</option>
+        <option  value="4">4 letras</option>
+        <option  value="5">5 letras</option>
+        <option  value="6">6 letras</option>
+        <option  value="7">7 letras</option>
+        <option  value="8">8 letras</option>
+        <option  value="9">9 letras</option>
+        <option  value="10">10 letras</option>
+        <option  value="11">11 letras</option>
+        <option  value="12">12 letras</option>
+        <option  value="13">13 letras</option>
+        <option  value="14">14 letras</option>
+        <option  value="15">15 letras</option>
+        <option  value="16">16 letras</option>
+        <option  value="17">17 letras</option>
+        <option  value="18">18 letras</option>
+        <option  value="19">19 letras</option>
+        <option  value="10">20 letras</option>
+      </select>
 
-          
-        </style>
-    </head>
-    <body>
+      <input class="linea" id="botonFrase" type="button" value="Busca anagramas en la frase"  disabled="true"/>
+    </div>    
 
-        <!-- <span class="grande">SOY GRANDE</span> -->
-        <div id="uipalabra" class="seccion">
-            <input class="linea" id="palabra" type="text" name="palabra" value="" placeholder="Anagrama" />
-            <input class="linea" id="botonPalabra" type="button" value="Busca anagramas"  disabled="true"/>
-        </div>    
+    
+    <div id="output">
+    </div>
 
-        <div id="uifrase" class="seccion">
-            <input class="linea" id="frase" type="text" name="frase" value="" placeholder="Frase" />
-            <select class="linea" id="selectFrase" type="text" name="selectFrase" value="" placeholder="Frase" >
-                <option  value="1">1 letra</option>
-                <option  value="2">2 letras</option>
-                <option  value="3">3 letras</option>
-                <option  value="4">4 letras</option>
-                <option  value="5">5 letras</option>
-                <option  value="6">6 letras</option>
-                <option  value="7">7 letras</option>
-                <option  value="8">8 letras</option>
-                <option  value="9">9 letras</option>
-                <option  value="10">10 letras</option>
-                <option  value="11">11 letras</option>
-                <option  value="12">12 letras</option>
-                <option  value="13">13 letras</option>
-                <option  value="14">14 letras</option>
-                <option  value="15">15 letras</option>
-                <option  value="16">16 letras</option>
-                <option  value="17">17 letras</option>
-                <option  value="18">18 letras</option>
-                <option  value="19">19 letras</option>
-                <option  value="10">20 letras</option>
-            </select>
+    
 
-            <input class="linea" id="botonFrase" type="button" value="Busca anagramas en la frase"  disabled="true"/>
-        </div>    
+    <script type="text/javascript">
+      // creo la variable exports para que no falle el modulo creado por scalajs si tiene ModuleKind.CommonJSModule
+      exports = {};
+      require = function(m){
+          console.log("Módulo no cargado: " + m);
+      }
+    </script>
+    
+    <!-- Include JavaScript dependencies, webjars -->
+    <script type="text/javascript" src="./palabras/js/target/scala-2.11/palabras-jsdeps.js"></script>
 
-        
-        <div id="output">
-        </div>
+    <!-- Include Scala.js compiled code, generated with fastOptJS|fullOptJS in sbt -->
+    <script type="text/javascript" src="./palabras/js/target/scala-2.11/palabras-fastopt.js"></script>
 
-        
-
-        <script type="text/javascript">
-         // creo la variable exports para que no falle el modulo creado por scalajs si tiene ModuleKind.CommonJSModule
-         exports = {};
-         require = function(m){
-             console.log("Módulo no cargado: " + m);
-         }
-        </script>
-        
-        <!-- Include JavaScript dependencies, webjars -->
-        <script type="text/javascript" src="./palabras/js/target/scala-2.11/palabras-jsdeps.js"></script>
-
-        <!-- Include Scala.js compiled code, generated with fastOptJS|fullOptJS in sbt -->
-        <script type="text/javascript" src="./palabras/js/target/scala-2.11/palabras-fastopt.js"></script>
-
-    </body>
+  </body>
 </html>
