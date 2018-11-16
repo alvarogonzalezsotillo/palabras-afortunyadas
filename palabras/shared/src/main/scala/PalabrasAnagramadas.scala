@@ -144,7 +144,10 @@ object PalabrasAnagramadas {
 
   def buscaExactoEnFrase( frase: String, letras: Int )(implicit palabras: Corpus) ={
 
-    val f = frase.split("""\s+""")
+    val toRemove = Seq( ".", ",", ":", ";", "-", "/", "'", "\"")
+    val f = toRemove.
+      foldLeft(frase)( (f,remove) => f.replace(remove," ")).
+      split("""\s+""")
 
     val combinacionesDePalabrasConLetras = {
       for (from <- (0 to f.size).view;
