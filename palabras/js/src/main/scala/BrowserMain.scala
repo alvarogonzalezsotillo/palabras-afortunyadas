@@ -83,11 +83,6 @@ object BrowserMain {
   }
 
 
-  def preparseCorpus(){
-    for( w <- worker ; size <- 1 to 15 ){
-      w.postMessage( Preparse(size) )
-    }
-  }
 
   def onMessage( m: org.scalajs.dom.raw.MessageEvent ) = {
     println( s"Mensaje recibido en html")
@@ -96,7 +91,6 @@ object BrowserMain {
       case CorpusLoaded(_) =>
         enableButtons()
         ui.output.text("")
-        preparseCorpus();
 
       case AnagramFound(found,_) =>
         addWord(found)

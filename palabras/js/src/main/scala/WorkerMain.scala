@@ -26,6 +26,14 @@ object WorkerMain {
     WorkerGlobal.addEventListener("message", onMessage _ )
   }
 
+  def preparseCorpus() = {
+    for( size <- 1 to 15 ){
+        println( s"  worker: preparse: $size")
+        PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra("a"*size) ).foreach( c => c )
+        WorkerGlobal.postMessage( PreparseDone(size) )
+    }
+  }
+
   def onMessage(msg: dom.MessageEvent) = {
     println( "WorkkerMain.onMessage:" + msg.data )
 
@@ -34,6 +42,7 @@ object WorkerMain {
         println( s"  worker: carga el corpus: $file")
         Main.cargaCorpusJSON(file){ c =>
           corpus = c
+          //preparseCorpus(c);
           WorkerGlobal.postMessage( CorpusLoaded(file) )
         }
 
@@ -60,10 +69,6 @@ object WorkerMain {
 
         WorkerGlobal.postMessage( NoMoreAnagrams(s) )
 
-      case Preparse(size) =>
-        println( s"  worker: preparse: $size")
-        PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra("a"*size) ).foreach( c => c )
-        WorkerGlobal.postMessage( PreparseDone(size) )
 
       case data =>
         println( s"  worker: me llega algo que no sé lo que es: $data" )

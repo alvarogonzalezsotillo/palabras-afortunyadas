@@ -1888,23 +1888,6 @@ function $s_scg_Growable$class__$$plus$plus$eq__scg_Growable__sc_TraversableOnce
   };
   return $$this
 }
-function $s_sci_StringLike$class__$$times__sci_StringLike__I__T($$this, n) {
-  var buf = new $c_scm_StringBuilder().init___();
-  var isEmpty$4 = (n <= 0);
-  var lastElement$4 = (isEmpty$4 ? (-1) : (((-1) + n) | 0));
-  if ((!isEmpty$4)) {
-    var i = 0;
-    while (true) {
-      var arg1 = i;
-      buf.append__T__scm_StringBuilder($$this.toString__T());
-      if ((i === lastElement$4)) {
-        break
-      };
-      i = ((1 + i) | 0)
-    }
-  };
-  return buf.underlying$5.java$lang$StringBuilder$$content$f
-}
 function $s_sci_VectorPointer$class__getElem__sci_VectorPointer__I__I__O($$this, index, xor) {
   if ((xor < 32)) {
     return $$this.display0__AO().get((31 & index))
@@ -2679,65 +2662,6 @@ $c_Lrne_BrowserMain$.prototype.disableButtons__Lorg_scalajs_jquery_JQuery = (fun
   $m_Lrne_BrowserMain$ui$().botonPalabra$1.prop("disabled", true);
   return $m_Lrne_BrowserMain$ui$().botonFrase$1.prop("disabled", true)
 });
-$c_Lrne_BrowserMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__O = (function(m) {
-  var array = ["Mensaje recibido en html"];
-  var x = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)).s__sc_Seq__T($m_sci_Nil$());
-  var this$4 = $m_s_Console$();
-  var this$5 = $as_Ljava_io_PrintStream(this$4.outVar$2.v$1);
-  this$5.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
-  var x1 = m.data;
-  var o12 = $m_Lrne_Message$CorpusLoaded$().unapply__O__s_Option(x1);
-  if ((!o12.isEmpty__Z())) {
-    this.enableButtons__Lorg_scalajs_jquery_JQuery();
-    $m_Lrne_BrowserMain$ui$().output$1.text("");
-    var this$6 = this.worker$1;
-    if ((!this$6.isEmpty__Z())) {
-      var v1 = this$6.get__O();
-      var i = 1;
-      while (true) {
-        var v1$1 = i;
-        v1.postMessage($m_Lrne_Message$Preparse$().apply__I__sjs_js_Object(v1$1));
-        if ((i === 15)) {
-          break
-        };
-        i = ((1 + i) | 0)
-      }
-    };
-    return (void 0)
-  };
-  var o14 = $m_Lrne_Message$AnagramFound$().unapply__O__s_Option(x1);
-  if ((!o14.isEmpty__Z())) {
-    var found = $as_T($as_T2(o14.get__O()).$$und1__O());
-    return this.addWord__T__Lorg_scalajs_jquery_JQuery(found)
-  };
-  var o16 = $m_Lrne_Message$NoMoreAnagrams$().unapply__O__s_Option(x1);
-  if ((!o16.isEmpty__Z())) {
-    var s = $as_T(o16.get__O());
-    this.enableButtons__Lorg_scalajs_jquery_JQuery();
-    $m_Lrne_BrowserMain$ui$().botonPalabra$1.val("Busca anagramas");
-    $m_Lrne_BrowserMain$ui$().botonFrase$1.val("Busca anagramas en la frase");
-    var array$1 = ["No se encuentran m\u00e1s anagramas para \u00ab", "\u00bb"];
-    var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
-    var array$2 = [s];
-    return this.addLog__T__Lorg_scalajs_jquery_JQuery(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)))
-  };
-  var o18 = $m_Lrne_Message$PreparseDone$().unapply__O__s_Option(x1);
-  if ((!o18.isEmpty__Z())) {
-    var size = $uI(o18.get__O());
-    var array$3 = ["Preparseadas las palabras con longitud ", ""];
-    var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
-    var array$4 = [size];
-    return this.addLog__T__Lorg_scalajs_jquery_JQuery(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4)))
-  };
-  var array$5 = ["No entiendo el mensaje en html:", ""];
-  var jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5));
-  var array$6 = [x1];
-  var x$1 = jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
-  var this$23 = $m_s_Console$();
-  var this$24 = $as_Ljava_io_PrintStream(this$23.outVar$2.v$1);
-  this$24.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
-  return $g.console.log(x1)
-});
 $c_Lrne_BrowserMain$.prototype.setupUI__V = (function() {
   $m_Lrne_BrowserMain$ui$().botonPalabra$1.click((function(event$2) {
     $m_Lrne_BrowserMain$().disableButtons__Lorg_scalajs_jquery_JQuery();
@@ -2805,11 +2729,56 @@ $c_Lrne_BrowserMain$.prototype.$$js$exported$meth$main__O = (function() {
       $m_Lrne_BrowserMain$().setupUI__V()
     }));
     v1.onmessage = (function(m$2) {
-      return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__O(m$2)
+      return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any(m$2)
     });
     $m_Lrne_BrowserMain$().addLog__T__Lorg_scalajs_jquery_JQuery("Cargando corpus...");
     v1.postMessage($m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json"))
   }
+});
+$c_Lrne_BrowserMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any = (function(m) {
+  var array = ["Mensaje recibido en html"];
+  var x = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array)).s__sc_Seq__T($m_sci_Nil$());
+  var this$4 = $m_s_Console$();
+  var this$5 = $as_Ljava_io_PrintStream(this$4.outVar$2.v$1);
+  this$5.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
+  var x1 = m.data;
+  var o12 = $m_Lrne_Message$CorpusLoaded$().unapply__O__s_Option(x1);
+  if ((!o12.isEmpty__Z())) {
+    this.enableButtons__Lorg_scalajs_jquery_JQuery();
+    return $m_Lrne_BrowserMain$ui$().output$1.text("")
+  };
+  var o14 = $m_Lrne_Message$AnagramFound$().unapply__O__s_Option(x1);
+  if ((!o14.isEmpty__Z())) {
+    var found = $as_T($as_T2(o14.get__O()).$$und1__O());
+    return this.addWord__T__Lorg_scalajs_jquery_JQuery(found)
+  };
+  var o16 = $m_Lrne_Message$NoMoreAnagrams$().unapply__O__s_Option(x1);
+  if ((!o16.isEmpty__Z())) {
+    var s = $as_T(o16.get__O());
+    this.enableButtons__Lorg_scalajs_jquery_JQuery();
+    $m_Lrne_BrowserMain$ui$().botonPalabra$1.val("Busca anagramas");
+    $m_Lrne_BrowserMain$ui$().botonFrase$1.val("Busca anagramas en la frase");
+    var array$1 = ["No se encuentran m\u00e1s anagramas para \u00ab", "\u00bb"];
+    var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+    var array$2 = [s];
+    return this.addLog__T__Lorg_scalajs_jquery_JQuery(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)))
+  };
+  var o18 = $m_Lrne_Message$PreparseDone$().unapply__O__s_Option(x1);
+  if ((!o18.isEmpty__Z())) {
+    var size = $uI(o18.get__O());
+    var array$3 = ["Preparseadas las palabras con longitud ", ""];
+    var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3));
+    var array$4 = [size];
+    return this.addLog__T__Lorg_scalajs_jquery_JQuery(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4)))
+  };
+  var array$5 = ["No entiendo el mensaje en html:", ""];
+  var jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5));
+  var array$6 = [x1];
+  var x$1 = jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
+  var this$19 = $m_s_Console$();
+  var this$20 = $as_Ljava_io_PrintStream(this$19.outVar$2.v$1);
+  this$20.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
+  return $g.console.log(x1)
 });
 $c_Lrne_BrowserMain$.prototype.main = (function() {
   return this.$$js$exported$meth$main__O()
@@ -3216,50 +3185,6 @@ function $m_Lrne_Message$NoMoreAnagrams$() {
   return $n_Lrne_Message$NoMoreAnagrams$
 }
 /** @constructor */
-function $c_Lrne_Message$Preparse$() {
-  $c_O.call(this)
-}
-$c_Lrne_Message$Preparse$.prototype = new $h_O();
-$c_Lrne_Message$Preparse$.prototype.constructor = $c_Lrne_Message$Preparse$;
-/** @constructor */
-function $h_Lrne_Message$Preparse$() {
-  /*<skip>*/
-}
-$h_Lrne_Message$Preparse$.prototype = $c_Lrne_Message$Preparse$.prototype;
-$c_Lrne_Message$Preparse$.prototype.init___ = (function() {
-  return this
-});
-$c_Lrne_Message$Preparse$.prototype.unapply__O__s_Option = (function(o) {
-  var o9 = $m_Lrne_Message$().unapply__O__s_Option(o);
-  if ((!o9.isEmpty__Z())) {
-    var p3 = $as_T(o9.get__O());
-    if ((p3 === "Preparse")) {
-      return $m_Lrne_Message$().getJSProperty__O__T__s_Option(o, "size")
-    }
-  };
-  return $m_s_None$()
-});
-$c_Lrne_Message$Preparse$.prototype.apply__I__sjs_js_Object = (function(size) {
-  return {
-    "messageType": "Preparse",
-    "size": size
-  }
-});
-var $d_Lrne_Message$Preparse$ = new $TypeData().initClass({
-  Lrne_Message$Preparse$: 0
-}, false, "rne.Message$Preparse$", {
-  Lrne_Message$Preparse$: 1,
-  O: 1
-});
-$c_Lrne_Message$Preparse$.prototype.$classData = $d_Lrne_Message$Preparse$;
-var $n_Lrne_Message$Preparse$ = (void 0);
-function $m_Lrne_Message$Preparse$() {
-  if ((!$n_Lrne_Message$Preparse$)) {
-    $n_Lrne_Message$Preparse$ = new $c_Lrne_Message$Preparse$().init___()
-  };
-  return $n_Lrne_Message$Preparse$
-}
-/** @constructor */
 function $c_Lrne_Message$PreparseDone$() {
   $c_O.call(this)
 }
@@ -3282,12 +3207,6 @@ $c_Lrne_Message$PreparseDone$.prototype.unapply__O__s_Option = (function(o) {
     }
   };
   return $m_s_None$()
-});
-$c_Lrne_Message$PreparseDone$.prototype.apply__I__sjs_js_Object = (function(size) {
-  return {
-    "messageType": "PreparseDone",
-    "size": size
-  }
 });
 var $d_Lrne_Message$PreparseDone$ = new $TypeData().initClass({
   Lrne_Message$PreparseDone$: 0
@@ -3511,9 +3430,9 @@ $c_Lrne_WorkerMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__O = 
   var this$3 = $as_Ljava_io_PrintStream(this$2.outVar$2.v$1);
   this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
   var x1 = msg.data;
-  var o10 = $m_Lrne_Message$LoadCorpus$().unapply__O__s_Option(x1);
-  if ((!o10.isEmpty__Z())) {
-    var file = $as_T(o10.get__O());
+  var o9 = $m_Lrne_Message$LoadCorpus$().unapply__O__s_Option(x1);
+  if ((!o9.isEmpty__Z())) {
+    var file = $as_T(o9.get__O());
     var array = ["  worker: carga el corpus: ", ""];
     var jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     var array$1 = [file];
@@ -3529,9 +3448,9 @@ $c_Lrne_WorkerMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__O = 
       })
     })(file)))
   };
-  var o12 = $m_Lrne_Message$SearchAnagram$().unapply__O__s_Option(x1);
-  if ((!o12.isEmpty__Z())) {
-    var s = $as_T(o12.get__O());
+  var o11 = $m_Lrne_Message$SearchAnagram$().unapply__O__s_Option(x1);
+  if ((!o11.isEmpty__Z())) {
+    var s = $as_T(o11.get__O());
     var array$2 = ["  worker: busca anagrama: ", ""];
     var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
     var array$3 = [s];
@@ -3549,10 +3468,10 @@ $c_Lrne_WorkerMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__O = 
     $g.postMessage($m_Lrne_Message$NoMoreAnagrams$().apply__T__sjs_js_Object(s));
     return (void 0)
   };
-  var o14 = $m_Lrne_Message$SearchAnagramInSentence$().unapply__O__s_Option(x1);
-  if ((!o14.isEmpty__Z())) {
-    var s$2 = $as_T($as_T2(o14.get__O()).$$und1__O());
-    var size = $as_T2(o14.get__O()).$$und2$mcI$sp__I();
+  var o13 = $m_Lrne_Message$SearchAnagramInSentence$().unapply__O__s_Option(x1);
+  if ((!o13.isEmpty__Z())) {
+    var s$2 = $as_T($as_T2(o13.get__O()).$$und1__O());
+    var size = $as_T2(o13.get__O()).$$und2$mcI$sp__I();
     var array$4 = ["  worker: busca anagrama en frase: ", ": ", ""];
     var jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
     var array$5 = [s$2, size];
@@ -3570,32 +3489,13 @@ $c_Lrne_WorkerMain$.prototype.onMessage__Lorg_scalajs_dom_raw_MessageEvent__O = 
     $g.postMessage($m_Lrne_Message$NoMoreAnagrams$().apply__T__sjs_js_Object(s$2));
     return (void 0)
   };
-  var o16 = $m_Lrne_Message$Preparse$().unapply__O__s_Option(x1);
-  if ((!o16.isEmpty__Z())) {
-    var size$2 = $uI(o16.get__O());
-    var array$6 = ["  worker: preparse: ", ""];
-    var jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
-    var array$7 = [size$2];
-    var x$4 = jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7));
-    var this$30 = $m_s_Console$();
-    var this$31 = $as_Ljava_io_PrintStream(this$30.outVar$2.v$1);
-    this$31.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$4 + "\n"));
-    var jsx$5 = $m_Lrne_PalabrasAnagramadas$();
-    var this$33 = new $c_sci_StringOps().init___T("a");
-    jsx$5.buscaCoincidenciaExacta__Lrne_Corpus$Palabra__sci_Map__sc_Seq(new $c_Lrne_Corpus$Palabra().init___T($s_sci_StringLike$class__$$times__sci_StringLike__I__T(this$33, size$2)), this.corpus$1).foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(c$2$3) {
-      var c$4 = $as_Lrne_Corpus$Palabra(c$2$3);
-      return c$4
-    })));
-    $g.postMessage($m_Lrne_Message$PreparseDone$().apply__I__sjs_js_Object(size$2));
-    return (void 0)
-  };
-  var array$8 = ["  worker: me llega algo que no s\u00e9 lo que es: ", ""];
-  var jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-  var array$9 = [x1];
-  var x$5 = jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9));
-  var this$39 = $m_s_Console$();
-  var this$40 = $as_Ljava_io_PrintStream(this$39.outVar$2.v$1);
-  this$40.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$5 + "\n"));
+  var array$6 = ["  worker: me llega algo que no s\u00e9 lo que es: ", ""];
+  var jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
+  var array$7 = [x1];
+  var x$4 = jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7));
+  var this$30 = $m_s_Console$();
+  var this$31 = $as_Ljava_io_PrintStream(this$30.outVar$2.v$1);
+  this$31.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$4 + "\n"));
   return $g.console.log(x1)
 });
 $c_Lrne_WorkerMain$.prototype.main__V = (function() {
@@ -5532,7 +5432,7 @@ $c_Lrne_Main$.prototype.main__V = (function() {
         $m_Lrne_BrowserMain$().setupUI__V()
       }));
       v1.onmessage = (function(m$2) {
-        return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__O(m$2)
+        return $m_Lrne_BrowserMain$().onMessage__Lorg_scalajs_dom_raw_MessageEvent__sjs_js_Any(m$2)
       });
       $m_Lrne_BrowserMain$().addLog__T__Lorg_scalajs_jquery_JQuery("Cargando corpus...");
       v1.postMessage($m_Lrne_Message$LoadCorpus$().apply__T__sjs_js_Object("./corpus.json"))
