@@ -82,6 +82,13 @@ object BrowserMain {
 
   }
 
+
+  def preparseCorpus(){
+    for( w <- worker ; size <- 1 to 15 ){
+      w.postMessage( Preparse(size) )
+    }
+  }
+
   def onMessage( m: org.scalajs.dom.raw.MessageEvent ) = {
     println( s"Mensaje recibido en html")
 
@@ -89,6 +96,7 @@ object BrowserMain {
       case CorpusLoaded(_) =>
         enableButtons()
         ui.output.text("")
+        preparseCorpus();
 
       case AnagramFound(found,_) =>
         addWord(found)
@@ -98,6 +106,9 @@ object BrowserMain {
         ui.botonPalabra.value("Busca anagramas")
         ui.botonFrase.value("Busca anagramas en la frase")
         addLog( s"No se encuentran más anagramas para «$s»" )
+
+      case PreparseDone(size) =>
+        addLog( s"Preparseadas las palabras con longitud $size" )
 
       case data =>
         println( s"No entiendo el mensaje en html:$data")

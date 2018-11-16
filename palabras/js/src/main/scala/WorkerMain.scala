@@ -60,6 +60,10 @@ object WorkerMain {
 
         WorkerGlobal.postMessage( NoMoreAnagrams(s) )
 
+      case Preparse(size) =>
+        println( s"  worker: preparse: $size")
+        PalabrasAnagramadas.buscaCoincidenciaExacta( Corpus.Palabra("a"*size) ).foreach( c => c )
+        WorkerGlobal.postMessage( PreparseDone(size) )
 
       case data =>
         println( s"  worker: me llega algo que no sé lo que es: $data" )

@@ -73,7 +73,20 @@ object Message{
     }
   }
 
+  object Preparse{
+    def apply(size: Int) = js.Dynamic.literal( "messageType" -> "Preparse", "size" -> size )
+    def unapply( o: Any ) : Option[Int]= o match{
+      case Message("Preparse") => getJSProperty[Int](o)("size")
+      case _ => None
+    }
+  }
+
+  object PreparseDone{
+    def apply(size: Int) = js.Dynamic.literal( "messageType" -> "PreparseDone", "size" -> size )
+    def unapply( o: Any ) : Option[Int]= o match{
+      case Message("PreparseDone") => getJSProperty[Int](o)("size")
+      case _ => None
+    }
+  }
+
 }
-
-
-
