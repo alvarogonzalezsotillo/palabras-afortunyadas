@@ -5,7 +5,7 @@ package rne
 
 object Corpus{
 
-  type Corpus = Map[Int, Array[Corpus.Palabra]] 
+  type Corpus = Map[Int, Array[Corpus.Palabra]]
   type Histograma = Map[Char, Int]
 
 
@@ -264,34 +264,34 @@ object PalabrasAnagramadas {
 
 
   def resuelvePista( pista : (String,Any) )(implicit corpus: Corpus) = {
-      pista match{
-        // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS 
-        case (msg, a:Array[String]) =>
-          val palabras = a.take(3)
-          println( s"${msg.toUpperCase}: Con inicio y fin de ${palabras.mkString(",")}" );
-          val s = palabras.map( p => p.head.toString + p.last.toString ).mkString
-          val p = Palabra(s);
-          for (c <- buscaCoincidenciaExacta(p)) {
-            println("  " + c)
-          }
+    pista match{
+      // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS
+      case (msg, a:Array[String]) =>
+        val palabras = a.take(3)
+        println( s"${msg.toUpperCase}: Con inicio y fin de ${palabras.mkString(",")}" );
+        val s = palabras.map( p => p.head.toString + p.last.toString ).mkString
+        val p = Palabra(s);
+        for (c <- buscaCoincidenciaExacta(p)) {
+          println("  " + c)
+        }
 
-        // NOS DAN UNA PALABRA PARA EL ANAGRAMA  
-        case (msg,p:Palabra) =>
-          println( s"${msg.toUpperCase}: Con anagrama $p" );
-          for (c <- buscaCoincidenciaExacta(p)) {
-            println("  " + c)
-          }
+      // NOS DAN UNA PALABRA PARA EL ANAGRAMA
+      case (msg,p:Palabra) =>
+        println( s"${msg.toUpperCase}: Con anagrama $p" );
+        for (c <- buscaCoincidenciaExacta(p)) {
+          println("  " + c)
+        }
 
-        // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS  
-        case (frase,size:Int) =>
-          println( s"${frase.toUpperCase}: Anagrama en la fase, longitud $size" );
-          for (c <- buscaExactoEnFrase(frase, size) ) {
-            println("  " + c)
-          }
+      // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS
+      case (frase,size:Int) =>
+        println( s"${frase.toUpperCase}: Anagrama en la fase, longitud $size" );
+        for (c <- buscaExactoEnFrase(frase, size) ) {
+          println("  " + c)
+        }
 
-        case _ =>
-          throw new Error("Se espera String->Palabra, String->Int o String->Array[String]" )
-      }
+      case _ =>
+        throw new Error("Se espera String->Palabra, String->Int o String->Array[String]" )
+    }
   }
 
 
@@ -299,10 +299,10 @@ object PalabrasAnagramadas {
     println( "*********** 22 septiembre 2018");
 
     val pistas = Seq(
-       "Ha provocado la exfoliación de muchas margaritas" -> Palabra( "CISNE INDIO" ),
-       "Siempre canté muy mal, sin duda alguna" -> 12,
-       "Las canarias desenfrenadas dan muestras de dulzura" -> 8,
-       "Sus castillos son espectaculares, pero resultan efímeros" -> Array("Indecisión","precisamente","sacarina")
+      "Ha provocado la exfoliación de muchas margaritas" -> Palabra( "CISNE INDIO" ),
+      "Siempre canté muy mal, sin duda alguna" -> 12,
+      "Las canarias desenfrenadas dan muestras de dulzura" -> 8,
+      "Sus castillos son espectaculares, pero resultan efímeros" -> Array("Indecisión","precisamente","sacarina")
     )
 
     pistas.foreach(resuelvePista)
@@ -316,7 +316,7 @@ object PalabrasAnagramadas {
       "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
       "No es verdad y a menudo parece mentira" -> Palabra("CLIMA RUSO"),
       "Estaba hecho un andrajo pero logró completar el trabajo del día" -> 7,
-      "Acortan el espacio pero pueden alargar el tiempo" -> Array("tigresa","simulacro","jornada")   
+      "Acortan el espacio pero pueden alargar el tiempo" -> Array("tigresa","simulacro","jornada")
     );
 
 
@@ -330,7 +330,7 @@ object PalabrasAnagramadas {
       "Vino de Francia" -> Palabra("piromántico"),
       "Rediseña la licorería para poder albergar buenos recuerdos" -> 9 ,
       "Vivir de administrar los remanentes de forma adecuada" -> 10,
-      "Trabaja de cara a la galería" -> Array("importación","relicario","mantenerse")   
+      "Trabaja de cara a la galería" -> Array("importación","relicario","mantenerse")
     );
 
     pistas.foreach( resuelvePista );
@@ -343,7 +343,7 @@ object PalabrasAnagramadas {
       "Puede servir de ejemplo para medio mundo" -> Palabra("esa es firme"),
       "Confusa plática que no siempre resulta suficientemente interesante" -> 7 ,
       "Una terrible aversión la sacó de quicio" -> 8,
-      "Son pesadas, pero en el fondo son útiles" -> Array("semiesfera","capital","nerviosa","ancla")   
+      "Son pesadas, pero en el fondo son útiles" -> Array("semiesfera","capital","nerviosa","ancla")
     );
 
     pistas.foreach( resuelvePista );
@@ -356,33 +356,75 @@ object PalabrasAnagramadas {
       "Cuando le hablan del imsomnio se desvela" -> Palabra("ripio cachondo"),
       "Familia muy arraigada en el campo" -> Palabra("La muesca") ,
       "La patrona se alteró, pero consiguió cerrar la boca" -> 7,
-      "Pulimentos realizados sin elementos agresivos" -> Array("hipocondriaco","ulmáceas","taponar","hurtos")   
+      "Pulimentos realizados sin elementos agresivos" -> Array("hipocondriaco","ulmáceas","taponar","hurtos")
     );
 
     pistas.foreach( resuelvePista );
   }
 
 
-   def dia2018_11_17()(implicit palabras: Corpus){
+  def dia2018_11_17()(implicit palabras: Corpus){
 
-     println( "*********** 17 noviembre 2018")
+    println( "*********** 17 noviembre 2018")
 
-     val pistas = Seq(
-        "Se doblega ante las exigencias del público, pero sólo por motivos profesionales" -> Palabra("CORISTA SIN TONO"),
-        "Con los románticos ridículos nos entra un sueño irresistible" -> 10,
-        "Versión de teatro cheli montada como una amalgama de cosas dispersas" -> 11,
-        "a la espera" -> Array("contorsionista","cartonismo","heteroclita")
-     ) 
+    val pistas = Seq(
+      "Se doblega ante las exigencias del público, pero sólo por motivos profesionales" -> Palabra("CORISTA SIN TONO"),
+      "Con los románticos ridículos nos entra un sueño irresistible" -> 10,
+      "Versión de teatro cheli montada como una amalgama de cosas dispersas" -> 11,
+      "a la espera" -> Array("contorsionista","cartonismo","heteroclita")
+    )
 
-     pistas.foreach( resuelvePista )
-   }
+    pistas.foreach( resuelvePista )
+  }
+
+  def dia2018_12_01()(implicit palabras: Corpus){
+
+    println( "*********** 1 diciembre 2018")
+
+    val pistas = Seq(
+      "Vence la amigdalitis retorciendo el pescuezo" -> Palabra("NOTAS ASMA"),
+      "Cuando la majadera se desmadra los golfos se agitan" ->8,
+      "Un sinónimo intrigante que nos hace comer el coco cuando desearíamos descansar"->8,
+      "Si se le mete mano se arruga" -> Array("matasanos", "marejada", "insomnio")
+    )
+
+    pistas.foreach( resuelvePista )
+  }
+
+  def dia2018_12_08()(implicit palabras: Corpus){
+
+    println( "*********** 8 diciembre 2018")
+
+    val pistas = Seq(
+      "Fingen odiar cuando quieren"-> Palabra( "TÍO PARCHÍS" ),
+      "El arte de describir algo tan claro como el agua" -> Palabra("HORA FRÍGIDA"),
+      "Son terriblemente patéticos y conforman una autoridad que no está muy bien vista" -> 9,
+      "Falta pista" -> Array("hipócritas", "hidrografía", "capitoste")
+    )
+    pistas.foreach( resuelvePista )
+  }
+
+  def dia2018_12_15()(implicit palabras: Corpus){
+
+    println( "*********** 15 diciembre 2018")
+
+    val pistas = Seq(
+
+      "Aunque lo pongan de cara a la pared, sabe cómo devolver la pelota" ->  Palabra("TROPELÍA"),
+      "Hablando de poetizar libremente, es una buena figura" -> 10,
+      "El armatoste quedó maltrecho pero todavía está en pie" -> 9,
+      "Por mucho que intentemos matarlo, nos acabará matando él" -> Array( "Pelotari", "trapezoide", "metatarso")
+    )
+
+    pistas.foreach( resuelvePista )
+  }
 
   def resuelve(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
     cronometro("Solución"){
-      dia2018_11_17()
+      dia2018_12_15()
     }
   }
 }
