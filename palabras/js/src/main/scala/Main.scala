@@ -34,10 +34,9 @@ object Main extends JSApp {
       Fs.readFile(file, encoding, (err:FileIOError,data:String) => {
         callback(data)
       })
-      
+
+       */      
       throw new Error("Para node, ModuleKind.CommonJSModule")
-       */
-      false
     }
 
     else{

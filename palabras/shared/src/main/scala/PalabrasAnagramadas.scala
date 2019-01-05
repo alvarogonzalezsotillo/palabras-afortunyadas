@@ -144,7 +144,7 @@ object PalabrasAnagramadas {
 
   def buscaExactoEnFrase( frase: String, letras: Int )(implicit palabras: Corpus) ={
 
-    val f = frase.split("""\s+""")
+    val f = frase.replace(","," ").replace("."," ").split("""\s+""")
 
     val combinacionesDePalabrasConLetras = {
       for (from <- (0 to f.size).view;
@@ -358,12 +358,39 @@ object PalabrasAnagramadas {
 
     pistas.foreach( resuelvePista );
   }
+
+  def dia2018_12_29()(implicit palabras: Corpus){
+    println( "************ 29 diciembre 2018");
+
+    val pistas = Seq(
+      "Hace que la bolsa se oiga, pero apenas la hace subir" -> Palabra("CALLA LÍDER"),
+      "Vacilando con las vacilonas, nos libró de una buena" -> 9 ,
+      "Escribe poco y mal, y editarlo resulta raro" -> 8,
+      "Representa un buen negocio para la banca" -> Array("calderilla","salvacion","iletrado","hurtos")   
+    );
+
+    pistas.foreach( resuelvePista );
+  }
+
+  def dia2019_01_05()(implicit palabras: Corpus){
+    println( "************ 05 enero 2019");
+
+    val pistas = Seq(
+      "Permite recuperar el capital invertido de una manera harto azarosa" -> Palabra("TREN REGIO"),
+      "Trata de imponer su ley en la banda" -> Palabra("EL ALTAR"),
+      "Fea, terca y hecha una furia, nos proporciona una apreciable amargura" -> 8,
+      "Falta pista" -> Array("reintegro","lateral","cafetera")
+    );
+
+    pistas.foreach( resuelvePista );
+  }
+
   def resuelve(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
     cronometro("Solución"){
-      dia2018_11_10()
+      dia2019_01_05()
     }
   }
 }
