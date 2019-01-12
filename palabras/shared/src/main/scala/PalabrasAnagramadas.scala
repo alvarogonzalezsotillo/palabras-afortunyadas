@@ -282,6 +282,13 @@ object PalabrasAnagramadas {
           println("  " + c)
         }
 
+      // NOS DAN UNA PALABRA PARA EL ANAGRAMA
+      case (msg,p:String) =>
+        println( s"${msg.toUpperCase}: Con anagrama $p" );
+        for (c <- buscaCoincidenciaExacta(Palabra(p)) ) {
+          println("  " + c)
+        }
+       
       // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS
       case (frase,size:Int) =>
         println( s"${frase.toUpperCase}: Anagrama en la fase, longitud $size" );
@@ -419,14 +426,29 @@ object PalabrasAnagramadas {
     pistas.foreach( resuelvePista )
   }
 
+  def dia2019_01_12()(implicit palabras: Corpus){
+
+    println( "*********** 12 enero 2019")
+
+    val pistas = Seq(
+      "Es bueno que tenga seriedad para las pataletas y gracia para los cuentos" -> "LUCIR PUERTO",
+      "Si esto baja de una manera alarmante, la oposición será disimulada" -> 8,
+      "Hipotecar sin la debida formalidad es una actividad altamente sospechosa" -> 9,
+      "En las cartas suele estar escrito al final" -> Array( "puericultor", "sabotaje", "trapicheo" )
+    )
+
+    pistas.foreach( resuelvePista )
+  }
+
+
   def resuelve(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
     cronometro("Solución"){
-      dia2018_12_15()
+      dia2019_01_12()
     }
   }
 }
 
-
+// https://www.facebook.com/noesundia
