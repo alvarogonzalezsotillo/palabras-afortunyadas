@@ -297,8 +297,8 @@ object PalabrasAnagramadas {
           println("  " + c)
         }
 
-      case _ =>
-        throw new Error("Se espera String->Palabra, String->Int o String->Array[String]" )
+      case err =>
+        throw new Error("Se espera String->Palabra, String->Int o String->Array[String]:" + err )
     }
   }
 
