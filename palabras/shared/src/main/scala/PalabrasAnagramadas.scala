@@ -22,7 +22,7 @@ object Corpus{
         'ü' -> 'u'
       )
       val sinAcentos = s.toLowerCase.map(c => if (acentos.isDefinedAt(c)) acentos(c) else c)
-      sinAcentos.replace(" ", "" )
+      sinAcentos.replace(" ", "" ).replace(".","").replace(",","").replace(":","")
     }
 
     lazy val size = palabra.size
@@ -262,8 +262,9 @@ object PalabrasAnagramadas {
 
   }
 
+  type Pista = (String,Any)
 
-  def resuelvePista( pista : (String,Any) )(implicit corpus: Corpus) = {
+  def resuelvePista( pista : Pista )(implicit corpus: Corpus) = {
     pista match{
       // LA ULTIMA PALABRA SE CONSIGUE CON EL INICIO Y FIN DE LAS TRES PRIMERAS
       case (msg, a:Array[String]) =>
@@ -415,38 +416,35 @@ object PalabrasAnagramadas {
 
     println( "*********** 15 diciembre 2018")
 
-    val pistas = Seq(
 
+    pistas.foreach( resuelvePista )
+  }
+
+
+  val pistas : Map[String,Seq[Pista]] = Map(
+
+    "2018-12-15" -> Seq(
       "Aunque lo pongan de cara a la pared, sabe cómo devolver la pelota" ->  Palabra("TROPELÍA"),
       "Hablando de poetizar libremente, es una buena figura" -> 10,
       "El armatoste quedó maltrecho pero todavía está en pie" -> 9,
       "Por mucho que intentemos matarlo, nos acabará matando él" -> Array( "Pelotari", "trapezoide", "metatarso")
-    )
+    ),
 
-    pistas.foreach( resuelvePista )
-  }
-
-  def dia2019_01_12()(implicit palabras: Corpus){
-
-    println( "*********** 12 enero 2019")
-
-    val pistas = Seq(
+    "2019-01-12" -> Seq(
       "Es bueno que tenga seriedad para las pataletas y gracia para los cuentos" -> "LUCIR PUERTO",
       "Si esto baja de una manera alarmante, la oposición será disimulada" -> 8,
       "Hipotecar sin la debida formalidad es una actividad altamente sospechosa" -> 9,
-      "En las cartas suele estar escrito al final" -> Array( "puericultor", "sabotaje", "trapicheo" )
+      "En las cartas suele estar escrito al final" -> Array( "puericultor", "sabotaje", "trapicheo", "postre" )
     )
-
-    pistas.foreach( resuelvePista )
-  }
-
+  )
 
   def resuelve(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
-    cronometro("Solución"){
-      dia2019_01_12()
+    for( (dia,ps) <- pistas ) cronometro("Solución"){
+      println( s"****** Día $dia")
+      ps.foreach(resuelvePista)
     }
   }
 }
