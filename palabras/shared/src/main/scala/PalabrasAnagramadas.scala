@@ -32,6 +32,8 @@ object Corpus{
       val ret = palabra.groupBy(c => c)
       ret.map { case (c, set) => (c, set.size) }
     }
+
+    override val toString = original
   }
 
 
@@ -303,125 +305,72 @@ object PalabrasAnagramadas {
   }
 
 
-  def dia2018_09_22()(implicit palabras: Corpus){
-    println( "*********** 22 septiembre 2018");
 
-    val pistas = Seq(
+
+
+
+
+
+
+
+  val pistas : Map[String,Seq[Pista]] = Map(
+
+    "2018-09-22" -> Seq(
       "Ha provocado la exfoliación de muchas margaritas" -> Palabra( "CISNE INDIO" ),
       "Siempre canté muy mal, sin duda alguna" -> 12,
       "Las canarias desenfrenadas dan muestras de dulzura" -> 8,
       "Sus castillos son espectaculares, pero resultan efímeros" -> Array("Indecisión","precisamente","sacarina")
-    )
+    ),
 
-    pistas.foreach(resuelvePista)
-  }
-
-
-  def dia2018_09_29()(implicit palabras: Corpus){
-    println( "*********** 29 septiembre 2018");
-
-    val pistas = Seq(
+    "2018-09-29"-> Seq(
       "Es muy capaz de comerle el coco a cualquier hombre" -> Palabra("grietas"),
       "No es verdad y a menudo parece mentira" -> Palabra("CLIMA RUSO"),
       "Estaba hecho un andrajo pero logró completar el trabajo del día" -> 7,
       "Acortan el espacio pero pueden alargar el tiempo" -> Array("tigresa","simulacro","jornada")
-    );
+    ),
 
-
-    pistas.foreach( resuelvePista );
-  }
-
-  def dia2018_10_06()(implicit palabras: Corpus){
-    println( "************ 6 octubre 2018");
-
-    val pistas = Seq(
+    "2018-10-06" -> Seq(
       "Vino de Francia" -> Palabra("piromántico"),
       "Rediseña la licorería para poder albergar buenos recuerdos" -> 9 ,
       "Vivir de administrar los remanentes de forma adecuada" -> 10,
       "Trabaja de cara a la galería" -> Array("importación","relicario","mantenerse")
-    );
+    ),
 
-    pistas.foreach( resuelvePista );
-  }
-
-  def dia2018_11_03()(implicit palabras: Corpus){
-    println( "************ 3 noviembre 2018");
-
-    val pistas = Seq(
+    "2018-11-03" -> Seq(
       "Puede servir de ejemplo para medio mundo" -> Palabra("esa es firme"),
       "Confusa plática que no siempre resulta suficientemente interesante" -> 7 ,
       "Una terrible aversión la sacó de quicio" -> 8,
       "Son pesadas, pero en el fondo son útiles" -> Array("semiesfera","capital","nerviosa","ancla")
-    );
+    ),
 
-    pistas.foreach( resuelvePista );
-  }
-
-  def dia2018_11_10()(implicit palabras: Corpus){
-    println( "************ 10 noviembre 2018");
-
-    val pistas = Seq(
+    "2018-11-10" -> Seq(
       "Cuando le hablan del imsomnio se desvela" -> Palabra("ripio cachondo"),
       "Familia muy arraigada en el campo" -> Palabra("La muesca") ,
       "La patrona se alteró, pero consiguió cerrar la boca" -> 7,
       "Pulimentos realizados sin elementos agresivos" -> Array("hipocondriaco","ulmáceas","taponar","hurtos")
-    );
+    ),
 
-    pistas.foreach( resuelvePista );
-  }
-
-
-  def dia2018_11_17()(implicit palabras: Corpus){
-
-    println( "*********** 17 noviembre 2018")
-
-    val pistas = Seq(
+    "2018-11-17" -> Seq(
       "Se doblega ante las exigencias del público, pero sólo por motivos profesionales" -> Palabra("CORISTA SIN TONO"),
       "Con los románticos ridículos nos entra un sueño irresistible" -> 10,
       "Versión de teatro cheli montada como una amalgama de cosas dispersas" -> 11,
       "a la espera" -> Array("contorsionista","cartonismo","heteroclita")
-    )
+    ),
 
-    pistas.foreach( resuelvePista )
-  }
-
-  def dia2018_12_01()(implicit palabras: Corpus){
-
-    println( "*********** 1 diciembre 2018")
-
-    val pistas = Seq(
+    "2018-12-01" -> Seq(
       "Vence la amigdalitis retorciendo el pescuezo" -> Palabra("NOTAS ASMA"),
       "Cuando la majadera se desmadra los golfos se agitan" ->8,
       "Un sinónimo intrigante que nos hace comer el coco cuando desearíamos descansar"->8,
       "Si se le mete mano se arruga" -> Array("matasanos", "marejada", "insomnio")
-    )
+    ),
 
-    pistas.foreach( resuelvePista )
-  }
 
-  def dia2018_12_08()(implicit palabras: Corpus){
-
-    println( "*********** 8 diciembre 2018")
-
-    val pistas = Seq(
+    "2018-12-08" -> Seq(
       "Fingen odiar cuando quieren"-> Palabra( "TÍO PARCHÍS" ),
       "El arte de describir algo tan claro como el agua" -> Palabra("HORA FRÍGIDA"),
       "Son terriblemente patéticos y conforman una autoridad que no está muy bien vista" -> 9,
       "Falta pista" -> Array("hipócritas", "hidrografía", "capitoste")
-    )
-    pistas.foreach( resuelvePista )
-  }
-
-  def dia2018_12_15()(implicit palabras: Corpus){
-
-    println( "*********** 15 diciembre 2018")
-
-
-    pistas.foreach( resuelvePista )
-  }
-
-
-  val pistas : Map[String,Seq[Pista]] = Map(
+    ),
 
     "2018-12-15" -> Seq(
       "Aunque lo pongan de cara a la pared, sabe cómo devolver la pelota" ->  Palabra("TROPELÍA"),
@@ -429,6 +378,22 @@ object PalabrasAnagramadas {
       "El armatoste quedó maltrecho pero todavía está en pie" -> 9,
       "Por mucho que intentemos matarlo, nos acabará matando él" -> Array( "Pelotari", "trapezoide", "metatarso")
     ),
+
+
+    "2018-12-29"-> Seq(
+      "Hace que la bolsa se oiga, pero apenas la hace subir" -> Palabra("CALLA LÍDER"),
+      "Vacilando con las vacilonas, nos libró de una buena" -> 9 ,
+      "Escribe poco y mal, y editarlo resulta raro" -> 8,
+      "Representa un buen negocio para la banca" -> Array("calderilla","salvacion","iletrado","hurtos")   
+    ),
+
+    "2019-01-05" -> Seq(
+      "Permite recuperar el capital invertido de una manera harto azarosa" -> Palabra("TREN REGIO"),
+      "Trata de imponer su ley en la banda" -> Palabra("EL ALTAR"),
+      "Fea, terca y hecha una furia, nos proporciona una apreciable amargura" -> 8,
+      "Falta pista" -> Array("reintegro","lateral","cafetera")
+    ),
+
 
     "2019-01-12" -> Seq(
       "Es bueno que tenga seriedad para las pataletas y gracia para los cuentos" -> "LUCIR PUERTO",
@@ -449,7 +414,7 @@ object PalabrasAnagramadas {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
-    for( (dia,ps) <- pistas ) cronometro("Solución"){
+    for( dia <- pistas.keys.toSeq.sorted ; ps = pistas(dia) ) cronometro("Solución"){
       println( s"****** Día $dia")
       ps.foreach(resuelvePista)
     }

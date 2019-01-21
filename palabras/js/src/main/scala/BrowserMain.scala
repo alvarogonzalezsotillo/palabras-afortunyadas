@@ -61,7 +61,6 @@ object BrowserMain {
   }
 
   val lastLoadedScript : Option[String] = currentScript.map{ c =>
-    println( s"Hay que implementar lastLoadedScript: $c")
     if( js.isUndefined(c) )
       "./palabras/js/target/scala-2.11/palabras-fastopt.js"
     else
