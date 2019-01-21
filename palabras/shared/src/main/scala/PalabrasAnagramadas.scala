@@ -435,6 +435,13 @@ object PalabrasAnagramadas {
       "Si esto baja de una manera alarmante, la oposición será disimulada" -> 8,
       "Hipotecar sin la debida formalidad es una actividad altamente sospechosa" -> 9,
       "En las cartas suele estar escrito al final" -> Array( "puericultor", "sabotaje", "trapicheo", "postre" )
+    ),
+
+    "2019-01-19" -> Seq(
+      "Es capaz de contentar al mismo tiempo al cuñado y a la suegra" -> "RATA ABISMAL",
+      "Se aprecia mucho más en el Atlántico que en el Mediterráneo" -> "LAMPREA",
+      "Cien ritos esotéricos de los que nadie sabe casi nada" -> 9,
+      "Poderosas razones para querer dominar el partido" -> Array( "malabarista", "pleamar", "inciertos" )
     )
   )
 
