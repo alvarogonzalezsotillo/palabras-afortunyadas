@@ -6,62 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-      .word{
-          text-align: center;
-          background: #ffd563;
-          border: 2px solid #ffbb00;
-          border-radius: 5px;
-          padding: 2px;
-          margin: 3px;
-          display: block;
-          text-align: left;
-      }
+     .word{
+         text-align: center;
+         background: #ffd563;
+         border: 2px solid #ffbb00;
+         border-radius: 5px;
+         padding: 2px;
+         margin: 3px;
+         display: block;
+         text-align: left;
+     }
 
-      .log{
-          display: block;
-          text-align: left;
-      }
+     .log{
+         display: block;
+         text-align: left;
+     }
 
-      .seccion{
-          padding-bottom: 10px;
-          margin-bottom: 10px;
-      }
+     .seccion{
+         padding-bottom: 10px;
+         margin-bottom: 10px;
+     }
 
-      .linea{
-          display: block;
-          min-width: 100%;
-          max-width: 100%;
-          width: 100%;
-          min-height: 3em;
-      }
+     .output{
+         text-align: center;
+     }
+     
+     .word{
+         display: block;
+         min-width: 80%;
+         max-width: 80%;
+         width: 80%;
+         margin: auto;
+     }
 
-      .grande{
-          display: none;
-      }
+     .log{
+         margin-top: 1em;
+     }
 
-      @media only screen and (min-width: 500px) {
-          /* MAYOR DE 768px */
-          .linea{
-              display: inline;
-              min-width: 0px;
-              width: inherit;
-              min-height: 0em;
+     .grande{
+         display: none;
+     }
 
-          }
+     @media only screen and (min-width: 500px) {
+         /* MAYOR DE 768px */
 
-          .grande{
-              display: inline;
-          }
-      }
+         .output{
+             text-align: left;
+         }
+         
+         .word{
+             display: inline;
+             margin-right: 1em;
+         }
 
-      
+         .grande{
+             display: inline;
+         }
+     }
+
+     
     </style>
   </head>
   <body>
 
-    
-    <!-- <span class="grande">SOY GRANDE</span> -->
+    <h1>Palabras anagramadas de <a href="http://www.rtve.es/radio/no-es-un-dia-cualquiera/">No es un día cualquiera</a></h1>
 
+    <p>Esta página permite buscar anagramas para el concurso de palabras anagramadas. Si quieres saber cómo está hecha, consulta su <a href="https://github.com/alvarogonzalezsotillo/palabras-afortunyadas">código fuente</a> o <a href="https://alvarogonzalezsotillo.github.io/blog/palabras-anagramadas/">el blog donde lo explico</a>.</p>
+
+    <p>Ejemplo: Intenta resolver el <a href="https://www.facebook.com/noesundia/photos/a.133963369947769/2208514929159259/?type=3&theater">problema del 10 de Noviembre del 2018</a></p>
+    
     
     <div id="uipalabra" class="seccion">
       <input class="linea" id="palabra" type="text" name="palabra" value="" placeholder="Anagrama" />

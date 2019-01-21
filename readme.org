@@ -1,0 +1,4 @@
+
+* Palabras anagramadas de [[http://www.rtve.es/radio/no-es-un-dia-cualquiera/][No es un día cualquiera]]
+
+Esta página permite buscar anagramas para el concurso de palabras anagramadas. Está basada en el trabajo realizado en un programa [[https://alvarogonzalezsotillo.github.io/blog/palabras-anagramadas/][descrito en mi blog]].

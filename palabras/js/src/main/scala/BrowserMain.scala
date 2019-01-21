@@ -81,6 +81,8 @@ object BrowserMain {
 
   }
 
+
+
   def onMessage( m: org.scalajs.dom.raw.MessageEvent ) = {
     println( s"Mensaje recibido en html")
 
@@ -96,7 +98,10 @@ object BrowserMain {
         enableButtons()
         ui.botonPalabra.value("Busca anagramas")
         ui.botonFrase.value("Busca anagramas en la frase")
-        addLog( s"No se encuentran más anagramas para $s" )
+        addLog( s"No se encuentran más anagramas para «$s»" )
+
+      case PreparseDone(size) =>
+        addLog( s"Preparseadas las palabras con longitud $size" )
 
       case data =>
         println( s"No entiendo el mensaje en html:$data")
