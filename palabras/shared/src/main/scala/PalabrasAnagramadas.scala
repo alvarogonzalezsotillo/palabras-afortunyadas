@@ -167,102 +167,7 @@ object PalabrasAnagramadas {
   }
 
 
-  def dia2018_07_14()(implicit palabras: Corpus){
-    println( "SABADO 14 JULIO 2018");
 
-
-    val p2 = Palabra("robarpasta"); // ocultan las partes más interesanes
-    println("EXACTO:" + p2 );
-    for (p <- buscaCoincidenciaExacta(p2)) {
-      println(p)
-    }
-
-    val p1 = Palabra("diamanteruin"); //nada de lo que se lleva le es ajeno
-    println("EXACTO:" + p1 );
-    for (p <- buscaCoincidenciaExacta(p1)) {
-      println(p)
-    }
-
-
-    val frase = "veinte lios bien liados dan para mucha audiencia"; // 10 letras
-    println("EXACTO EN FRASE: " + frase)
-    for (p <- buscaExactoEnFrase(frase, 10) ) {
-      println(p)
-    }
-
-    val p4 = Palabra("iatstn");// si son medias no son transparentes; primera y última letra de las anteriores
-    println("EXACTO:" + p4 );
-    for (p <- buscaCoincidenciaExacta(p4)) {
-      println(p)
-    }
-  }
-
-
-
-  def dia2018_07_21()(implicit palabras: Corpus){
-    println( "SABADO 21 JULIO 2018");
-
-
-    val p2 = Palabra("otramadre"); // es el encargado de dar la patada definitiva
-    println("EXACTO:" + p2 );
-    for (p <- buscaCoincidenciaExacta(p2)) {
-      println(p)
-    }
-
-    val p1 = Palabra("leercinta"); //la marcha le obliga a soplar por un tubo
-    println("EXACTO:" + p1 );
-    for (p <- buscaCoincidenciaExacta(p1)) {
-      println(p)
-    }
-
-
-    val frase = "la corrupción del primo decente está fuera de lugar"; // 12 letras
-    println("EXACTO EN FRASE: " + frase)
-    for (p <- buscaExactoEnFrase(frase, 12) ) {
-      println(p)
-    }
-
-    val p4 = Palabra("rrceie");// orden de clausura; primera y última letra de las anteriores
-    println("EXACTO:" + p4 );
-    for (p <- buscaCoincidenciaExacta(p4)) {
-      println(p)
-    }
-  }
-
-  def dia2018_09_15()(implicit palabras: Corpus){
-    println( "15 septiembre 2018");
-
-    // 1) O tiene solución o hay que llamarlo de otro modo (anagrama: MAL POBRE)
-    // 2) La búsqueda de la verdad oculta (anagrama: VEIS INCÓGNITA)
-    // 3) Eso de cutis tan retorcido que describe matemáticamente algunas células epiteliales (el anagrama está en la definición, la palabreja en plural tiene 10 letras y Clara Grima es una de sus responsables)
-    // 4) Juega con la cabeza
-
-    val p2 = Palabra("malpobre");
-    println("EXACTO:" + p2 );
-    for (p <- buscaCoincidenciaExacta(p2)) {
-      println(p)
-    }
-
-    val p1 = Palabra("veisincognita"); //la marcha le obliga a soplar por un tubo
-    println("EXACTO:" + p1 );
-    for (p <- buscaCoincidenciaExacta(p1)) {
-      println(p)
-    }
-
-
-    val frase = "Eso de cutis tan retorcido que describe matemáticamente algunas células epiteliales"; // 10 letras
-    println("EXACTO EN FRASE: " + frase)
-    for (p <- buscaExactoEnFrase(frase, 12) ) {
-      println(p)
-    }
-
-    val p4 = Palabra("paesin");// problema escutoides investigacion
-    println("EXACTO:" + p4 );
-    for (p <- buscaCoincidenciaExacta(p4)) {
-      println(p)
-    }
-
-  }
 
   type Pista = (String,Any)
 
@@ -294,7 +199,7 @@ object PalabrasAnagramadas {
        
       // EL ANAGRAMA ESTÁ EN LA DEFINICIÓN, NOS DAN EL NÚMERO DE LETRAS
       case (frase,size:Int) =>
-        println( s"${frase.toUpperCase}: Anagrama en la fase, longitud $size" );
+        println( s"${frase.toUpperCase}: Anagrama en la frase, longitud $size" );
         for (c <- buscaExactoEnFrase(frase, size) ) {
           println("  " + c)
         }
@@ -314,6 +219,7 @@ object PalabrasAnagramadas {
 
 
   val pistas : Map[String,Seq[Pista]] = Map(
+
 
     "2018-09-22" -> Seq(
       "Ha provocado la exfoliación de muchas margaritas" -> Palabra( "CISNE INDIO" ),
@@ -407,7 +313,16 @@ object PalabrasAnagramadas {
       "Se aprecia mucho más en el Atlántico que en el Mediterráneo" -> "LAMPREA",
       "Cien ritos esotéricos de los que nadie sabe casi nada" -> 9,
       "Poderosas razones para querer dominar el partido" -> Array( "malabarista", "pleamar", "inciertos" )
+    ),
+
+    "2019-01-26" -> Seq(
+      "Aumenta la talla sin aumentar el peso" -> "CLAN IDIOTA",
+      "Es un acierto increíble y resulta muy sugerente" -> 7,
+      "Un alcalde se trastorna y suelta una flor: qué maravilla" -> 9,
+      ""-> Array("dilatación","erótica","caléndula")
+
     )
+
   )
 
   def resuelve(implicit palabras: Corpus) = {
