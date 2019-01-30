@@ -1,7 +1,8 @@
 // VARIOS TARGETS: https://github.com/muuki88/scala-target-examples
 
 
-
+ensimeScalaVersion  in ThisBuild := "2.11.8"
+scalaVersion := "2.11.8"
 
 // shadow sbt-scalajs' crossProject and CrossType from Scala.js 0.6.x
 import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}

@@ -1,5 +1,6 @@
 
 
+addSbtPlugin("org.ensime" % "sbt-ensime" % "2.5.1")
 
 
 addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject"      % "0.6.0")
