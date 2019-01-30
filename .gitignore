@@ -2,3 +2,4 @@ palabras-preprocesadas*
 **/classes/
 **/target/
 .idea
+/.ensime
