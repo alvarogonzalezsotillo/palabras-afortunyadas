@@ -321,6 +321,11 @@ object PalabrasAnagramadas {
       "Un alcalde se trastorna y suelta una flor: qué maravilla" -> 9,
       ""-> Array("dilatación","erótica","caléndula")
 
+    ),
+
+    "2019-02-02" -> Seq(
+      "No es raro que tenga más amigos que dinero" -> "DIETA LISA",
+      "Hace un trabajo de antología" -> "ENREDO CLÁSICO"
     )
 
   )
