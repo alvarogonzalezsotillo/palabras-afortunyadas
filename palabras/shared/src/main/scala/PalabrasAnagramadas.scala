@@ -87,7 +87,7 @@ object PalabrasAnagramadas {
   }
 
 
-  def buscaCoincidenciaMultiple(buscado: Histograma, maximo: Int = 2, previas: Seq[Palabra] = Seq())(implicit palabras: Corpus): Unit = {
+  def buscaCoincidenciaMultiple(buscado: Histograma, maximo: Int = 40, previas: Seq[Palabra] = Seq())(implicit palabras: Corpus): Unit = {
 
     implicit class HistogramaOps(h:Histograma){
 
@@ -325,9 +325,37 @@ object PalabrasAnagramadas {
 
     "2019-02-02" -> Seq(
       "No es raro que tenga más amigos que dinero" -> "DIETA LISA",
-      "Hace un trabajo de antología" -> "ENREDO CLÁSICO"
-    )
+      "Hace un trabajo de antología" -> "ENREDO CLÁSICO",
+      "Para hacer teatro me basta con ponerme frac en plan disfraz" -> 11,
+      "Algunas de sus persianas son utilizadas para fabricar alfombras" -> Array("idealista","seleccionador","performance")
+    ),
 
+    "2019-02-09" -> Seq(
+      "Engancharse con el pico" -> "TRETA MADURA",
+      "Mil africanos bien conjuntados pueden hacer muchas orquestas" ->12,
+      "Di una mentira inconcebible, pero que tenga mucha tela" -> 12,
+      "" -> Array("tartamudear", "filarmónicas", "indumentaria")
+    ),
+
+    "2019-05-23" -> Seq(
+      "cuando la mente y la razón se alían surge la idea" ->11
+    ),
+
+
+    "2019-03-30" -> Seq(
+      "Ni mil policías pueden detenerlo" ->  "MAPA LIBRE",
+      "Por lo que respecta a los cantos, es una buena regla de tres" -> "BAR CANTO",
+      "El placer es perverso y caprichoso, pero es bueno conocerlo" -> 6,
+      "" -> Array("percal","imparable","cartabon")
+    ),
+
+    "2019-04-06" -> Seq(
+
+      "Marca que se mantiene firme con el paso del tiempo" ->  "BROMA LIBRE",
+      "A la hora de mirar las partes nos obliga a dejar la pasión aparte" -> "CARIDAD LIMPIA",
+      "Carmen ama con locura al inglés de las películas" -> 9,
+      "" -> Array("imborrable", "imparcialidad", "cameraman")
+    )
   )
 
   def resuelve(implicit palabras: Corpus) = {
