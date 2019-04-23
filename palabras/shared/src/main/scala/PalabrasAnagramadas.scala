@@ -337,7 +337,7 @@ object PalabrasAnagramadas {
       "" -> Array("tartamudear", "filarmónicas", "indumentaria")
     ),
 
-    "2019-05-23" -> Seq(
+    "2019-03-23" -> Seq(
       "cuando la mente y la razón se alían surge la idea" ->11
     ),
 
@@ -354,11 +354,28 @@ object PalabrasAnagramadas {
       "Marca que se mantiene firme con el paso del tiempo" ->  "BROMA LIBRE",
       "A la hora de mirar las partes nos obliga a dejar la pasión aparte" -> "CARIDAD LIMPIA",
       "Carmen ama con locura al inglés de las películas" -> 9,
-      "" -> Array("imborrable", "imparcialidad", "cameraman")
+      "Es fácil verlo con el corazón en la mano" -> Array("imborrable", "imparcialidad", "cameraman", "indice")
+    ),
+
+    "2019-04-13" -> Seq(
+      "Sus predicciones suelen ser más fiables que las de cualquier adivino" -> "VINDICAR EL TÉ",
+      "No se quita los cascos ni para dormir" -> "ALGÚN DÚO",
+      "Un cretino loco seguido de cien elementos peligrosos" -> 9,
+      "" -> Array("clarividente","ungulado","centurión","cuenco")
     )
   )
 
   def resuelve(implicit palabras: Corpus) = {
+
+    val dia = pistas.keys.toSeq.sorted.last
+    val  ps = pistas(dia)
+    cronometro("Solución"){
+      println( s"****** Día $dia")
+      ps.foreach(resuelvePista)
+    }
+  }
+  
+  def resuelveTodas(implicit palabras: Corpus) = {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
