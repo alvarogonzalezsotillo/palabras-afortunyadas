@@ -8,6 +8,7 @@ object Corpus{
   type Corpus = Map[Int, Array[Corpus.Palabra]]
   type Histograma = Map[Char, Int]
 
+  import Cronometro._
 
   case class Palabra(original: String) {
 
@@ -33,13 +34,16 @@ object Corpus{
       ret.map { case (c, set) => (c, set.size) }
     }
 
+    lazy val fin = palabra.slice(palabra.size-2,palabra.size)
+    lazy val inicio = palabra.slice(0,2)
+
     override val toString = original
   }
 
 
   val regex = """(?:\s*)(?:(\d|\.)*)(?:\s*)(\S*).*""".r
 
-  def palabras(array: Array[Array[String]]): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras de array"){
+  def palabras(array: Array[Array[String]]): Corpus = cronometro("Lectura de palabras de array"){
     array.zipWithIndex.
       map{
         case (a:Array[String],i:Int ) =>
@@ -50,7 +54,7 @@ object Corpus{
   }
 
 
-  def palabras(lineIterator: Iterator[String]): Corpus = PalabrasAnagramadas.cronometro("Lectura de palabras de fichero original"){
+  def palabras(lineIterator: Iterator[String]): Corpus = cronometro("Lectura de palabras de fichero original"){
 
     val iterator = lineIterator.map{ line =>
       regex.findAllMatchIn(line).next.subgroups(1)
@@ -64,20 +68,11 @@ object Corpus{
     // COMO PALABRAS DE UNA SOLA LETRA, DEJAMOS SOLO a,o,y
     ret.updated(1, Array("a", "o", "y").map(Palabra(_)))
   }
+
+
 }
 
-object PalabrasAnagramadas {
-
-  import scala.collection.immutable.Map
-  import scala.collection.Iterator
-  import Corpus.Corpus
-  import Corpus.Palabra
-  import Corpus.Histograma
-
-
-  type Frase = Array[Palabra]
-
-
+object Cronometro{
   def cronometro[T](msg: String)( proc : => T ) = {
     val ini = System.currentTimeMillis()
     val ret = proc
@@ -85,6 +80,135 @@ object PalabrasAnagramadas {
     println( s"$msg: ${fin-ini} ms" )
     ret
   }
+}
+
+import Corpus.Corpus
+
+class Experimiento(longitudes: Array[Array[Int]], circular: Boolean = true )(implicit palabras: Corpus){
+
+  var iteradores : Array[BufferedIterator[Array[Corpus.Palabra]]] = new Array(longitudes.size)
+
+  def fin(s:String ) = s.slice(s.size-2,s.size)
+  def inicio( s:String ) = s.slice(0,2)
+
+
+  def inicializaIterador(indice:Int) = {
+    val i =   if(indice == 0){
+      None
+    }
+    else{
+      val previo = iteradores(indice-1).head.last.fin
+      Some(previo)
+    }
+
+    val f = if(indice == longitudes.size -1 && circular){
+      val siguiente = iteradores(0).head.head.inicio
+      Some(siguiente)
+    }
+    else{
+      None
+    }
+
+    iteradores(indice) = PalabrasEncadenadas.lista(longitudes(indice),i,f).buffered
+    
+  }
+
+  def siguiente(indice:Int) : Array[Corpus.Palabra] = {
+    if( iteradores(indice) == null ){
+      inicializaIterador(indice)
+    }
+    val it = iteradores(indice)
+    if( !it.hasNext ){
+      if( indice == 0 ){
+        return null
+      }
+      iteradores(indice-1).next
+    }
+    iteradores(indice).next
+  }
+
+  def siguiente = {
+
+  }
+
+}
+
+object PalabrasEncadenadas {
+
+  import Corpus.Corpus
+  import Corpus.Palabra
+  import scala.reflect.ClassTag
+
+
+  def productoCartesiano[T:ClassTag]( a: Iterator[Array[T]], b: Iterable[T], condicion: (Array[T],T)=>Boolean = (_:Array[T],_:T) => true ) : Iterator[Array[T]] = {
+    val ret = for( aa <- a ; bb <- b.iterator if condicion(aa,bb) ) yield aa:+bb
+    ret
+  }
+
+  def productosCartesianos[T:ClassTag]( iterables: Seq[Iterable[T]])(condicion : (Array[T],T) => Boolean = (_:Array[T],_:T) => true  )  : Iterator[Array[T]]= {
+    val primero = iterables(0).
+      filter( e => condicion(Array(),e) ).
+      map( Array(_) )
+
+    iterables.drop(1).foldLeft(primero.iterator){ (producto,iterable) =>
+      productoCartesiano(producto,iterable,condicion)
+    }
+  }
+
+  def lista( longitudes: Array[Int], inicio: Option[String] = None, fin: Option[String] = None )( implicit palabras: Corpus) : Iterator[Array[Palabra]]= {
+    assert( inicio.map( _.size <= longitudes.head).getOrElse(true) )
+    assert( fin.map( _.size <= longitudes.last).getOrElse(true) )
+
+    val candidatos = longitudes.map( palabras(_).toIterable )
+
+    productosCartesianos(candidatos){ (previos,actual) =>
+      val aceptoInicio = previos.size > 0 || inicio.map( _ == actual.inicio ).getOrElse(true)
+      val aceptoFin = previos.size < longitudes.size-1 || fin.map( _ == actual.fin ).getOrElse(true)
+      val ret = aceptoInicio && aceptoFin
+      //if( ret ) println( s"previos:${previos.mkString(",")} actual:$actual aceptoInicio:$aceptoInicio aceptoFin:$aceptoFin inicio:$inicio fin:$fin")
+      ret
+    }
+
+  }
+
+
+  def busca( longitudes: Array[Array[Int]] )(implicit palabras: Corpus) : Iterator[ Array[String] ] = {
+
+
+    assert( longitudes.size == 4 )
+
+
+    def junta[T]( a: Array[T] ) = a.mkString(" ")
+
+    for( p1 <- lista(longitudes(0)) ;
+      //_ = println( s"p1:${p1.mkString(" ")}") ;
+      p2 <- lista(longitudes(1), Some( p1.last.fin ) ) ;
+      //_ = println( s"p1:${p1.mkString(" ")} p2:${p2.mkString(" ")}");
+      p3 <- lista(longitudes(2), Some( p2.last.fin ) ) ;
+      //_ = println( s"p1:${p1.mkString(" ")} p2:${p2.mkString(" ")} p3:${p3.mkString(" ")} ");
+      p4 <- lista(longitudes(3), Some( p3.last.fin ), Some( p1.head.inicio ) ) ) yield{
+      Array( junta(p1), junta(p2), junta(p3), junta(p4) )
+    }
+
+
+  }
+
+}
+
+object PalabrasAnagramadas {
+
+
+  import scala.collection.immutable.Map
+  import scala.collection.Iterator
+  import Corpus.Corpus
+  import Corpus.Palabra
+  import Corpus.Histograma
+  import Cronometro.cronometro
+
+
+  type Frase = Array[Palabra]
+
+
 
 
   def buscaCoincidenciaMultiple(buscado: Histograma, maximo: Int = 40, previas: Seq[Palabra] = Seq())(implicit palabras: Corpus): Unit = {
@@ -362,8 +486,67 @@ object PalabrasAnagramadas {
       "No se quita los cascos ni para dormir" -> "ALGÚN DÚO",
       "Un cretino loco seguido de cien elementos peligrosos" -> 9,
       "" -> Array("clarividente","ungulado","centurión","cuenco")
+    ),
+
+    "2019-04-27" -> Seq(
+      "Hacer los cantos menos agudos" ->"SILBARÉ",
+      "Surge sin prejuicios sobre la marcha" -> "NOVICIO SIMPAR",
+      "Es un lío zafio e increible, parece una auténtica animalada" -> 8,
+      "Permite dar la mano usando la muñeca." -> Array("biselar","improvisación", "zoofilia", "barniz")
+    ),
+
+    "2019-05-04" -> Seq(
+      "Sus creaciones tienen un alto contenido espiritual" -> "SOLICITAR",
+      "Era un agente libre, pero se las arregló para poder participar en la lucha" -> 11,
+      "Abonar a voleo permite llegar a la raíz" -> 6,
+      "" -> Array( "licorista","beligerante","rábano")
+
     )
   )
+
+  def resuelveEncadenadas(implicit palabras: Corpus) = {
+
+    cronometro("Productos cartesianos"){
+      val pc = PalabrasEncadenadas.productosCartesianos(
+        Seq(
+          Array("uno", "dos", "tres" ),
+          Array("one", "two", "three"),
+          Array("I", "II", "III")
+        ).map( _.toIterable )
+      )()
+
+      for( x <- pc ) println( x.mkString(" -- ") )
+    }
+
+
+
+    cronometro( "Lista "){
+      val l = PalabrasEncadenadas.lista( Array(4,4), Some("te"), Some("do"))
+      for( x <- l.take(100) ) println( x.mkString(" -- ") )
+    }
+
+    cronometro("palabras encadenadas"){
+      implicit def intToArray(i:Int) : Array[Int] = Array() :+ i
+
+      // 1) Es partidario de atacar el problema de raíz. (7 letras)
+      // 2) Llenar de líquido sin satisfacer el amor propio. (6 letras)
+      // 3) Lo que llevan todos los cominos. (5 letras)
+      // 4) Ahoga el mar y deja la tierra seca. (dos palabras de 5 letras cada una)
+
+      cronometro("Primeras palabras"){
+        var pe = PalabrasEncadenadas.busca( Array( 7, 6, 5, Array(5,5) ) )
+
+        while( pe.hasNext ){
+          val c = pe.next
+          println( c(0) )
+          pe = pe.dropWhile( siguiente => siguiente(0) == c(0) )
+        }
+
+      }
+
+
+    }
+  }
 
   def resuelve(implicit palabras: Corpus) = {
 
@@ -379,9 +562,11 @@ object PalabrasAnagramadas {
 
     println( s"Corpus:${palabras.values.map(_.size).sum}" )
 
-    for( dia <- pistas.keys.toSeq.sorted ; ps = pistas(dia) ) cronometro("Solución"){
-      println( s"****** Día $dia")
-      ps.foreach(resuelvePista)
+    cronometro("Todas las soluciones"){
+      for( dia <- pistas.keys.toSeq.sorted ; ps = pistas(dia) ) cronometro(s"Solución del día $dia"){
+        println( s"****** Día $dia")
+        ps.foreach(resuelvePista)
+      }
     }
   }
 }
