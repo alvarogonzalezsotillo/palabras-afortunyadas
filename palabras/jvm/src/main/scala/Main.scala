@@ -48,14 +48,61 @@ object CorpusToJSon{
 
 }
 
+object CorpusSerializer{
+  import Corpus._
+  import java.io._
+
+
+  def apply( corpus: Corpus, f: File ) : Unit = {
+    def fos = new FileOutputStream(f)
+    apply(corpus,fos)
+  }
+
+  def apply( corpus: Corpus, os: OutputStream ) : Unit = {
+    val oos = new ObjectOutputStream(os)
+    oos.writeObject(corpus)
+    oos.writeObject("Done")
+    oos.flush()
+    oos.close()
+  }
+
+  def from( f: File ) = Cronometro.cronometro("Lectura de corpus desde fichero serializado: "){
+    val fis = new FileInputStream(f)
+    val ois = new ObjectInputStream(fis){
+      override def resolveClass(desc: ObjectStreamClass) : Class[_] = {
+        // Sobreescrito por problemas de classloader
+        super.resolveClass(desc)
+      }
+    }
+    val ret = ois.readObject()
+    fis.close()
+    ret.asInstanceOf[Corpus]
+  }
+
+  def computeOrReadCorpus( txt: String, cached: String ) : Corpus = Cronometro.cronometro("Corpus calculado"){
+    val fcached = new File(cached)
+    if( false && fcached.exists() ){
+      // Es más rápido desde el fichero de texto, no sé por qué
+      from(fcached)
+    }
+    else{
+      val li = new LineIterator(txt)
+      val corpus = Corpus.palabras(li)
+      CorpusSerializer(corpus, fcached)
+      corpus
+    }
+  }
+}
 
 object Main extends App{
   import java.io.File
 
-  val li = new LineIterator("./CREA_total.TXT")
-  val corpus = Corpus.palabras(li)
-  
-  CorpusToJSon(corpus, new File("./corpus.json" ) )
+  // val li = new LineIterator("./CREA_total.TXT")
+  // val corpus = Corpus.palabras(li)
+  // CorpusToJSon(corpus, new File("./corpus.json" ) )
+  // CorpusSerializer(corpus, new File("./corpus.serialized"))
+  val _ = Corpus.Palabra("a")
+  val corpus = CorpusSerializer.computeOrReadCorpus( "./CREA_total.TXT", "./corpus.serialized")
   PalabrasAnagramadas.resuelve(corpus)
 }
 

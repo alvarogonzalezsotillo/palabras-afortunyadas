@@ -91,18 +91,17 @@ class Experimiento(longitudes: Array[Array[Int]], circular: Boolean = true )(imp
   def fin(s:String ) = s.slice(s.size-2,s.size)
   def inicio( s:String ) = s.slice(0,2)
 
-
-  def inicializaIterador(indice:Int) = {
-    val i =   if(indice == 0){
+  def inicializaIterador(indice:Int) : Unit = {
+    val i =  if(indice == 0){
       None
     }
     else{
-      val previo = iteradores(indice-1).head.last.fin
+      val previo = getIterador(indice-1).head.last.fin
       Some(previo)
     }
 
     val f = if(indice == longitudes.size -1 && circular){
-      val siguiente = iteradores(0).head.head.inicio
+      val siguiente = getIterador(0).head.head.inicio
       Some(siguiente)
     }
     else{
@@ -110,25 +109,36 @@ class Experimiento(longitudes: Array[Array[Int]], circular: Boolean = true )(imp
     }
 
     iteradores(indice) = PalabrasEncadenadas.lista(longitudes(indice),i,f).buffered
-    
+  }
+
+  def getIterador(i: Int) = {
+    if( iteradores(i) == null ){
+      inicializaIterador(i)
+    }
+    iteradores(i)
   }
 
   def siguiente(indice:Int) : Array[Corpus.Palabra] = {
-    if( iteradores(indice) == null ){
-      inicializaIterador(indice)
-    }
-    val it = iteradores(indice)
+    val it = getIterador(indice)
     if( !it.hasNext ){
       if( indice == 0 ){
         return null
       }
-      iteradores(indice-1).next
+      if( siguiente(indice-1) == null ){
+        return null;
+      }
+    }
+    for( i <- indice+1 until longitudes.size ){
+      iteradores(i) = null
     }
     iteradores(indice).next
   }
 
-  def siguiente = {
-
+  def siguiente() : Array[Array[Corpus.Palabra]] = {
+    if( siguiente(longitudes.size-1) == null ){
+      return null
+    }
+    iteradores.map( _.head )
   }
 
 }
@@ -499,8 +509,22 @@ object PalabrasAnagramadas {
       "Sus creaciones tienen un alto contenido espiritual" -> "SOLICITAR",
       "Era un agente libre, pero se las arregló para poder participar en la lucha" -> 11,
       "Abonar a voleo permite llegar a la raíz" -> 6,
-      "" -> Array( "licorista","beligerante","rábano")
+      "Si no nos deja jugar, miente" -> Array( "licorista","beligerante","rábano", "bolera")
 
+    ),
+
+    "2019-05-11" -> Seq(
+      "No son fáciles de ver, pero forman parte de nuestro sistema" -> "AIRES DE TOS",
+      "Con mi arte traicionero podré dar gato por liebre" -> 6,
+      " Están todos muy alterados porque se están poniendo negros"-> 10,
+      "" -> Array("asteroides","timaré","tostándose","esteta")
+    ),
+
+    "2019-05-18" -> Seq(
+      "si actua con la mano en el corazon no triunfara" -> "Bar exodo",
+      "" -> "tonel caro",
+      "" -> "asilo unido",
+      "" -> Array("boxeador", "colorante", "ilusionado")
     )
   )
 
@@ -522,7 +546,7 @@ object PalabrasAnagramadas {
 
     cronometro( "Lista "){
       val l = PalabrasEncadenadas.lista( Array(4,4), Some("te"), Some("do"))
-      for( x <- l.take(100) ) println( x.mkString(" -- ") )
+      for( x <- l.drop(100).take(100) ) println( x.mkString(" -- ") )
     }
 
     cronometro("palabras encadenadas"){
@@ -534,12 +558,18 @@ object PalabrasAnagramadas {
       // 4) Ahoga el mar y deja la tierra seca. (dos palabras de 5 letras cada una)
 
       cronometro("Primeras palabras"){
-        var pe = PalabrasEncadenadas.busca( Array( 7, 6, 5, Array(5,5) ) )
 
-        while( pe.hasNext ){
-          val c = pe.next
-          println( c(0) )
-          pe = pe.dropWhile( siguiente => siguiente(0) == c(0) )
+        val e = new Experimiento(Array(7,6,5,Array(5,5)))
+
+        for( _ <- 0 to 2000 ){
+          val s = e.siguiente
+          if( s == null ){
+            println( "Ya no quedan más")
+          }
+          else{
+            println( s.map(_.mkString(" ")).mkString( " -- ") )
+          }
+          e.siguiente(0)
         }
 
       }
@@ -549,6 +579,9 @@ object PalabrasAnagramadas {
   }
 
   def resuelve(implicit palabras: Corpus) = {
+
+    //resuelveEncadenadas
+    //System.exit(0)
 
     val dia = pistas.keys.toSeq.sorted.last
     val  ps = pistas(dia)
